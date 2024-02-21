@@ -42,7 +42,7 @@ print( ',  '.join([i[0]+':'+str(i[1]) for i in args._get_kwargs()]))
 
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
-# os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
 os.environ["CUDA_LAUNCH_BLOCKING"]='0,1'
 # os.environ["CUDA_LAUNCH_BLOCKING"]='1'
 # os.environ['WANDB_DISABLED'] = 'true'
