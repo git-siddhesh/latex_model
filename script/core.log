@@ -1,0 +1,2734 @@
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 682.0M parameters
+Total Trainable Params: 681.9881M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30253 MB.
+GPU memory usage before training: 2346.69 MB
+GPU memory occupied from method1: 30253 MB.
+device:0,  layer:2,  seq_len:1024,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 1024
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 682.0M parameters
+Total Trainable Params: 681.9881M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30253 MB.
+GPU memory usage before training: 2346.69 MB
+GPU memory occupied from method1: 30253 MB.
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30389 MB.
+GPU memory usage before training: 7146.69 MB
+GPU memory occupied from method1: 30389 MB.
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30389 MB.
+GPU memory usage before training: 7146.69 MB
+GPU memory occupied from method1: 30389 MB.
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30389 MB.
+GPU memory usage before training: 7146.69 MB
+GPU memory occupied from method1: 30389 MB.
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 30389 MB.
+GPU memory usage before training: 7146.69 MB
+GPU memory occupied from method1: 30389 MB.
+device:3,  layer:12,  seq_len:4096,  batch_size:1,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:1,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 6840.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 6840.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 6840.69 MB
+GPU memory occupied from method1: 10113 MB.
+Encoding tokens started...
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 6840.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:10,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 10, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|     model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.7.mlp.up_proj.weight        |  58720256  |
+|      model.layers.7.mlp.down_proj.weight       |  58720256  |
+|     model.layers.7.input_layernorm.weight      |    4096    |
+| model.layers.7.post_attention_layernorm.weight |    4096    |
+|     model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.8.mlp.up_proj.weight        |  58720256  |
+|      model.layers.8.mlp.down_proj.weight       |  58720256  |
+|     model.layers.8.input_layernorm.weight      |    4096    |
+| model.layers.8.post_attention_layernorm.weight |    4096    |
+|     model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.9.mlp.up_proj.weight        |  58720256  |
+|      model.layers.9.mlp.down_proj.weight       |  58720256  |
+|     model.layers.9.input_layernorm.weight      |    4096    |
+| model.layers.9.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 2426.9M parameters
+Total Trainable Params: 2426.8841M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 5880.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:10,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 10, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|     model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.7.mlp.up_proj.weight        |  58720256  |
+|      model.layers.7.mlp.down_proj.weight       |  58720256  |
+|     model.layers.7.input_layernorm.weight      |    4096    |
+| model.layers.7.post_attention_layernorm.weight |    4096    |
+|     model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.8.mlp.up_proj.weight        |  58720256  |
+|      model.layers.8.mlp.down_proj.weight       |  58720256  |
+|     model.layers.8.input_layernorm.weight      |    4096    |
+| model.layers.8.post_attention_layernorm.weight |    4096    |
+|     model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.9.mlp.up_proj.weight        |  58720256  |
+|      model.layers.9.mlp.down_proj.weight       |  58720256  |
+|     model.layers.9.input_layernorm.weight      |    4096    |
+| model.layers.9.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 2426.9M parameters
+Total Trainable Params: 2426.8841M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 5880.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:10,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 10, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|     model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.7.mlp.up_proj.weight        |  58720256  |
+|      model.layers.7.mlp.down_proj.weight       |  58720256  |
+|     model.layers.7.input_layernorm.weight      |    4096    |
+| model.layers.7.post_attention_layernorm.weight |    4096    |
+|     model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.8.mlp.up_proj.weight        |  58720256  |
+|      model.layers.8.mlp.down_proj.weight       |  58720256  |
+|     model.layers.8.input_layernorm.weight      |    4096    |
+| model.layers.8.post_attention_layernorm.weight |    4096    |
+|     model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.9.mlp.up_proj.weight        |  58720256  |
+|      model.layers.9.mlp.down_proj.weight       |  58720256  |
+|     model.layers.9.input_layernorm.weight      |    4096    |
+| model.layers.9.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 2426.9M parameters
+Total Trainable Params: 2426.8841M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 10113 MB.
+GPU memory usage before training: 5880.69 MB
+GPU memory occupied from method1: 10113 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 275 MB.
+GPU memory usage before training: 12776.69 MB
+GPU memory occupied from method1: 275 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.31 MB
+GPU memory occupied from method1: 581 MB.
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 13112.31 MB
+GPU memory occupied from method1: 581 MB.
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 20504.69 MB
+GPU memory occupied from method1: 581 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.31 MB
+GPU memory occupied from method1: 581 MB.
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.69 MB
+GPU memory occupied from method1: 581 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.31 MB
+GPU memory occupied from method1: 581 MB.
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.69 MB
+GPU memory occupied from method1: 581 MB.
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
+device:0,  layer:12,  seq_len:4096,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:True,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 12, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: linear, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 4096
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 314.31 MB
+GPU memory occupied from method1: 581 MB.
++-------------------------------------------------+------------+
+|                     Modules                     | Parameters |
++-------------------------------------------------+------------+
+|            model.embed_tokens.weight            | 122880000  |
+|      model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.0.mlp.up_proj.weight        |  58720256  |
+|       model.layers.0.mlp.down_proj.weight       |  58720256  |
+|      model.layers.0.input_layernorm.weight      |    4096    |
+|  model.layers.0.post_attention_layernorm.weight |    4096    |
+|      model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.1.mlp.up_proj.weight        |  58720256  |
+|       model.layers.1.mlp.down_proj.weight       |  58720256  |
+|      model.layers.1.input_layernorm.weight      |    4096    |
+|  model.layers.1.post_attention_layernorm.weight |    4096    |
+|      model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.2.mlp.up_proj.weight        |  58720256  |
+|       model.layers.2.mlp.down_proj.weight       |  58720256  |
+|      model.layers.2.input_layernorm.weight      |    4096    |
+|  model.layers.2.post_attention_layernorm.weight |    4096    |
+|      model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.3.mlp.up_proj.weight        |  58720256  |
+|       model.layers.3.mlp.down_proj.weight       |  58720256  |
+|      model.layers.3.input_layernorm.weight      |    4096    |
+|  model.layers.3.post_attention_layernorm.weight |    4096    |
+|      model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.4.mlp.up_proj.weight        |  58720256  |
+|       model.layers.4.mlp.down_proj.weight       |  58720256  |
+|      model.layers.4.input_layernorm.weight      |    4096    |
+|  model.layers.4.post_attention_layernorm.weight |    4096    |
+|      model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.5.mlp.up_proj.weight        |  58720256  |
+|       model.layers.5.mlp.down_proj.weight       |  58720256  |
+|      model.layers.5.input_layernorm.weight      |    4096    |
+|  model.layers.5.post_attention_layernorm.weight |    4096    |
+|      model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.6.mlp.up_proj.weight        |  58720256  |
+|       model.layers.6.mlp.down_proj.weight       |  58720256  |
+|      model.layers.6.input_layernorm.weight      |    4096    |
+|  model.layers.6.post_attention_layernorm.weight |    4096    |
+|      model.layers.7.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.7.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.7.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.7.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.7.mlp.up_proj.weight        |  58720256  |
+|       model.layers.7.mlp.down_proj.weight       |  58720256  |
+|      model.layers.7.input_layernorm.weight      |    4096    |
+|  model.layers.7.post_attention_layernorm.weight |    4096    |
+|      model.layers.8.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.8.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.8.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.8.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.8.mlp.up_proj.weight        |  58720256  |
+|       model.layers.8.mlp.down_proj.weight       |  58720256  |
+|      model.layers.8.input_layernorm.weight      |    4096    |
+|  model.layers.8.post_attention_layernorm.weight |    4096    |
+|      model.layers.9.self_attn.q_proj.weight     |  16777216  |
+|      model.layers.9.self_attn.k_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.v_proj.weight     |  4194304   |
+|      model.layers.9.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.9.mlp.gate_proj.weight       |  58720256  |
+|        model.layers.9.mlp.up_proj.weight        |  58720256  |
+|       model.layers.9.mlp.down_proj.weight       |  58720256  |
+|      model.layers.9.input_layernorm.weight      |    4096    |
+|  model.layers.9.post_attention_layernorm.weight |    4096    |
+|     model.layers.10.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.10.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.10.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.10.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.10.mlp.up_proj.weight       |  58720256  |
+|       model.layers.10.mlp.down_proj.weight      |  58720256  |
+|      model.layers.10.input_layernorm.weight     |    4096    |
+| model.layers.10.post_attention_layernorm.weight |    4096    |
+|     model.layers.11.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.11.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.11.self_attn.o_proj.weight     |  16777216  |
+|       model.layers.11.mlp.gate_proj.weight      |  58720256  |
+|        model.layers.11.mlp.up_proj.weight       |  58720256  |
+|       model.layers.11.mlp.down_proj.weight      |  58720256  |
+|      model.layers.11.input_layernorm.weight     |    4096    |
+| model.layers.11.post_attention_layernorm.weight |    4096    |
+|                model.norm.weight                |    4096    |
+|                  lm_head.weight                 | 122880000  |
++-------------------------------------------------+------------+
+MISTRAL model size: 2863.1M parameters
+Total Trainable Params: 2863.1081M
+Total Trainable Params in one layer: 218.1120M
+GPU memory occupied from method1: 581 MB.
+GPU memory usage before training: 27482.69 MB
+GPU memory occupied from method1: 581 MB.
