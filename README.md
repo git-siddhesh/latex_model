@@ -1,1 +1,1 @@
-# latex_model
+# SCIENTIFIC LLM
