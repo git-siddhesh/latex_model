@@ -8617,3 +8617,7 @@ Dataset({
 Total number of chunks: 1780
 Test dataset size: 227 for year: 0 and month: 1
 Encoding tokens started...
+device:0,  layer:10,  seq_len:2048,  batch_size:1,  float16:True,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 10, N_Head: 32, KV_Head: 8, Window: 4096
+Training data rows: 100
+Epoch: 1, Learning rate: 0.0006, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 1, Eval steps: 2000, Logging steps: 2000, Save steps: 10000, Save total limit: 3, Max seq length: 2048
