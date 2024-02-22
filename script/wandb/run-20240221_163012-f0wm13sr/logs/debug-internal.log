@@ -1,0 +1,210 @@
+2024-02-21 16:30:12,764 INFO    StreamThr :74965 [internal.py:wandb_internal():86] W&B internal server running at pid: 74965, started at: 2024-02-21 16:30:12.762924
+2024-02-21 16:30:12,766 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status
+2024-02-21 16:30:12,768 INFO    WriterThread:74965 [datastore.py:open_for_write():87] open: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/run-f0wm13sr.wandb
+2024-02-21 16:30:12,771 DEBUG   SenderThread:74965 [sender.py:send():382] send: header
+2024-02-21 16:30:12,775 DEBUG   SenderThread:74965 [sender.py:send():382] send: run
+2024-02-21 16:30:13,635 INFO    SenderThread:74965 [dir_watcher.py:__init__():211] watching files in: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files
+2024-02-21 16:30:13,635 INFO    SenderThread:74965 [sender.py:_start_run_threads():1136] run started: f0wm13sr with start time 1708513212.762864
+2024-02-21 16:30:13,644 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: check_version
+2024-02-21 16:30:13,644 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: check_version
+2024-02-21 16:30:13,870 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: run_start
+2024-02-21 16:30:13,903 DEBUG   HandlerThread:74965 [system_info.py:__init__():27] System info init
+2024-02-21 16:30:13,903 DEBUG   HandlerThread:74965 [system_info.py:__init__():42] System info init done
+2024-02-21 16:30:13,903 INFO    HandlerThread:74965 [system_monitor.py:start():194] Starting system monitor
+2024-02-21 16:30:13,904 INFO    SystemMonitor:74965 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-02-21 16:30:13,905 INFO    HandlerThread:74965 [system_monitor.py:probe():214] Collecting system info
+2024-02-21 16:30:13,905 INFO    SystemMonitor:74965 [interfaces.py:start():190] Started cpu monitoring
+2024-02-21 16:30:13,906 INFO    SystemMonitor:74965 [interfaces.py:start():190] Started disk monitoring
+2024-02-21 16:30:13,908 INFO    SystemMonitor:74965 [interfaces.py:start():190] Started gpu monitoring
+2024-02-21 16:30:13,908 INFO    SystemMonitor:74965 [interfaces.py:start():190] Started memory monitoring
+2024-02-21 16:30:13,909 INFO    SystemMonitor:74965 [interfaces.py:start():190] Started network monitoring
+2024-02-21 16:30:13,983 DEBUG   HandlerThread:74965 [system_info.py:probe():151] Probing system
+2024-02-21 16:30:13,987 DEBUG   HandlerThread:74965 [system_info.py:_probe_git():136] Probing git
+2024-02-21 16:30:13,995 DEBUG   HandlerThread:74965 [system_info.py:_probe_git():144] Probing git done
+2024-02-21 16:30:13,995 DEBUG   HandlerThread:74965 [system_info.py:probe():199] Probing system done
+2024-02-21 16:30:13,995 DEBUG   HandlerThread:74965 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-88-generic-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2024-02-21T11:00:13.984022', 'startedAt': '2024-02-21T11:00:12.757199', 'docker': None, 'cuda': None, 'args': ('--layer', '6', '--seq_len', '4096', '--float16', '--enb_grad_checkpoint'), 'state': 'running', 'program': '/home/dosisiddhesh/latex_model/script/v2_mp_mistral.py', 'codePathLocal': 'v2_mp_mistral.py', 'codePath': 'script/v2_mp_mistral.py', 'git': {'remote': 'https://github.com/git-siddhesh/latex_model.git', 'commit': '94ade4c878a509ed40fcb0fe2825ab9e166f4adb'}, 'email': 'siddheshdosi106@gmail.com', 'root': '/home/dosisiddhesh/latex_model', 'host': 'lingolexico', 'username': 'dosisiddhesh', 'executable': '/home/dosisiddhesh/miniconda3/envs/mist3_env/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 1.9340468750000013, 'min': 1200.0, 'max': 3900.0}, 'cpu_freq_per_core': [{'current': 3.599, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.599, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 3.9, 'min': 1200.0, 'max': 3900.0}, {'current': 2.611, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 3.599, 'min': 1200.0, 'max': 3900.0}, {'current': 2.0, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.7, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}, {'current': 3.9, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.9, 'min': 1200.0, 'max': 3900.0}, {'current': 1.7, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.9, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.9, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.3, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.4, 'min': 1200.0, 'max': 3900.0}, {'current': 3.599, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 2.9, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 1.2, 'min': 1200.0, 'max': 3900.0}, {'current': 3.6, 'min': 1200.0, 'max': 3900.0}], 'disk': {'/': {'total': 766.6633682250977, 'used': 75.3791389465332}}, 'gpu': 'Tesla V100-SXM2-32GB', 'gpu_count': 4, 'gpu_devices': [{'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}], 'memory': {'total': 754.5562477111816}}
+2024-02-21 16:30:13,995 INFO    HandlerThread:74965 [system_monitor.py:probe():224] Finished collecting system info
+2024-02-21 16:30:13,995 INFO    HandlerThread:74965 [system_monitor.py:probe():227] Publishing system info
+2024-02-21 16:30:13,995 DEBUG   HandlerThread:74965 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-02-21 16:30:14,638 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/conda-environment.yaml
+2024-02-21 16:30:18,092 DEBUG   HandlerThread:74965 [system_info.py:_save_conda():220] Saving conda packages done
+2024-02-21 16:30:18,094 INFO    HandlerThread:74965 [system_monitor.py:probe():229] Finished publishing system info
+2024-02-21 16:30:18,097 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:18,097 DEBUG   SenderThread:74965 [sender.py:send():382] send: files
+2024-02-21 16:30:18,098 INFO    SenderThread:74965 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-02-21 16:30:18,104 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: python_packages
+2024-02-21 16:30:18,104 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: python_packages
+2024-02-21 16:30:18,105 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-21 16:30:18,105 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: stop_status
+2024-02-21 16:30:18,146 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-21 16:30:18,587 DEBUG   SenderThread:74965 [sender.py:send():382] send: telemetry
+2024-02-21 16:30:18,587 DEBUG   SenderThread:74965 [sender.py:send():382] send: config
+2024-02-21 16:30:18,588 DEBUG   SenderThread:74965 [sender.py:send():382] send: metric
+2024-02-21 16:30:18,589 DEBUG   SenderThread:74965 [sender.py:send():382] send: telemetry
+2024-02-21 16:30:18,589 DEBUG   SenderThread:74965 [sender.py:send():382] send: metric
+2024-02-21 16:30:18,589 WARNING SenderThread:74965 [sender.py:send_metric():1354] Seen metric with glob (shouldn't happen)
+2024-02-21 16:30:18,589 DEBUG   SenderThread:74965 [sender.py:send():382] send: telemetry
+2024-02-21 16:30:18,637 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/conda-environment.yaml
+2024-02-21 16:30:18,638 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/requirements.txt
+2024-02-21 16:30:18,638 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log
+2024-02-21 16:30:18,638 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-metadata.json
+2024-02-21 16:30:19,318 INFO    wandb-upload_0:74965 [upload_job.py:push():131] Uploaded file /tmp/tmpudaisd0ewandb/hgvoyfs0-wandb-metadata.json
+2024-02-21 16:30:20,638 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log
+2024-02-21 16:30:23,592 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:28,593 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:33,106 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-21 16:30:33,107 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-21 16:30:33,108 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: stop_status
+2024-02-21 16:30:34,503 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:38,563 DEBUG   SenderThread:74965 [sender.py:send():382] send: exit
+2024-02-21 16:30:38,563 INFO    SenderThread:74965 [sender.py:send_exit():589] handling exit code: 1
+2024-02-21 16:30:38,563 INFO    SenderThread:74965 [sender.py:send_exit():591] handling runtime: 24
+2024-02-21 16:30:38,565 INFO    SenderThread:74965 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-21 16:30:38,566 INFO    SenderThread:74965 [sender.py:send_exit():597] send defer
+2024-02-21 16:30:38,566 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:38,566 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 0
+2024-02-21 16:30:38,567 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:38,567 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 0
+2024-02-21 16:30:38,567 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 1
+2024-02-21 16:30:38,567 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:38,567 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 1
+2024-02-21 16:30:38,567 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:38,567 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 1
+2024-02-21 16:30:38,567 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 2
+2024-02-21 16:30:38,568 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:38,568 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 2
+2024-02-21 16:30:38,568 INFO    HandlerThread:74965 [system_monitor.py:finish():203] Stopping system monitor
+2024-02-21 16:30:38,568 INFO    HandlerThread:74965 [interfaces.py:finish():202] Joined cpu monitor
+2024-02-21 16:30:38,569 DEBUG   SystemMonitor:74965 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-02-21 16:30:38,569 DEBUG   SystemMonitor:74965 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-02-21 16:30:38,569 INFO    HandlerThread:74965 [interfaces.py:finish():202] Joined disk monitor
+2024-02-21 16:30:38,569 DEBUG   SystemMonitor:74965 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-02-21 16:30:38,647 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-summary.json
+2024-02-21 16:30:40,387 INFO    HandlerThread:74965 [interfaces.py:finish():202] Joined gpu monitor
+2024-02-21 16:30:40,389 INFO    HandlerThread:74965 [interfaces.py:finish():202] Joined memory monitor
+2024-02-21 16:30:40,390 INFO    HandlerThread:74965 [interfaces.py:finish():202] Joined network monitor
+2024-02-21 16:30:40,390 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:40,391 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:40,392 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,392 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 2
+2024-02-21 16:30:40,393 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 3
+2024-02-21 16:30:40,393 DEBUG   SenderThread:74965 [sender.py:send():382] send: stats
+2024-02-21 16:30:40,394 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:40,394 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:40,395 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 3
+2024-02-21 16:30:40,395 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,395 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 3
+2024-02-21 16:30:40,395 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 4
+2024-02-21 16:30:40,395 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:40,395 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 4
+2024-02-21 16:30:40,396 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,396 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 4
+2024-02-21 16:30:40,396 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 5
+2024-02-21 16:30:40,396 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:40,396 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 5
+2024-02-21 16:30:40,396 DEBUG   SenderThread:74965 [sender.py:send():382] send: summary
+2024-02-21 16:30:40,397 INFO    SenderThread:74965 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-21 16:30:40,398 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,398 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 5
+2024-02-21 16:30:40,398 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 6
+2024-02-21 16:30:40,398 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:40,398 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 6
+2024-02-21 16:30:40,398 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,398 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 6
+2024-02-21 16:30:40,404 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: status_report
+2024-02-21 16:30:40,567 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:40,648 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-summary.json
+2024-02-21 16:30:40,649 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log
+2024-02-21 16:30:40,809 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 7
+2024-02-21 16:30:40,810 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:40,810 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:40,810 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 7
+2024-02-21 16:30:40,811 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:40,811 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 7
+2024-02-21 16:30:41,570 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:41,649 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/config.yaml
+2024-02-21 16:30:42,635 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 8
+2024-02-21 16:30:42,636 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:42,636 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:42,636 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 8
+2024-02-21 16:30:42,637 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:42,637 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 8
+2024-02-21 16:30:42,637 INFO    SenderThread:74965 [job_builder.py:build():296] Attempting to build job artifact
+2024-02-21 16:30:42,639 INFO    SenderThread:74965 [job_builder.py:_get_source_type():426] is repo sourced job
+2024-02-21 16:30:42,649 INFO    Thread-12 :74965 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log
+2024-02-21 16:30:42,661 INFO    SenderThread:74965 [job_builder.py:build():402] adding wandb-job metadata file
+2024-02-21 16:30:42,664 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 9
+2024-02-21 16:30:42,665 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:42,665 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 9
+2024-02-21 16:30:42,666 DEBUG   SenderThread:74965 [sender.py:send():382] send: artifact
+2024-02-21 16:30:43,572 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:44,711 INFO    SenderThread:74965 [sender.py:send_artifact():1494] sent artifact job-https___github.com_git-siddhesh_latex_model.git_script_v2_mp_mistral.py - {'id': 'QXJ0aWZhY3Q6NzI3NjY0MDE0', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MTY1Mjc0NQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI3NjY2NzUw', 'versionIndex': 2}}}
+2024-02-21 16:30:44,711 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:44,711 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 9
+2024-02-21 16:30:44,712 INFO    SenderThread:74965 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-02-21 16:30:45,651 INFO    SenderThread:74965 [dir_watcher.py:finish():388] scan: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files
+2024-02-21 16:30:45,651 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log output.log
+2024-02-21 16:30:45,651 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/requirements.txt requirements.txt
+2024-02-21 16:30:45,651 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-metadata.json wandb-metadata.json
+2024-02-21 16:30:45,652 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-summary.json wandb-summary.json
+2024-02-21 16:30:45,652 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/config.yaml config.yaml
+2024-02-21 16:30:45,652 INFO    SenderThread:74965 [dir_watcher.py:finish():402] scan save: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/conda-environment.yaml conda-environment.yaml
+2024-02-21 16:30:45,653 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 10
+2024-02-21 16:30:45,653 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:45,653 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:45,667 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 10
+2024-02-21 16:30:45,673 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:45,674 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 10
+2024-02-21 16:30:45,674 INFO    SenderThread:74965 [file_pusher.py:finish():172] shutting down file pusher
+2024-02-21 16:30:46,330 INFO    wandb-upload_2:74965 [upload_job.py:push():131] Uploaded file /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/requirements.txt
+2024-02-21 16:30:46,494 INFO    wandb-upload_1:74965 [upload_job.py:push():131] Uploaded file /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/output.log
+2024-02-21 16:30:46,574 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:46,575 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:46,692 INFO    wandb-upload_4:74965 [upload_job.py:push():131] Uploaded file /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/conda-environment.yaml
+2024-02-21 16:30:46,763 INFO    wandb-upload_0:74965 [upload_job.py:push():131] Uploaded file /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/wandb-summary.json
+2024-02-21 16:30:46,808 INFO    wandb-upload_3:74965 [upload_job.py:push():131] Uploaded file /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/files/config.yaml
+2024-02-21 16:30:47,009 INFO    Thread-11 (_thread_body):74965 [sender.py:transition_state():617] send defer: 11
+2024-02-21 16:30:47,010 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:47,010 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 11
+2024-02-21 16:30:47,011 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:47,011 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 11
+2024-02-21 16:30:47,011 INFO    SenderThread:74965 [file_pusher.py:join():178] waiting for file pusher
+2024-02-21 16:30:47,012 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 12
+2024-02-21 16:30:47,012 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:47,012 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 12
+2024-02-21 16:30:47,012 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:47,012 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 12
+2024-02-21 16:30:47,013 INFO    SenderThread:74965 [file_stream.py:finish():595] file stream finish called
+2024-02-21 16:30:47,348 INFO    SenderThread:74965 [file_stream.py:finish():599] file stream finish is done
+2024-02-21 16:30:47,348 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 13
+2024-02-21 16:30:47,348 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:47,348 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 13
+2024-02-21 16:30:47,349 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:47,349 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 13
+2024-02-21 16:30:47,349 INFO    SenderThread:74965 [sender.py:transition_state():617] send defer: 14
+2024-02-21 16:30:47,349 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: defer
+2024-02-21 16:30:47,350 INFO    HandlerThread:74965 [handler.py:handle_request_defer():172] handle defer: 14
+2024-02-21 16:30:47,350 DEBUG   SenderThread:74965 [sender.py:send():382] send: final
+2024-02-21 16:30:47,350 DEBUG   SenderThread:74965 [sender.py:send():382] send: footer
+2024-02-21 16:30:47,350 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: defer
+2024-02-21 16:30:47,350 INFO    SenderThread:74965 [sender.py:send_request_defer():613] handle sender defer: 14
+2024-02-21 16:30:47,351 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:47,351 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:47,352 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-21 16:30:47,352 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: poll_exit
+2024-02-21 16:30:47,353 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: server_info
+2024-02-21 16:30:47,353 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: server_info
+2024-02-21 16:30:47,356 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: get_summary
+2024-02-21 16:30:47,356 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: sampled_history
+2024-02-21 16:30:47,357 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-21 16:30:47,357 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: job_info
+2024-02-21 16:30:47,689 DEBUG   SenderThread:74965 [sender.py:send_request():409] send_request: job_info
+2024-02-21 16:30:47,690 INFO    MainThread:74965 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-21 16:30:47,690 INFO    MainThread:74965 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-21 16:30:47,690 INFO    MainThread:74965 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-21 16:30:47,691 DEBUG   HandlerThread:74965 [handler.py:handle_request():146] handle_request: shutdown
+2024-02-21 16:30:47,692 INFO    HandlerThread:74965 [handler.py:finish():869] shutting down handler
+2024-02-21 16:30:48,358 INFO    WriterThread:74965 [datastore.py:close():296] close: /home/dosisiddhesh/latex_model/script/wandb/run-20240221_163012-f0wm13sr/run-f0wm13sr.wandb
+2024-02-21 16:30:48,690 INFO    SenderThread:74965 [sender.py:finish():1572] shutting down sender
+2024-02-21 16:30:48,690 INFO    SenderThread:74965 [file_pusher.py:finish():172] shutting down file pusher
+2024-02-21 16:30:48,690 INFO    SenderThread:74965 [file_pusher.py:join():178] waiting for file pusher

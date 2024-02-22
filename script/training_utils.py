@@ -176,7 +176,7 @@ class MyModel(Parameter, HyperParams):
             logger.info(f"MISTRAL model size: {model_size/1000**2:.1f}M parameters")
             logger.info(f"Total Trainable Params: {self.total_params/10**6:.4f}M")
             logger.info(f"Total Trainable Params in one layer: {self.one_layer_params/10**6:.4f}M")
-            logger.info("Original Model type:",self.model.dtype)
+            logger.info(f"Original Model type:{self.model.dtype}")
             
         return self.total_params, self.one_layer_params
     
@@ -197,6 +197,10 @@ class Dataset_Preprocessing():
 
         print("Test dataset size: ", len(self.test_df))
         print("Train dataset size: ", len(self.train_df))
+
+        self.train_dataset = None
+        self.val_dataset = None
+        self.test_dataset = None
 
     def load_tokenizer(self, tok_type ,tokenizer_path):
         if tok_type=="mistral_src":
@@ -235,7 +239,6 @@ class Dataset_Preprocessing():
                     }
 
         '''
-
         # Concatenate all texts.
         concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
         # Determine the total length after concatenation
@@ -294,15 +297,31 @@ class Dataset_Preprocessing():
                     # return_token_type_ids=False,
                     # return_length=True,
             )#.to('cuda:0')
-
+    
+    def tokenize_function2(self, examples):
+        return self.tokenizer(                    
+                    examples["text"],
+                    truncation=True,
+                    padding=True,
+                    max_length=self.max_seq_length, #8*1024,
+                    return_tensors="pt",
+                    return_token_type_ids=False,
+                    # return_length=True,
+            )#.to('cuda:0')
     def convert_to_hf_dataset(self, df):
         dataset = Dataset.from_pandas(df)
         # return dataset.map(self.tokenize_function, batched=True, remove_columns=dataset.column_names)
-        my_dataset = dataset.map(self.tokenize_function, 
+        my_dataset = dataset.map(self.tokenize_function2, 
                            batched=True, 
                            remove_columns=dataset.column_names, 
                            batch_size=self.dataset_batch_size, 
                            num_proc=8)
+        print(my_dataset)
+        print(len(my_dataset[0]['input_ids']))
+        print(len(my_dataset[1]['input_ids']))
+        print(len(my_dataset[2]['input_ids']))
+        print(len(my_dataset[3]['input_ids']))
+
 
         return my_dataset
     
@@ -333,8 +352,12 @@ class Dataset_Preprocessing():
         self.val_dataset = self.convert_to_hf_dataset(df_eval)
         del dataframe, df_eval
 
-
-    def create_dataset_from_files(self, logger, file_names, month, year, bbl_file_name):
+    # debug mode will not load the bbl file
+    def create_dataset_from_files(self, logger, file_names, month, year, bbl_file_name, bbl_step = 1, isDebug=False):
+        '''
+        isDebug: if True, then the bbl file will not be loaded, default is False
+        bbl_step: the step size to load the bbl file, default is 1, which means all the bbl files will be loaded
+        '''
         latex_corpus = []
         print("Reading LaTeX files")
         for file_path in file_names:
@@ -347,18 +370,22 @@ class Dataset_Preprocessing():
 
         if not latex_corpus:
             logger.error(f"No LaTeX files found in the Month and Year: {month} {year}")
-            return None
+            print("No latex files found")
 
     
         st = time.time()
         logger.info(f"Encoding tokens started...")
         # created a dataframe from a list of latex data
         df_tex = pd.DataFrame(latex_corpus, columns=['text'])
+        if isDebug == False:
+            df_bbl = pd.read_csv(bbl_file_name , usecols=['bbl'])
+            df_bbl.rename(columns={'bbl': 'text'}, inplace=True)
+            df = pd.concat([df_tex, df_bbl], ignore_index=True)
+            del df_bbl
+        else:
+            df = df_tex
 
-        df_bbl = pd.read_csv(bbl_file_name , usecols=['bbl'])
-        df_bbl.rename(columns={'bbl': 'text'}, inplace=True)
-        df = pd.concat([df_tex, df_bbl], ignore_index=True)
-        del df_tex, df_bbl
+        del df_tex
 
         dataset = Dataset.from_pandas(df)
 
@@ -373,7 +400,8 @@ class Dataset_Preprocessing():
                                                     ],
                                     num_proc=16,
                                 )
-        
+        print("tokenized_dataset created")
+
         # convert the tokenized dataset to a list of lists
         latex_corpus_tokenized = tokenized_dataset['input_ids']
         logger.info(f"PAPERS: {len(latex_corpus_tokenized)}, TOTAL TOKENS: {sum([len(x) for x in latex_corpus_tokenized])}")
@@ -422,21 +450,64 @@ class Dataset_Preprocessing():
         return lm_datasets
         
 
-    def generate_dataset_from_files(self, month, year, logger=None):
+    def generate_dataset_from_files(self, month, year, logger=None, test_percent=0, train_percent=1, val_percent=1, isDebug=False):
+        '''
+        test_percent: the percentage of the test files to be used, default is 0
+        train_percent: the percentage of the train files to be used, default is 1
+        val_percent: the percentage of the validation files to be used, default is 1
+        isDebug: if True, then the bbl file will not be loaded, default is False
+        '''
         yymm = int(f'{year}{month}' if month>9 else f'{year}0{month}')
         bbl_yymm = f"0{year}{f'0{month}' if month<10 else f'{month}'}" if year<10 else f"{year}{f'0{month}' if month<10 else f'{month}'}"
-
+        
 
         file_names = self.test_df[(self.test_df['year']==year) & (self.test_df['month']==yymm)]['tex'].to_list()
-        print(f"Test dataset size: {len(file_names)} for year: {year} and month: {month}")
-        bbl_file_name = os.path.join(self.data_path, 'TEST_BBL',f'bbl_split_test_{bbl_yymm}.csv')
-        self.val_dataset = self.create_dataset_from_files(logger, file_names, month, year, bbl_file_name)
+        bbl_test_file_name = os.path.join(self.data_path, 'TEST_BBL',f'bbl_split_test_{bbl_yymm}.csv')
+
+        val_file_names = file_names[:int(len(file_names)*val_percent)]
+        test_file_names = file_names[int(len(file_names)*val_percent):int(len(file_names)*val_percent)+int(len(file_names)*test_percent)]
+
+        print("-------------------------------------")
+        print("Total test file names: ", len(file_names))
+        print("Val file names: ", len(val_file_names))
+        print("Test file names: ", len(test_file_names))
+        print("-------------------------------------")
+
+
+        if len(val_file_names) == 0:
+            print("No validation files create")
+        else:
+            print(f"Validation dataset size: {len(val_file_names)} for year: {year} and month: {month}")
+            logger.info(f"Validation dataset size: {len(val_file_names)} for year: {year} and month: {month}")
+            self.val_dataset = self.create_dataset_from_files(logger, val_file_names, month, year, bbl_test_file_name, bbl_step = 1, isDebug=isDebug)    
+        
+        if len(test_file_names) == 0:
+            print("No test files create")
+        else:
+            print(f"Test dataset size: {len(test_file_names)} for year: {year} and month: {month}")
+            logger.info(f"Test dataset size: {len(test_file_names)} for year: {year} and month: {month}")
+            self.test_dataset = self.create_dataset_from_files(logger, test_file_names, month, year, bbl_test_file_name, bbl_step = 1, isDebug=isDebug)    
         
         
+
+         
         file_names = self.train_df[(self.train_df['year']==year) & (self.train_df['month']==yymm)]['tex'].to_list()
-        print(f"Train dataset size: {len(file_names)} for year: {year} and month: {month}")
+        train_file_names = file_names[:int(len(file_names)*train_percent)]
+        print("-------------------------------------")
+        print("Total Train file names: ", len(file_names))
+        print("Final Train file names: ", len(train_file_names))
+        print("-------------------------------------")
         bbl_file_name = os.path.join(self.data_path, 'TRAIN_BBL',f'bbl_split_train_{bbl_yymm}.csv')
-        self.train_dataset = self.create_dataset_from_files(logger, file_names, month, year, bbl_file_name)
+        
+        
+
+        if len(train_file_names) == 0:
+            print("No train files create")
+        else:
+            print(f"Train dataset size: {len(train_file_names)} for year: {year} and month: {month}")
+            logger.info(f"Train dataset size: {len(train_file_names)} for year: {year} and month: {month}")
+            self.train_dataset = self.create_dataset_from_files(logger, train_file_names, month, year, bbl_file_name, bbl_step = 1, isDebug=isDebug)
+
 
 
 
@@ -459,6 +530,17 @@ class Dataset_Preprocessing():
                 self.val_dataset = pickle.load(f)
             return self.val_dataset
         return self.val_dataset
+    
+    def get_test_dataset(self, local_path=None):
+        if local_path:
+            # load the dataset from pickle file
+            path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
+            with open(path, 'rb') as f:
+                self.test_dataset = pickle.load(f)
+            return self.test_dataset
+        if self.test_dataset is None:
+            print("No test dataset found")
+        return self.test_dataset
 
     def get_train_dataloader(self, collate_fn=None, batch_size=2):
         self.collate_fn = collate_fn if collate_fn is not None else DataCollatorForLanguageModeling(self.tokenizer, mlm=False, return_tensors="pt" )

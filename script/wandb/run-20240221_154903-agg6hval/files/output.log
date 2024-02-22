@@ -1,0 +1,49 @@
+  0%|                                                                                | 0/7 [00:00<?, ?it/s]/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+
+
+
+ 57%|█████████████████████████████████████████▏                              | 4/7 [00:24<00:16,  5.43s/it]Traceback (most recent call last):
+  File "/home/dosisiddhesh/latex_model/script/v2_mp_mistral.py", line 274, in <module>
+    train_result = trainer.train()
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/optimum/intel/openvino/trainer.py", line 606, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/optimum/intel/openvino/trainer.py", line 771, in compute_loss
+    retval = super().compute_loss(model, inputs, return_outputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
+    outputs = model(**inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1523, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1359, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 1181, in forward
+    loss = loss_fct(shift_logits, shift_labels)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1179, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 83, in wrapped
+    op1 = operator(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/functional.py", line 3059, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.05 GiB. GPU 0 has a total capacity of 31.74 GiB of which 1.88 GiB is free. Process 15978 has 2.36 GiB memory in use. Process 21955 has 2.84 GiB memory in use. Including non-PyTorch memory, this process has 24.65 GiB memory in use. Of the allocated memory 20.89 GiB is allocated by PyTorch, and 3.28 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

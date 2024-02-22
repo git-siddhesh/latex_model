@@ -3,9 +3,9 @@ import os
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 import wandb
 wandb.login()
-os.environ["WANDB_PROJECT"]="Misral"
-WANDB_PROJECT="Misral_training"
-wandb_run_name = "run1"
+os.environ["WANDB_PROJECT"]="latex"
+WANDB_PROJECT="latex_training"
+wandb_run_name = "run2"
 
 
 
@@ -42,8 +42,8 @@ print( ',  '.join([i[0]+':'+str(i[1]) for i in args._get_kwargs()]))
 
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
-os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
-os.environ["CUDA_LAUNCH_BLOCKING"]='0,1'
+# os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+os.environ["CUDA_LAUNCH_BLOCKING"]='1'
 # os.environ["CUDA_LAUNCH_BLOCKING"]='1'
 # os.environ['WANDB_DISABLED'] = 'true'
 
@@ -57,10 +57,10 @@ import torch
 from pathlib import Path
 from evaluate import load
 from transformers import (
-    Trainer, 
-    TrainingArguments, 
+    # Trainer, 
+    # TrainingArguments, 
     DataCollatorForLanguageModeling, 
-    EarlyStoppingCallback, 
+    # EarlyStoppingCallback, 
 )
 import evaluate
 # from mistral.tokenizer import Tokenizer
@@ -71,11 +71,11 @@ from pynvml import *
 from optimum.intel import OVConfig, OVTrainer, OVModelForCausalLM, OVTrainingArguments
 
 # from optimum.intel.openvino.quantization 
-from optimum.intel.openvino.modeling import OVModel
+# from optimum.intel.openvino.modeling import OVModel
 
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-root_log_dir = '/home/dosisiddhesh/MISTRAL_EXP/log/'
+root_log_dir = '/home/dosisiddhesh/latex_model/log/'
 logging.basicConfig(level=logging.NOTSET, filename="{}/QAT_log_{}.log".format(root_log_dir, timestamp), filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s")
 
 # logging.basicConfig(level=logging.NOTSET ,filename=f"{root_log_dir}QAT_log_{timestamp}.log", filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s") 
@@ -85,10 +85,6 @@ logging.getLogger("lightning.pytorch").setLevel(logging.NOTSET)
 # configure logging on module level, redirect to file
 logger = logging.getLogger("lightning.pytorch.core")
 logger.addHandler(logging.FileHandler("core.log"))
-
-
-
-
 
 # ___________________________________________________________________________________________________________________________
 # *********************** Local code, model and data path ***********************************************************************************************************
@@ -115,17 +111,22 @@ def print_gpu_utilization():
     nvmlInit()
     handle = nvmlDeviceGetHandleByIndex(1)
     info = nvmlDeviceGetMemoryInfo(handle)
-    print(f"GPU memory occupied from method1: {info.used//1024**2} MB.")
-    logger.info(f"GPU memory occupied from method1: {info.used//1024**2} MB.")
+    print(f"GPU memory occupied from nvmlInit: {info.used//1024**2} MB.")
+    logger.info(f"GPU memory occupied from nvmlInit: {info.used//1024**2} MB.")
 
 def gpu_usage():
     print("+----------------------------------------------------------------------------------+")
-    print_gpu_utilization()
-    torch.cuda.empty_cache()
     a,b = torch.cuda.mem_get_info()
     gpu_mem_usage = (b-a)/(2**20)
-    print(f"GPU memory usage before training: {gpu_mem_usage:.2f} MB")
-    logger.info(f"GPU memory usage before training: {gpu_mem_usage:.2f} MB")
+    print(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
+    logger.info(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
+
+    torch.cuda.empty_cache()
+    
+    a,b = torch.cuda.mem_get_info()
+    gpu_mem_usage = (b-a)/(2**20)
+    print(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
+    logger.info(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
     print_gpu_utilization()
     print("+----------------------------------------------------------------------------------+")
 
@@ -156,10 +157,10 @@ param = Parameter("Mistral", value, use_cache= not args.enb_grad_checkpoint)
 hp = HyperParams(
     epoch=1, 
     learning_rate=6e-4, 
-    model_id="mistral/main",
+    model_id="latex/main2",
     weight_decay=0.1,  
     warmup_steps=100,
-    lr_scheduler_type="linear", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
+    lr_scheduler_type="cosine", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
     BATCH_SIZE=args.batch_size,
     tokenizer_batch_size=16,
     eval_steps=2000, # Adjust as needed1
@@ -176,10 +177,12 @@ logger.info(f"Training data rows: {data_row}")
 logger.info(f"Epoch: {hp.epochs}, Learning rate: {hp.learning_rate}, Weight decay: {hp.weight_decay}, Warmup steps: {hp.warmup_steps}, LR scheduler type: {hp.lr_scheduler_type}, Batch size: {hp.BATCH_SIZE}, Eval steps: {hp.eval_steps}, Logging steps: {hp.logging_steps}, Save steps: {hp.save_steps}, Save total limit: {hp.save_total_limit}, Max seq length: {hp.max_seq_length}")
 
 
+
 #____________________________________________________________________________________________________________________________
 # In[]: preparing the dataset ***********************************************************************************************
 dataset_obj = Dataset_Preprocessing(data_path, dataset_batch_size=hp.tokenizer_batch_size, max_seq_length=hp.max_seq_length)
 print("Loading tokenizer")
+
 
 #-----------------------------------------------------------------------------------------------------------------------------
 tokenizer = dataset_obj.load_tokenizer(tok_type="hf", tokenizer_path=tokenizer_path_hf_our)
@@ -213,7 +216,7 @@ training_args = OVTrainingArguments(
     # distillation_weight = 0.5, # default 0.5
     # distillation_temperature = 0.2 # default 0.2
     remove_unused_columns=True,
-    output_dir=os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name),  # Change to your desired output directory
+    output_dir=os.path.join("/home/dosisiddhesh/latex_model/model", model_obj.model_name),  # Change to your desired output directory
     overwrite_output_dir=True,
     per_device_train_batch_size=hp.BATCH_SIZE,  # Adjust as needed
     per_device_eval_batch_size=1,
@@ -235,56 +238,54 @@ training_args = OVTrainingArguments(
     save_total_limit=hp.save_total_limit,  # Adjust as needed
     logging_dir="./logs_2",
     report_to="wandb",
-    run_name = 'run1',
+    run_name = 'run2',
     # resume_from_checkpoint=os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name)
     resume_from_checkpoint=args.checkpoint
 )
-model = get_model()
 
 
 # In[]: ___________________________________________________________________________________________________________________
 # Dummy training loop
 
 
-data_path = "/home/dosisiddhesh/MISTRAL_EXP/data/latex.csv"
-# print("Loading and preparing dataset...")
-dataset_obj.generate_dataset(row_percent=0.0003 #data_row
-                             , eval_frac=hp.eval_frac
-                             , data_path=data_path)
+# model = get_model()
+# data_path = "/home/dosisiddhesh/MISTRAL_EXP/data/latex.csv"
+# # print("Loading and preparing dataset...")
+# # torch.distributed.barrier()
+# dataset_obj.generate_dataset(row_percent=0.001 #data_row
+#                              , eval_frac=hp.eval_frac
+#                              , data_path=data_path)
+# # torch.distributed.barrier()
 
-train_dataset = dataset_obj.get_train_dataset()
-val_dataset = dataset_obj.get_val_dataset()
+# train_dataset = dataset_obj.get_train_dataset()
+# print(train_dataset)
+# for i in range(5):
+#     print(len(train_dataset[0]['input_ids']))
 
-trainer = OVTrainer(
-                model=model,
-                args=training_args,
-                train_dataset=train_dataset,
-                eval_dataset=val_dataset,
-                compute_metrics=compute_metrics,
-                tokenizer=tokenizer,
-                data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
-                ov_config=ov_config,
-                task="text-generation",
-            )
+# val_dataset = dataset_obj.get_val_dataset()
 
-if args.checkpoint:
-    train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
-else:
-    train_result = trainer.train()
-trainer.save_model()    
+# trainer = OVTrainer(
+#                 model=model,
+#                 args=training_args,
+#                 train_dataset=train_dataset,
+#                 eval_dataset=val_dataset,
+#                 compute_metrics=compute_metrics,
+#                 tokenizer=tokenizer,
+#                 data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
+#                 ov_config=ov_config,
+#                 task="text-generation",
+#             )
 
-input("Press Enter to continue...")
-
-
-
-
-
-# In[]: ___________________________________________________________________________________________________________________
-# Dummy training loop 
+# if args.checkpoint:
+#     train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
+# else:
+#     train_result = trainer.train()
+# trainer.save_model()    
 
 
 
-#%% Main training loop
+
+model = get_model()
 # checkpoint = '/home/dosisiddhesh/MISTRAL_EXP/model2/mistral/dummy_ep_1_lr_0.0006_linear_weight_decay_0.1_warmup_steps_100'
 trainer = OVTrainer(
     model=model,
@@ -297,26 +298,33 @@ trainer = OVTrainer(
     ov_config=ov_config,
     task="text-generation",
 )
+
+# #%% Main training loop
+
 for year in range(24):
     for month in range(1, 13):
-        dataset_obj.generate_dataset_from_files(year=year, month=month,logger=logger)
+        # year = 0
+        # month = 1
+        # torch.distributed.barrier()
+        dataset_obj.generate_dataset_from_files(year=year, month=month,logger=logger,
+                                                test_percent=0.5,
+                                                train_percent=1,
+                                                val_percent=0.5,
+                                                # isDebug=True
+                                                )
+        # torch.distributed.barrier()
+        train_dataset = dataset_obj.get_train_dataset()
+        val_dataset = dataset_obj.get_val_dataset()
+        print(train_dataset)
+        for i in range(5):
+            print(len(train_dataset[0]['input_ids']))
 
-        train_dataset = dataset_obj.get_train_dataset(local_path=False)
-        val_dataset = dataset_obj.get_val_dataset(local_path=False)
-        
+
         trainer.train_dataset = train_dataset
         trainer.eval_dataset = val_dataset
 
-        # if checkpoint:
-        #     print(f"Loading the model checkpoint for {year}-{month}")
-        #     logger.info(f"Loading the model checkpoint for {year}-{month}: {checkpoint}")
-        #     model = OVModelForCausalLM.from_pretrained(checkpoint, export=True)
-        #     print("Model loaded")
-        #     logger.info("Model loaded")
-        #     gpu_usage()
-        #     checkpoint = os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name)
-        # else:
-        #     model = get_model()
+
+
         try:
             # Train the model while applying quantization
             train_result = None
@@ -324,21 +332,10 @@ for year in range(24):
                 train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
             else:
                 train_result = trainer.train()
-            print("+---------------------------------------------------------+")
-            print_gpu_utilization()
-            a,b = torch.cuda.mem_get_info()
-            gpu_mem_usage = (b-a)/(2**20)
-            print(f"GPU memory usage after training: {gpu_mem_usage:.2f} MB")
-            logger.info(f"GPU memory usage after training: {gpu_mem_usage:.2f} MB")
-            torch.cuda.empty_cache()
-            a,b = torch.cuda.mem_get_info()
-            gpu_mem_usage = (b-a)/(2**20)
-            print(f"GPU memory usage after emptying cache: {gpu_mem_usage:.2f} MB")
-            logger.info(f"GPU memory usage after emptying cache: {gpu_mem_usage:.2f} MB")
-            print("+---------------------------------------------------------+")
-
             print(f"***** Train results ***** {train_result}")
             logger.info(f"***** Train results ***** {train_result}")
+            gpu_usage()
+
         except Exception as e: 
             print("Error occured while training the model ???????????????????????????????????")
             logger.error("Error occured while training the model ???????????????????????????????????")
@@ -346,7 +343,7 @@ for year in range(24):
             logger.error(e)
             exit()
         try:
-            print("+---------------------------------------------------------+")
+
             metrics = trainer.evaluate()
             print(f"***** Eval results ***** {metrics}")
             logger.info(f"***** Eval results ***** {metrics}")
@@ -354,19 +351,18 @@ for year in range(24):
             logger.error("Error occured while training the model ???????????????????????????????????")
             print(e)
             logger.error(e)
-            exit()
 
         try:
             # Export the quantized model to OpenVINO IR format and save it
             trainer.save_model()
-
             print("Model saved")
         except Exception as e:
             print("Error occured while saving the model ???????????????????????????????????")
             logger.error("Error occured while saving the model ???????????????????????????????????")
             print(e)
             logger.error(e)
-            exit()
+        gpu_usage()
+
 # In[]: ___________________________________________________________________________________________________________________
 # last working config
 '''
@@ -398,3 +394,18 @@ hp = HyperParams(
     max_seq_length=int(1024*2),
 )
 '''
+
+#----------------------------------------------
+# if checkpoint:
+#     print(f"Loading the model checkpoint for {year}-{month}")
+#     logger.info(f"Loading the model checkpoint for {year}-{month}: {checkpoint}")
+#     model = OVModelForCausalLM.from_pretrained(checkpoint, export=True)
+#     print("Model loaded")
+#     logger.info("Model loaded")
+#     gpu_usage()
+#     checkpoint = os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name)
+# else:
+#     model = get_model()
+
+#-----------------------------------------------------------------------------------------------------------------------------
+# CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node 2 v2_mp_mistral.py --layer 10 --seq_len 2048 --float16 
