@@ -1,11 +1,11 @@
 import os
 #__________________________________________________________________________________________________
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-# import wandb
-# wandb.login()
-# os.environ["WANDB_PROJECT"]="latex"
-# WANDB_PROJECT="latex_training"
-# wandb_run_name = "run3"
+import wandb
+wandb.login()
+os.environ["WANDB_PROJECT"]="latex"
+WANDB_PROJECT="latex_training"
+wandb_run_name = "run3"
 
 
 
@@ -39,20 +39,7 @@ parser.add_argument("--checkpoint", type=str, default=None, help="checkpoint pat
 args = parser.parse_args()
 print( ',  '.join([i[0]+':'+str(i[1]) for i in args._get_kwargs()]))
 
-ta_logging_dir="./logs_2",
-ta_report_to="wandb",
-ta_run_name = 'run2',
 
-data_path = '/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2'
-data_path_pickel = "/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL"
-
-tokenizer_path_30k = '/home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_1.0%_30000_new'
-root_log_dir = '/home/dosisiddhesh/latex_model/dummy_log/'
-model_root_dir = '/home/dosisiddhesh/latex_model/dummy_model'
-
-# tokenizer_path_sentence_piece_for_mistral_src = '/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_new.model'
-# tokenizer_path_hf_debertv2 = "/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_hf.model"
-# tokenizer_path_llama = "hf-internal-testing/llama-tokenizer" #llama
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 # os.environ["CUDA_VISIBLE_DEVICES"] = '0'
@@ -88,6 +75,7 @@ from optimum.intel import OVConfig, OVTrainer, OVModelForCausalLM, OVTrainingArg
 
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+root_log_dir = '/home/dosisiddhesh/latex_model/log/'
 logging.basicConfig(level=logging.NOTSET, filename="{}/QAT_log_{}.log".format(root_log_dir, timestamp), filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s")
 
 # logging.basicConfig(level=logging.NOTSET ,filename=f"{root_log_dir}QAT_log_{timestamp}.log", filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s") 
@@ -102,14 +90,21 @@ logger.addHandler(logging.FileHandler("core.log"))
 # *********************** Local code, model and data path ***********************************************************************************************************
 
 # metric = load("perplexity")
+code_path = "/home/dosisiddhesh/MISTRAL_EXP/mistral-src"
+data_path = '/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2'
 
+model_path = Path("/home/dosisiddhesh/MISTRAL_EXP/model/mistral-7B-v0.1")  # model and tokenizer location
+# tokenizer_path_sentence_piece_for_mistral_src = '/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_new.model'
+# tokenizer_path_hf_debertv2 = "/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_hf.model"
+# tokenizer_path_llama = "hf-internal-testing/llama-tokenizer" #llama
 tokenizer_path_hf_our = None
 if args.vocab == 30000:
-    tokenizer_path_hf_our = tokenizer_path_30k
+    tokenizer_path_hf_our = '/home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_1.0%_30000_new'
 elif args.vocab == 50000:
     tokenizer_path_hf_our = '/home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_4.0%_50000_new'
 
 
+sys.path.append(code_path)  # append the path where mistral-src was cloned
 
 
 def print_gpu_utilization():
@@ -221,7 +216,7 @@ training_args = OVTrainingArguments(
     # distillation_weight = 0.5, # default 0.5
     # distillation_temperature = 0.2 # default 0.2
     remove_unused_columns=True,
-    output_dir=os.path.join(model_root_dir, model_obj.model_name),  # Change to your desired output directory
+    output_dir=os.path.join("/home/dosisiddhesh/latex_model/model", model_obj.model_name),  # Change to your desired output directory
     overwrite_output_dir=True,
     per_device_train_batch_size=hp.BATCH_SIZE,  # Adjust as needed
     per_device_eval_batch_size=1,
@@ -241,9 +236,9 @@ training_args = OVTrainingArguments(
     # optim="adamw_bnb_8bit"
     gradient_checkpointing=args.enb_grad_checkpoint,
     save_total_limit=hp.save_total_limit,  # Adjust as needed
-    logging_dir=ta_logging_dir,
-    report_to=ta_report_to,
-    run_name = ta_run_name,
+    logging_dir="./logs_2",
+    report_to="wandb",
+    run_name = 'run2',
     # resume_from_checkpoint=os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name)
     resume_from_checkpoint=args.checkpoint
 )
@@ -305,6 +300,7 @@ trainer = OVTrainer(
 )
 
 # #%% Main training loop
+data_path_pickel = "/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL"
 for year in range(24):
     for month in range(1, 13):
         # year = 0
