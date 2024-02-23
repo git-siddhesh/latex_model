@@ -1,0 +1,7 @@
+
+
+
+
+  0%|                                                          | 16/56023 [00:07<5:31:23,  2.82it/s]
+Error occured while training the model ???????????????????????????????????
+CUDA out of memory. Tried to allocate 128.00 MiB. GPU 0 has a total capacity of 31.74 GiB of which 74.81 MiB is free. Including non-PyTorch memory, this process has 31.66 GiB memory in use. Of the allocated memory 29.03 GiB is allocated by PyTorch, and 2.25 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

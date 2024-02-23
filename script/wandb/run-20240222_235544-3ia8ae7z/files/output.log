@@ -1,0 +1,114 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  0%|                                                      | 336/224091 [02:00<26:16:10,  2.37it/s]Traceback (most recent call last):
+  File "/home/dosisiddhesh/latex_model/script/v2_mp_mistral.py", line 346, in <module>
+    train_result = trainer.train()
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/optimum/intel/openvino/trainer.py", line 606, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/optimum/intel/openvino/trainer.py", line 771, in compute_loss
+    retval = super().compute_loss(model, inputs, return_outputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
+    outputs = model(**inputs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 1154, in forward
+    outputs = self.model(
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 1039, in forward
+    layer_outputs = decoder_layer(
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 767, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 177, in forward
+    return self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 137, in wrapped
+    return module_call(self, *args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 116, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/home/dosisiddhesh/miniconda3/envs/mist3_env/lib/python3.10/site-packages/nncf/torch/dynamic_graph/wrappers.py", line 83, in wrapped
+    op1 = operator(*args, **kwargs)
+KeyboardInterrupt

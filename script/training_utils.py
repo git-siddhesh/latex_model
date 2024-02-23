@@ -55,14 +55,17 @@ class HyperParams:
 
     
 class MyModel(Parameter, HyperParams):
-    def __init__(self, model_id="mistral", hp=None):
+    def __init__(self, model_id="mistral", hp=None, param=None):
         self.model_id = model_id
         self.args = None
         if hp is not None:
-            self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_weight_decay_{hp.weight_decay}_warmup_steps_{hp.warmup_steps}"
+            self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_wt_decay_{hp.weight_decay}_warmup_st_{hp.warmup_steps}"
+            # add parameters to the model too in the name
+        if param is not None:           
+            self.model_name += f"_emb_{param.D_emb}_V_{param.Vocal}_Dhead_{param.d_head}_FF_{param.d_FF}_L_{param.N_Layer}_N_Head_{param.N_Head}_KV_Head_{param.KV_Head}_W_{param.Window}"
     
-    def get_model_name(self,hp):
-        self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_weight_decay_{hp.weight_decay}_warmup_steps_{hp.warmup_steps}"
+    # def get_model_name(self,hp):
+    #     self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_weight_decay_{hp.weight_decay}_warmup_steps_{hp.warmup_steps}"
 
     # mistral model config from huggingface 
     def get_model_config(self, param):
@@ -516,26 +519,30 @@ class Dataset_Preprocessing():
     def get_train_dataset(self, local_path=None):
         if local_path:
             # load the dataset from pickle file
-            path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
-            with open(path, 'rb') as f:
+            # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
+            with open(local_path, 'rb') as f:
                 self.train_dataset = pickle.load(f)
             return self.train_dataset
+        if self.train_dataset is None:
+            print("No train dataset found")
         return self.train_dataset
     
     def get_val_dataset(self, local_path=None):
         if local_path:
             # load the dataset from pickle file
-            path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
-            with open(path, 'rb') as f:
+            # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
+            with open(local_path, 'rb') as f:
                 self.val_dataset = pickle.load(f)
             return self.val_dataset
+        if self.val_dataset is None:
+            print("No val dataset found")
         return self.val_dataset
     
     def get_test_dataset(self, local_path=None):
         if local_path:
             # load the dataset from pickle file
-            path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
-            with open(path, 'rb') as f:
+            # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
+            with open(local_path, 'rb') as f:
                 self.test_dataset = pickle.load(f)
             return self.test_dataset
         if self.test_dataset is None:
