@@ -1,0 +1,30 @@
+PATH:
+  ROOT: /home/dosisiddhesh/latex_model
+  DATA: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2
+  DATA_PKL: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL
+  MODEL: /home/dosisiddhesh/latex_model/model_exp
+  TOKENIZER: /home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_1.0%_30000_new
+  LOG: /home/dosisiddhesh/latex_model/log_exp
+PARAMETERS:
+  D_emb: 4096
+  Vocab: 30000
+  D_head: 128
+  D_FF: 14336
+  N_Layer: 5
+  N_Head: 32
+  KV_Head: 8
+  Window: 4096
+HYPERPARAMETERS:
+  seq_len: 4096
+  grad_acc_batch_size: 32
+  batch_size: 1
+TRAINING_PARAM:
+  EPOCHS: 100
+  LEARNING_RATE: 0.0001
+  WARMUP_STEPS: 1000
+  EPSILON: 1.0e-06
+  CLIP_NORM: 1.0
+  float16: false
+  adafactor: false
+  enb_grad_checkpoint: false
+LOGGING: {}
