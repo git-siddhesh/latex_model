@@ -16350,3 +16350,453 @@ Dataset({
 })
 Error occured while training the model ???????????????????????????????????
 [Errno 32] Broken pipe
+
+
+______________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+device:0,  layer:2,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:True,  start_sample_file_index:1,  local_model_path:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 10, Logging steps: 10, Save steps: 10, Save total limit: 3, Max seq length: 2048
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 682.0M parameters
+Total Trainable Params: 681.9881M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+Training for 0-1
+val_local_pickel_path: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL/val_0_1_datasets.pkl
+train_local_pickel_path: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL/train_0_1_datasets.pkl
+File not found: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL/val_0_1_datasets.pkl
+
+
+______________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+device:0,  layer:2,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:True,  start_sample_file_index:1,  local_model_path:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 2, N_Head: 32, KV_Head: 8, Window: 4096
+Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 10, Logging steps: 10, Save steps: 10, Save total limit: 3, Max seq length: 2048
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 682.0M parameters
+Total Trainable Params: 681.9881M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+Training for 0-1
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+***** Train results ***** TrainOutput(global_step=30, training_loss=10.899973297119141, metrics={'train_runtime': 451.2536, 'train_samples_per_second': 2.127, 'train_steps_per_second': 0.066, 'train_loss': 10.899973297119141, 'epoch': 1.0})
+GPU memory usage before cleaning cache: 15314.81 MB
+GPU memory usage after cleaning cache: 9046.81 MB
+GPU memory occupied from nvmlInit: 9667 MB.
+***** Eval results ***** {'eval_loss': 10.622215270996094, 'eval_runtime': 1.6488, 'eval_samples_per_second': 6.065, 'eval_steps_per_second': 6.065, 'epoch': 1.0}
+GPU memory usage before cleaning cache: 9854.81 MB
+GPU memory usage after cleaning cache: 9046.81 MB
+GPU memory occupied from nvmlInit: 9667 MB.
+Training for 0-2
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_2_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_2_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+
+
+______________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+device:0,  layer:6,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:True,  start_sample_file_index:1,  local_model_path:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 6, N_Head: 32, KV_Head: 8, Window: 4096
+Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 10, Logging steps: 10, Save steps: 10, Save total limit: 3, Max seq length: 2048
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 1554.4M parameters
+Total Trainable Params: 1554.4361M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+Training for 0-1
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+
+
+______________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+device:0,  layer:7,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:True,  start_sample_file_index:1,  local_model_path:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 7, N_Head: 32, KV_Head: 8, Window: 4096
+Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 10, Logging steps: 10, Save steps: 10, Save total limit: 3, Max seq length: 2048
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 1772.5M parameters
+Total Trainable Params: 1772.5481M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+Training for 0-1
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+***** Train results ***** TrainOutput(global_step=30, training_loss=10.878241221110025, metrics={'train_runtime': 1318.298, 'train_samples_per_second': 0.728, 'train_steps_per_second': 0.023, 'train_loss': 10.878241221110025, 'epoch': 1.0})
+GPU memory usage before cleaning cache: 39924.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+***** Eval results ***** {'eval_loss': 10.579565048217773, 'eval_runtime': 4.2025, 'eval_samples_per_second': 2.38, 'eval_steps_per_second': 2.38, 'epoch': 1.0}
+GPU memory usage before cleaning cache: 23934.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+Training for 0-2
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_2_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_2_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+***** Train results ***** TrainOutput(global_step=30, training_loss=9.932413736979166, metrics={'train_runtime': 1740.9566, 'train_samples_per_second': 0.551, 'train_steps_per_second': 0.017, 'train_loss': 9.932413736979166, 'epoch': 1.0})
+GPU memory usage before cleaning cache: 38392.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+***** Eval results ***** {'eval_loss': 9.990306854248047, 'eval_runtime': 4.113, 'eval_samples_per_second': 2.431, 'eval_steps_per_second': 2.431, 'epoch': 1.0}
+GPU memory usage before cleaning cache: 23934.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+Training for 0-3
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_3_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_3_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+***** Train results ***** TrainOutput(global_step=30, training_loss=9.349660491943359, metrics={'train_runtime': 1740.8557, 'train_samples_per_second': 0.551, 'train_steps_per_second': 0.017, 'train_loss': 9.349660491943359, 'epoch': 1.0})
+GPU memory usage before cleaning cache: 38390.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+***** Eval results ***** {'eval_loss': 8.366008758544922, 'eval_runtime': 4.4907, 'eval_samples_per_second': 2.227, 'eval_steps_per_second': 2.227, 'epoch': 1.0}
+GPU memory usage before cleaning cache: 23934.81 MB
+GPU memory usage after cleaning cache: 23124.81 MB
+GPU memory occupied from nvmlInit: 23745 MB.
+Training for 0-4
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_4_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_4_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+})
+
+
+______________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+device:0,  layer:7,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:False,  start_sample_file_index:1,  local_model_path:None
+D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 7, N_Head: 32, KV_Head: 8, Window: 4096
+Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 4000, Logging steps: 4000, Save steps: 4000, Save total limit: 3, Max seq length: 2048
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 1772.5M parameters
+Total Trainable Params: 1772.5481M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+Training for 0-1
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 180799
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47526
+})

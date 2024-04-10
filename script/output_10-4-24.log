@@ -1,0 +1,104 @@
+device:0,  layer:7,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:False,  start_sample_file_index:1,  local_model_path:None
+latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+Len of tokenizer before adding special tokens 30000
+Len of tokenizer after adding special tokens 30000
+Loading model...
+Model created from config
+Embedding size: 30000
+Tokenizer size: 30000
+Model loaded
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 1772.5M parameters
+Total Trainable Params: 1772.5481M
+Total Trainable Params in one layer: 218.1120M
+Original Model type: torch.float32
+Total Params v/s one attention layer param: (1772548096, 218112000)
+Original Model type: torch.float32
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 440.81 MB
+GPU memory usage after cleaning cache: 440.81 MB
+GPU memory occupied from nvmlInit: 1061 MB.
++----------------------------------------------------------------------------------+
+------------------------------------------------------------------------------------------
+Training for 0-1
+------------------------------------------------------------------------------------------
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+type <class 'datasets.arrow_dataset.Dataset'>
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 180799
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47526
+})

@@ -1,0 +1,217 @@
+{
+    "os": "Linux-6.2.0-34-generic-x86_64-with-glibc2.35",
+    "python": "3.11.8",
+    "heartbeatAt": "2024-04-10T09:21:09.936886",
+    "startedAt": "2024-04-10T09:21:09.028408",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--layer",
+        "7",
+        "--seq_len",
+        "2048",
+        "--batch_size",
+        "32",
+        "--max_grad_norm",
+        "0.9"
+    ],
+    "state": "running",
+    "program": "/home/iitgn_cse/latex_model/script/v3_training.py",
+    "codePathLocal": "v3_training.py",
+    "codePath": "script/v3_training.py",
+    "git": {
+        "remote": "https://github.com/git-siddhesh/latex_model.git",
+        "commit": "b563fcb5eb733c8073ede52b8a3df3e992709c2e"
+    },
+    "email": "siddheshdosi106@gmail.com",
+    "root": "/home/iitgn_cse/latex_model",
+    "host": "amma",
+    "username": "iitgn_cse",
+    "executable": "/home/iitgn_cse/miniconda3/envs/env_mist/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2006.9900312500001,
+        "min": 1500.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3301.224,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1499.801,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2267.774,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1499.243,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1499.771,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1370.35,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2395.808,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1799.512,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1600.467,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2397.604,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.008,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1800.689,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 3300.24,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1463.248,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 3295.846,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 3299.724,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1500.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 3296.11,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2400.0,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1447.45,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1580.022,
+            "min": 1500.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 874.4336128234863,
+            "used": 55.157630920410156
+        }
+    },
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A100-PCIE-40GB",
+            "memory_total": 42949672960
+        }
+    ],
+    "memory": {
+        "total": 251.73442459106445
+    }
+}

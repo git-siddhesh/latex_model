@@ -20,12 +20,12 @@ import time
 torch.manual_seed(191009)
 import pickle
 
-code_path = "/home/dosisiddhesh/MISTRAL_EXP/mistral-src"
+# code_path = "/home/dosisiddhesh/MISTRAL_EXP/mistral-src"
 data_path = "/home/dosisiddhesh/MISTRAL_EXP/data/latex.csv"
 model_path = Path("/home/dosisiddhesh/MISTRAL_EXP/model/mistral-7B-v0.1")  # model and tokenizer location
 tokenizer_path = "/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_new.model" # sentencepiece tokenizer path
-sys.path.append(code_path)  # append the path where mistral-src was cloned
-from mistral.tokenizer import Tokenizer
+# sys.path.append(code_path)  # append the path where mistral-src was cloned
+# from mistral.tokenizer import Tokenizer
 # from mistral.model import Transformer, ModelArgs
 
 class Parameter:
@@ -67,6 +67,38 @@ class MyModel(Parameter, HyperParams):
     # def get_model_name(self,hp):
     #     self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_weight_decay_{hp.weight_decay}_warmup_steps_{hp.warmup_steps}"
 
+    '''vocab_size (int, optional, defaults to 32000) — Vocabulary size of the Mistral model. Defines the number of different tokens that can be represented by the inputs_ids passed when calling MistralModel
+    
+    hidden_size (int, optional, defaults to 4096) — Dimension of the hidden representations.
+    
+    intermediate_size (int, optional, defaults to 14336) — Dimension of the MLP representations.
+    
+    num_hidden_layers (int, optional, defaults to 32) — Number of hidden layers in the Transformer encoder.
+    
+    num_attention_heads (int, optional, defaults to 32) — Number of attention heads for each attention layer in the Transformer encoder.
+    
+    num_key_value_heads (int, optional, defaults to 8) — This is the number of key_value heads that should be used to implement Grouped Query Attention. If num_key_value_heads=num_attention_heads, the model will use Multi Head Attention (MHA), if num_key_value_heads=1 the model will use Multi Query Attention (MQA) otherwise GQA is used. When converting a multi-head checkpoint to a GQA checkpoint, each group key and value head should be constructed by meanpooling all the original heads within that group. For more details checkout [this paper](https://arxiv.org/pdf/2305.13245.pdf). If it is not specified, will default to 8`.
+    
+    hidden_act (str or function, optional, defaults to "silu") — The non-linear activation function (function or string) in the decoder.
+    
+    max_position_embeddings (int, optional, defaults to 4096*32) — The maximum sequence length that this model might ever be used with. Mistral’s sliding window attention allows sequence of up to 4096*32 tokens.
+    initializer_range (float, optional, defaults to 0.02) — The standard deviation of the truncated_normal_initializer for initializing all weight matrices.
+    
+    rms_norm_eps (float, optional, defaults to 1e-06) — The epsilon used by the rms normalization layers.
+    
+    use_cache (bool, optional, defaults to True) — Whether or not the model should return the last key/values attentions (not used by all models). Only relevant if config.is_decoder=True.
+    
+    pad_token_id (int, optional) — The id of the padding token.
+    
+    bos_token_id (int, optional, defaults to 1) — The id of the “beginning-of-sequence” token.
+    
+    eos_token_id (int, optional, defaults to 2) — The id of the “end-of-sequence” token.
+    
+    tie_word_embeddings (bool, optional, defaults to False) — Whether the model’s input and output word embeddings should be tied.
+    rope_theta (float, optional, defaults to 10000.0) — The base period of the RoPE embeddings.
+    sliding_window (int, optional, defaults to 4096) — Sliding window attention window size. If not specified, will default to 4096.
+    attention_dropout (float, optional, defaults to 0.0) — The dropout ratio for the attention probabilities.
+    '''
     # mistral model config from huggingface 
     def get_model_config(self, param):
         self.custom_config = MistralConfig(
@@ -82,7 +114,7 @@ class MyModel(Parameter, HyperParams):
             rms_norm_eps=1e-6,
             use_cache=param.use_cache,
             # use_reentrant=False,
-            pad_token_id=None,
+            pad_token_id=0,
             bos_token_id=1,
             eos_token_id=2,
             tie_word_embeddings=False,
@@ -143,6 +175,7 @@ class MyModel(Parameter, HyperParams):
 
         print("Total Params v/s one attention layer param:",self.model_size_and_parameters(logger))
         print("Original Model type:",self.model.dtype)
+
         return self.model
     
     def get_model_from_local(self, local_model_path, logger):
@@ -152,6 +185,7 @@ class MyModel(Parameter, HyperParams):
         print("Original Model type:",self.model.dtype)
         return self.model
     
+
     def model_size_and_parameters(self, logger = None):
         table = PrettyTable(["Modules", "Parameters"])
         model_size = sum(t.numel() for t in self.model.parameters())
@@ -184,19 +218,19 @@ class MyModel(Parameter, HyperParams):
     
 
 class Dataset_Preprocessing():
-    def __init__(self, data_path="/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2", dataset_batch_size=2, max_seq_length=1024 ):
+    def __init__(self, data_path="/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2", dataset_batch_size=2, max_seq_length=1024, test_file=None, train_file=None, val_file=None):
         self.dataset_batch_size = dataset_batch_size
         self.max_seq_length = max_seq_length
         self.block_size = max_seq_length
         self.data_path = data_path
-        self.test_df = pd.read_csv(os.path.join(self.data_path, 'test.csv'), usecols=['tex','year','month'])
-        self.test_df['tex'] = self.test_df['tex'].apply(lambda x: os.path.join(data_path, "/".join(x.split('/')[6:])))
+        # self.test_df = pd.read_csv(os.path.join(self.data_path, 'test.csv'), usecols=['tex','year','month'])
+        # self.train_df = pd.read_csv(os.path.join(self.data_path, 'train.csv'), usecols=['tex','year','month'])
 
-        self.train_df = pd.read_csv(os.path.join(self.data_path, 'train.csv'), usecols=['tex','year','month'])
-        self.train_df['tex'] = self.train_df['tex'].apply(lambda x: os.path.join(data_path, "/".join(x.split('/')[6:])))
+        # self.test_df['tex'] = self.test_df['tex'].apply(lambda x: os.path.join(data_path, "/".join(x.split('/')[6:])))
+        # self.train_df['tex'] = self.train_df['tex'].apply(lambda x: os.path.join(data_path, "/".join(x.split('/')[6:])))
 
-        print("Test dataset size: ", len(self.test_df))
-        print("Train dataset size: ", len(self.train_df))
+        # print("Test dataset size: ", len(self.test_df))
+        # print("Train dataset size: ", len(self.train_df))
 
         self.train_dataset = None
         self.val_dataset = None
@@ -516,17 +550,21 @@ class Dataset_Preprocessing():
 
 
         
+
     def get_train_dataset(self, local_path=None, sample_size=None, batch_size=1):
         if local_path:
             # load the dataset from pickle file
             # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
             with open(local_path, 'rb') as f:
                 self.train_dataset = pickle.load(f)
+                print("type", type(self.train_dataset))
                 # self.train_dataset = Dataset.from_dict(pickle.load(f))
                 if sample_size:
                     self.train_dataset = self.train_dataset.select(range(sample_size*batch_size))
                     # save the dataset to a pickle file
-                    pickle.dump(self.train_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_train_{sample_size}.pkl" ),"wb+"))
+                    # pickle.dump(self.train_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_train_{sample_size}.pkl" ),"wb+"))
+                    pickle.dump(self.train_dataset, open(os.path.join(os.path.split(local_path)[0],f"sample_train_{sample_size}.pkl" ),"wb+"))
+
             return self.train_dataset
         if self.train_dataset is None:
             print("No train dataset found")
@@ -542,7 +580,8 @@ class Dataset_Preprocessing():
                 if sample_size:
                     self.val_dataset = self.val_dataset.select(range(sample_size))
                     # save the dataset to a pickle file
-                    pickle.dump(self.val_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_val_{sample_size}.pkl"), "wb+"))
+                    # pickle.dump(self.val_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_val_{sample_size}.pkl" ),"wb+"))
+                    pickle.dump(self.val_dataset, open(os.path.join(os.path.split(local_path)[0],f"sample_val_{sample_size}.pkl"),"wb+"))
             return self.val_dataset
         if self.val_dataset is None:
             print("No val dataset found")
@@ -557,7 +596,9 @@ class Dataset_Preprocessing():
                 # self.test_dataset = Dataset.from_dict(pickle.load(f))
                 if sample_size:
                     self.test_dataset = self.test_dataset.select(range(sample_size))
-
+                    # save the dataset to a pickle file
+                    # pickle.dump(self.test_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_test_{sample_size}.pkl"),"wb+"))
+                    pickle.dump(self.test_dataset, open(os.path.join(os.path.split(local_path)[0],f"sample_test_{sample_size}.pkl"),"wb+"))
             return self.test_dataset
         if self.test_dataset is None:
             print("No test dataset found")

@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+ 33%|██████████████████████████████████████████████████████████████████████████                                                                                                                                                    | 10/30 [02:19<04:34, 13.73s/it]
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                      | 9/10 [00:01<00:00,  7.82it/s]
+{'loss': 11.1238, 'grad_norm': 2.6185340881347656, 'learning_rate': 2.0000000000000003e-06, 'epoch': 0.33}
+
+
+
+
+
+
+
+
+
+
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                                          | 20/30 [04:48<02:22, 14.30s/it]
+ 20%|████████████████████████████████████████████▌                                                                                                                                                                                  | 2/10 [00:00<00:00, 13.27it/s]
+
+{'loss': 10.948, 'grad_norm': 2.434495449066162, 'learning_rate': 4.000000000000001e-06, 'epoch': 0.67}
+
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [07:16<00:00, 13.69s/it]
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [07:17<00:00, 13.69s/it]
+{'eval_loss': 10.622215270996094, 'eval_runtime': 1.437, 'eval_samples_per_second': 6.959, 'eval_steps_per_second': 6.959, 'epoch': 1.0}
+{'train_runtime': 451.2536, 'train_samples_per_second': 2.127, 'train_steps_per_second': 0.066, 'train_loss': 10.899973297119141, 'epoch': 1.0}
+***** Train results ***** TrainOutput(global_step=30, training_loss=10.899973297119141, metrics={'train_runtime': 451.2536, 'train_samples_per_second': 2.127, 'train_steps_per_second': 0.066, 'train_loss': 10.899973297119141, 'epoch': 1.0})
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 15314.81 MB
+GPU memory usage after cleaning cache: 9046.81 MB
+GPU memory occupied from nvmlInit: 9667 MB.
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 30/30 [07:27<00:00, 14.91s/it]
+ 70%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                                   | 7/10 [00:00<00:00,  7.20it/s]
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:01<00:00,  7.87it/s]
+Model saved
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 9854.81 MB
+GPU memory usage after cleaning cache: 9046.81 MB
+GPU memory occupied from nvmlInit: 9667 MB.
++----------------------------------------------------------------------------------+
+------------------------------------------------------------------------------------------
+Training for 0-2
+------------------------------------------------------------------------------------------
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_2_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_2_datasets.pkl
+type <class 'datasets.arrow_dataset.Dataset'>
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 960
+})
+  0%|                                                                                                                                                                                                                                       | 0/30 [00:00<?, ?it/s]
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 10
+
+
+
+
+
+
+
+
+
+ 30%|██████████████████████████████████████████████████████████████████▉                                                                                                                                                            | 9/30 [02:04<04:50, 13.85s/it]Traceback (most recent call last):
+  File "/home/iitgn_cse/latex_model/script/v3_training.py", line 327, in <module>
+    train_result = trainer.train()
+                   ^^^^^^^^^^^^^^^
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/transformers/trainer.py", line 1624, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/transformers/trainer.py", line 1961, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/transformers/trainer.py", line 2911, in training_step
+    self.accelerator.backward(loss)
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/accelerate/accelerator.py", line 1966, in backward
+    loss.backward(**kwargs)
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/torch/_tensor.py", line 522, in backward
+    torch.autograd.backward(
+  File "/home/iitgn_cse/miniconda3/envs/env_mist/lib/python3.11/site-packages/torch/autograd/__init__.py", line 266, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

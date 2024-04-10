@@ -9,8 +9,9 @@
 
 #%% Experiement : fp16_full_eval = True, in training arguments
 # CUDA_VISIBLE_DEVICES=2 python v3_training.py --layer 5 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --float16 --test
+# conda activate env_mist
+# CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 2 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --test 
 
-#%%Imports
 
 import os
 
@@ -32,43 +33,45 @@ parser = argparse.ArgumentParser()
 # original args
 parser.add_argument("--device", type=str, default="0", help="cuda device number", choices=["0", "1", "2", "3"])
 parser.add_argument("--layer", type=int, default=12, help="number of layers")
-parser.add_argument("--seq_len", type=int, default=4*1024, help="sequence length")
+parser.add_argument("--seq_len", type=int, default=2*1024, help="sequence length")
 parser.add_argument("--batch_size", type=int, default=1, help="batch size")
 parser.add_argument("--float16", action="store_true", help="use float16")
 parser.add_argument("--adafactor", action='store_true', help="use adafactor")
 parser.add_argument("--enb_grad_checkpoint", action='store_true', help="disable use cache in model config and enable gradient checkpointing")
 parser.add_argument("--data_percent", type=float, default=0.001, help="data row percent")
 parser.add_argument("--vocab", type=int, default=30000, help="vocab size")
-parser.add_argument("--checkpoint", type=str, default=None, help="checkpoint path")
+parser.add_argument("--checkpoint", type=str, default=None, help="checkpoint path incase not loading the model from saved directory")
 parser.add_argument("--max_grad_norm", type=float, default=1.0, help="max_grad_norm")
 parser.add_argument("--test", action="store_true", help="test mode")
 parser.add_argument("--start_sample_file_index", type=int, default=1, help="start_sample_file_index")
-
+# load local model 
+parser.add_argument("--local_model_path", default=None, help="load the model from the local directory in case in not loading from checkpoint")
 
 args = parser.parse_args()
 print( ',  '.join([i[0]+':'+str(i[1]) for i in args._get_kwargs()]))
 
+from datetime import datetime
+
+date = datetime.now().strftime("%Y-%m-%d")
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
 import wandb
 wandb.login()
-os.environ["WANDB_PROJECT"]="hindi"
-WANDB_PROJECT="hindi_training"
-wandb_run_name = f"run_hindi_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}"
+os.environ["WANDB_PROJECT"]="latex_fp32"+date
+WANDB_PROJECT="latex_training"+date
+wandb_run_name = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}"
 
 #%% SET UP THE PATH
 ta_logging_dir="./logs_grad_clip"
 ta_report_to="wandb"
 ta_run_name = wandb_run_name
 
-root_dir = '/home/dosisiddhesh/latex_model'
-# data_path = os.path.join(root_dir,'llm_guru_hindi/data')
-data_path = '/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2'
-# DATA_PATH_PICKEL = os.path.join(root_dir,'DATA')
-DATA_PATH_PICKEL = '/home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL'
-# TOKENIZER_HF_ST_PATH = os.path.join(root_dir,'llm_guru_hindi/model/hf_tokenizer_10.0%_30000_new')
-TOKENIZER_HF_ST_PATH = '/home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_1.0%_30000_new'
-ROOT_LOG_DIR = os.path.join(root_dir,'log_final_fp16/')
-# MODEL_ROOT_DIR = os.path.join(root_dir,'llm_guru_hindi/model/')
-MODEL_ROOT_DIR = os.path.join(root_dir,'model_final_fp16')
+root_dir = '/home/iitgn_cse/latex_model'
+data_path = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24'
+DATA_PATH_PICKEL = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24'
+TOKENIZER_HF_ST_PATH = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/hf_tokenizer_2.0%_30000_without_whitespace_pretokenizer_79372_outof_3968648'
+ROOT_LOG_DIR = os.path.join(root_dir,'log_main_fp32'+date)
+MODEL_ROOT_DIR = os.path.join(root_dir,'model_main_fp32'+date)
 
 os.makedirs(ROOT_LOG_DIR, exist_ok=True)
 os.makedirs(MODEL_ROOT_DIR, exist_ok=True)
@@ -81,7 +84,6 @@ os.environ["CUDA_LAUNCH_BLOCKING"]='1'
 
 
 import logging
-from datetime import datetime
 import sys
 import time
 import tqdm
@@ -97,7 +99,12 @@ from transformers import (
 # import evaluate
 # from mistral.tokenizer import Tokenizer
 # from mistral.model import Transformer, ModelArgs
-from training_utils import Parameter, MyModel, Dataset_Preprocessing, HyperParams
+from training_utils import (
+    Parameter,
+    MyModel,
+    Dataset_Preprocessing,
+    HyperParams
+)
 
 from pynvml import *
 # from optimum.intel import OVConfig, OVTrainer, OVModelForCausalLM, OVTrainingArguments
@@ -165,8 +172,8 @@ param = Parameter("Mistral", value, use_cache= not args.enb_grad_checkpoint)
 hp = HyperParams(
     epoch=1, 
     learning_rate=2e-5, 
-    model_id="latex/main_exp",
-    weight_decay=0.1,  
+    model_id="latex/main_fp32_"+date,
+    weight_decay=0.1,
     warmup_steps=100,
     lr_scheduler_type="cosine", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
     BATCH_SIZE=args.batch_size,
@@ -180,8 +187,7 @@ hp = HyperParams(
 
 model_obj = MyModel(model_id=hp.model_id, hp=hp, param=param)
 print(model_obj.model_name)
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-log_file_name = f"{ROOT_LOG_DIR}/fp32_log_{model_obj.model_name.split('/')[-1]}_{timestamp}.log"
+log_file_name = f"{ROOT_LOG_DIR}/log_{model_obj.model_name.split('/')[-1]}_{timestamp}.log"
 logging.basicConfig(level=logging.NOTSET, filename=log_file_name, filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s")
 
 logging.getLogger("lightning.pytorch").setLevel(logging.NOTSET)
@@ -195,19 +201,20 @@ logger.info(f"D_emb: {D_emb}, Vocal: {Vocal}, d_head: {d_head}, d_FF: {d_FF}, N_
 # logger.info(f"Training data rows: {data_row}")
 logger.info(f"Epoch: {hp.epochs}, Learning rate: {hp.learning_rate}, Weight decay: {hp.weight_decay}, Warmup steps: {hp.warmup_steps}, LR scheduler type: {hp.lr_scheduler_type}, Batch size: {hp.BATCH_SIZE}, Eval steps: {hp.eval_steps}, Logging steps: {hp.logging_steps}, Save steps: {hp.save_steps}, Save total limit: {hp.save_total_limit}, Max seq length: {hp.max_seq_length}")
 
-
 #____________________________________________________________________________________________________________________________
 # In[]: preparing the dataset ***********************************************************************************************
 dataset_obj = Dataset_Preprocessing(data_path, dataset_batch_size=hp.tokenizer_batch_size, max_seq_length=hp.max_seq_length)
 tokenizer = dataset_obj.load_tokenizer(tok_type="hf", tokenizer_path=TOKENIZER_HF_ST_PATH)
 
- 
 
-def get_model():
+def get_model(local_model_path=None):
     print("Loading model...")
-    config = model_obj.get_model_config(param)    # huggingface mistral config
-    # model = model_obj.get_model(config = config, tokenizer=tokenizer, isfloat16=args.float16, logger= logger) # huggingface mistral model
-    model = model_obj.get_model(config = config, tokenizer=tokenizer, isfloat16=args.float16, logger= logger) # huggingface mistral model
+    model = None
+    if local_model_path:
+        model = model_obj.get_model_from_local(local_model_path=local_model_path, logger= logger)
+    else:
+        config = model_obj.get_model_config(param)    # huggingface mistral config
+        model = model_obj.get_model(config = config, tokenizer=tokenizer, isfloat16=args.float16, logger= logger) # huggingface mistral model
     gpu_usage(logger)
     return model
 
@@ -260,7 +267,7 @@ training_args = TrainingArguments(
 
 
 
-model = get_model()
+model = get_model(local_model_path = args.local_model_path)
 # checkpoint = '/home/dosisiddhesh/MISTRAL_EXP/model2/mistral/dummy_ep_1_lr_0.0006_linear_weight_decay_0.1_warmup_steps_100'
 # trainer = OVTrainer(
 trainer = Trainer(
@@ -285,7 +292,6 @@ for year in range(24):
         print("------------------------------------------------------------------------------------------")
         val_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"val_{year}_{month}_datasets.pkl")
         train_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"train_{year}_{month}_datasets.pkl")
-        
         print(f"val_local_pickel_path: {val_local_pickel_path}")
         print(f"train_local_pickel_path: {train_local_pickel_path}")
         logger.info(f"val_local_pickel_path: {val_local_pickel_path}")
@@ -300,7 +306,6 @@ for year in range(24):
             logger.info(f"File not found: {train_local_pickel_path}")
             exit()
 
-        
         trainer.train_dataset = dataset_obj.get_train_dataset(local_path=train_local_pickel_path, sample_size=hp.eval_steps*hp.BATCH_SIZE*3 if args.test else None)
         trainer.eval_dataset = dataset_obj.get_val_dataset(local_path=val_local_pickel_path, sample_size=hp.eval_steps if args.test else None)
         # train_dataset.select(range(10))
