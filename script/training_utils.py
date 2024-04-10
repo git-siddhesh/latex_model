@@ -128,6 +128,8 @@ class MyModel(Parameter, HyperParams):
                 self.model = MistralForCausalLM(config)
         print("Model created from config")
         embedding_size = self.model.get_input_embeddings().weight.shape[0]
+        print("Embedding size:", embedding_size)
+        print("Tokenizer size:", len(tokenizer))
         if len(tokenizer) > embedding_size:
             self.model.resize_token_embeddings(len(tokenizer))
             print("Resized the token embeddings to match the tokenizer size")
@@ -141,19 +143,14 @@ class MyModel(Parameter, HyperParams):
 
         print("Total Params v/s one attention layer param:",self.model_size_and_parameters(logger))
         print("Original Model type:",self.model.dtype)
-
-        
-
         return self.model
     
-    # def get_model_checkpoint(self, checkpoint_path, mistral_src = False):
-    #     if mistral_src == True:
-    #         print("No such implementation yet")
-    #         exit()
-    #         return None
-
-    #     self.model = 
-    #     return self.model
+    def get_model_from_local(self, local_model_path, logger):
+        self.model = MistralForCausalLM.from_pretrained(local_model_path)
+        print("Model loaded from local path", local_model_path)
+        print("Total Params v/s one attention layer param:",self.model_size_and_parameters(logger))
+        print("Original Model type:",self.model.dtype)
+        return self.model
     
     def model_size_and_parameters(self, logger = None):
         table = PrettyTable(["Modules", "Parameters"])
@@ -215,6 +212,7 @@ class Dataset_Preprocessing():
             self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         elif tok_type == "hf":
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+            print("Len of tokenizer before adding special tokens", len(self.tokenizer))
             self.tokenizer.add_special_tokens({'pad_token': '<pad>',
                                                 'cls_token': '<cls>',
                                                 'sep_token': '<sep>',
@@ -223,6 +221,9 @@ class Dataset_Preprocessing():
                                                 'bos_token': '<bos>',
                                                 'eos_token': '<eos>'
                                             })
+            # print the vocab of the tokenizer
+            # print("Vocab of the tokenizer: ", self.tokenizer.get_vocab())
+            print("Len of tokenizer after adding special tokens", len(self.tokenizer))
         return self.tokenizer
     
     def group_texts(self, examples):
@@ -515,35 +516,48 @@ class Dataset_Preprocessing():
 
 
         
-
-    def get_train_dataset(self, local_path=None):
+    def get_train_dataset(self, local_path=None, sample_size=None, batch_size=1):
         if local_path:
             # load the dataset from pickle file
             # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
             with open(local_path, 'rb') as f:
                 self.train_dataset = pickle.load(f)
+                # self.train_dataset = Dataset.from_dict(pickle.load(f))
+                if sample_size:
+                    self.train_dataset = self.train_dataset.select(range(sample_size*batch_size))
+                    # save the dataset to a pickle file
+                    pickle.dump(self.train_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_train_{sample_size}.pkl" ),"wb+"))
             return self.train_dataset
         if self.train_dataset is None:
             print("No train dataset found")
         return self.train_dataset
     
-    def get_val_dataset(self, local_path=None):
+    def get_val_dataset(self, local_path=None, sample_size=None,  batch_size=1):
         if local_path:
             # load the dataset from pickle file
             # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
             with open(local_path, 'rb') as f:
                 self.val_dataset = pickle.load(f)
+                # self.val_dataset = Dataset.from_dict(pickle.load(f))
+                if sample_size:
+                    self.val_dataset = self.val_dataset.select(range(sample_size))
+                    # save the dataset to a pickle file
+                    pickle.dump(self.val_dataset, open(os.path.join('/home/dosisiddhesh/latex_model/data',f"sample_val_{sample_size}.pkl"), "wb+"))
             return self.val_dataset
         if self.val_dataset is None:
             print("No val dataset found")
         return self.val_dataset
     
-    def get_test_dataset(self, local_path=None):
+    def get_test_dataset(self, local_path=None, sample_size=None,  batch_size=1):
         if local_path:
             # load the dataset from pickle file
             # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
             with open(local_path, 'rb') as f:
                 self.test_dataset = pickle.load(f)
+                # self.test_dataset = Dataset.from_dict(pickle.load(f))
+                if sample_size:
+                    self.test_dataset = self.test_dataset.select(range(sample_size))
+
             return self.test_dataset
         if self.test_dataset is None:
             print("No test dataset found")

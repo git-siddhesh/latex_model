@@ -297,6 +297,7 @@ for year in range(24):
         train_dataset = dataset_obj.get_train_dataset(local_path=False)
         val_dataset = dataset_obj.get_val_dataset(local_path=False)
         
+        
 
         # if checkpoint:
         #     print(f"Loading the model checkpoint for {year}-{month}")
