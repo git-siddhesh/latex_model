@@ -102,3 +102,83 @@ Dataset({
     features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
     num_rows: 47526
 })
+{'loss': 4.9764, 'grad_norm': 3.7250382900238037, 'learning_rate': 4.050470097769603e-06, 'epoch': 0.71}
+{'eval_loss': 4.013066291809082, 'eval_runtime': 2108.8883, 'eval_samples_per_second': 22.536, 'eval_steps_per_second': 22.536, 'epoch': 0.71}
+{'train_runtime': 39485.49, 'train_samples_per_second': 4.579, 'train_steps_per_second': 0.143, 'train_loss': 4.710553807228049, 'epoch': 1.0}
+***** Train results ***** TrainOutput(global_step=5649, training_loss=4.710553807228049, metrics={'train_runtime': 39485.49, 'train_samples_per_second': 4.579, 'train_steps_per_second': 0.143, 'train_loss': 4.710553807228049, 'epoch': 1.0})
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 39132.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+***** Eval results ***** {'eval_loss': 3.9447503089904785, 'eval_runtime': 2091.4325, 'eval_samples_per_second': 22.724, 'eval_steps_per_second': 22.724, 'epoch': 1.0}
+Model saved
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 23998.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+------------------------------------------------------------------------------------------
+Training for 0-2
+------------------------------------------------------------------------------------------
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_2_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_2_datasets.pkl
+type <class 'datasets.arrow_dataset.Dataset'>
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 177569
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47262
+})
+{'loss': 3.8088, 'grad_norm': 3.514476776123047, 'learning_rate': 3.729749148769639e-06, 'epoch': 0.72}
+{'eval_loss': 3.4291956424713135, 'eval_runtime': 220883.9091, 'eval_samples_per_second': 0.214, 'eval_steps_per_second': 0.214, 'epoch': 0.72}
+{'train_runtime': 254335.8058, 'train_samples_per_second': 0.698, 'train_steps_per_second': 0.022, 'train_loss': 3.723205071437421, 'epoch': 1.0}
+***** Train results ***** TrainOutput(global_step=5549, training_loss=3.723205071437421, metrics={'train_runtime': 254335.8058, 'train_samples_per_second': 0.698, 'train_steps_per_second': 0.022, 'train_loss': 3.723205071437421, 'epoch': 1.0})
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 39820.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+***** Eval results ***** {'eval_loss': 3.388298273086548, 'eval_runtime': 2011.7241, 'eval_samples_per_second': 23.493, 'eval_steps_per_second': 23.493, 'epoch': 1.0}
+Model saved
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 23998.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+------------------------------------------------------------------------------------------
+Training for 0-3
+------------------------------------------------------------------------------------------
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_3_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_3_datasets.pkl
+type <class 'datasets.arrow_dataset.Dataset'>
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 179003
+})
+Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47718
+})
+{'loss': 3.4018, 'grad_norm': 3.2279560565948486, 'learning_rate': 3.871065037566395e-06, 'epoch': 0.72}
+{'eval_loss': 3.095672130584717, 'eval_runtime': 2189.4641, 'eval_samples_per_second': 21.794, 'eval_steps_per_second': 21.794, 'epoch': 0.72}
+{'train_runtime': 37231.2941, 'train_samples_per_second': 4.808, 'train_steps_per_second': 0.15, 'train_loss': 3.34086343979081, 'epoch': 1.0}
+***** Train results ***** TrainOutput(global_step=5593, training_loss=3.34086343979081, metrics={'train_runtime': 37231.2941, 'train_samples_per_second': 4.808, 'train_steps_per_second': 0.15, 'train_loss': 3.34086343979081, 'epoch': 1.0})
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 36808.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+***** Eval results ***** {'eval_loss': 3.0611155033111572, 'eval_runtime': 2189.3412, 'eval_samples_per_second': 21.796, 'eval_steps_per_second': 21.796, 'epoch': 1.0}
+Model saved
++----------------------------------------------------------------------------------+
+GPU memory usage before cleaning cache: 23998.81 MB
+GPU memory usage after cleaning cache: 23174.81 MB
+GPU memory occupied from nvmlInit: 23795 MB.
++----------------------------------------------------------------------------------+
+------------------------------------------------------------------------------------------
+Training for 0-4
+------------------------------------------------------------------------------------------
+val_local_pickel_p

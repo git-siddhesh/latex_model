@@ -1,5 +1,5 @@
 #  CUDA_VISIBLE_DEVICES=0 python v3_training.py  --float16 --layer 13 --seq_len 2048 --batch_size 32 --max_grad_norm 0.5 --test
-#  CUDA_VISIBLE_DEVICES=0 python v2_mp_mistral.py  --float16 --layer 13 --seq_len 2048 --batch_size 32 --max_grad_norm 0.5 --checkpoint /home/dosisiddhesh/HITESH_LODWAL/llm_guru_hindi/model2/latex/main3_ep_1_lr_0.0006_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_13_N_Head_32_KV_Head_8_W_4096 --start_sample_file_index 13
+#  CUDA_VISIBLE_DEVICES=0 python v2_mp_mistral.py  --float16 --layer 13 --seq_len 2048 --batch_size 32 --max_grad_norm 0.5 --checkpoint /home/dosisiddhesh/HITESH_LODWAL/llm_guru_hindi/model2/latex/main3_ep_1_lr_0.0006_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_13_N_Head_32_KV_Head_8_W_4096 --start_month_index 13
 #  CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 6 --seq_len 2048 --batch_size 32 --max_grad_norm 0.5 --test 
 # eval loss is working with above call
 
@@ -11,6 +11,21 @@
 # CUDA_VISIBLE_DEVICES=2 python v3_training.py --layer 5 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --float16 --test
 # conda activate env_mist
 # CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 2 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --test 
+
+
+#----------------------
+# CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9
+# lingo_matesProjectslatex_fp322024-04-10Runsrun_latex_fp32_7_2048_32_0.9_30000_2024-04-10_14-49-57
+# wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-10
+# wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-10/runs/jwk9ndj3
+
+#----------------------
+# date: 20/04/2024 : training stopped at month 6, starting from month 7 with current model saved.
+# CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 7 --test
+# lingo_matesProjectslatex_fp322024-04-20Runsrun_latex_fp32_7_2048_32_0.9_30000_2024-04-20_14-39-35
+# wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-20
+# wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-20/runs/8lrs02kp
+#----------------------
 
 
 import os
@@ -43,7 +58,8 @@ parser.add_argument("--vocab", type=int, default=30000, help="vocab size")
 parser.add_argument("--checkpoint", type=str, default=None, help="checkpoint path incase not loading the model from saved directory")
 parser.add_argument("--max_grad_norm", type=float, default=1.0, help="max_grad_norm")
 parser.add_argument("--test", action="store_true", help="test mode")
-parser.add_argument("--start_sample_file_index", type=int, default=1, help="start_sample_file_index")
+parser.add_argument("--start_month_index", type=int, default=1, help="start_month_index")
+parser.add_argument("--start_year_index", type=int, default=0, help="start_year_index")
 # load local model 
 parser.add_argument("--local_model_path", default=None, help="load the model from the local directory in case in not loading from checkpoint")
 
@@ -70,8 +86,12 @@ root_dir = '/home/iitgn_cse/latex_model'
 data_path = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24'
 DATA_PATH_PICKEL = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24'
 TOKENIZER_HF_ST_PATH = '/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/hf_tokenizer_2.0%_30000_without_whitespace_pretokenizer_79372_outof_3968648'
-ROOT_LOG_DIR = os.path.join(root_dir,'log_main_fp32'+date)
-MODEL_ROOT_DIR = os.path.join(root_dir,'model_main_fp32'+date)
+if args.test:
+    ROOT_LOG_DIR = os.path.join(root_dir,'log_exp_fp32_'+date)
+    MODEL_ROOT_DIR = os.path.join(root_dir,'model_exp_fp32_'+date)
+else:
+    ROOT_LOG_DIR = os.path.join(root_dir,'log_main_fp32_'+date)
+    MODEL_ROOT_DIR = os.path.join(root_dir,'model_main_fp32_2024-04-10')
 
 os.makedirs(ROOT_LOG_DIR, exist_ok=True)
 os.makedirs(MODEL_ROOT_DIR, exist_ok=True)
@@ -172,7 +192,8 @@ param = Parameter("Mistral", value, use_cache= not args.enb_grad_checkpoint)
 hp = HyperParams(
     epoch=1, 
     learning_rate=2e-5, 
-    model_id="latex/main_fp32_"+date,
+    # model_id="latex/main_fp32_"+date,
+    model_id="latex/main_fp32_2024-04-10",
     weight_decay=0.1,
     warmup_steps=100,
     lr_scheduler_type="cosine", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
@@ -205,6 +226,8 @@ logger.info(f"Epoch: {hp.epochs}, Learning rate: {hp.learning_rate}, Weight deca
 # In[]: preparing the dataset ***********************************************************************************************
 dataset_obj = Dataset_Preprocessing(data_path, dataset_batch_size=hp.tokenizer_batch_size, max_seq_length=hp.max_seq_length)
 tokenizer = dataset_obj.load_tokenizer(tok_type="hf", tokenizer_path=TOKENIZER_HF_ST_PATH)
+print("Tokenizer loaded__________________________________________________________")
+logger.info("Tokenizer loaded__________________________________________________________")
 
 
 def get_model(local_model_path=None):
@@ -218,6 +241,10 @@ def get_model(local_model_path=None):
     gpu_usage(logger)
     return model
 
+model = get_model(local_model_path = args.local_model_path)
+print("MODEL LOADED__________________________________________________________")
+logger.info("MODEL LOADED__________________________________________________________")
+
 # metric = evaluate.load("accuracy")
 # def compute_metrics(eval_preds):
 #     preds, labels = eval_preds
@@ -228,6 +255,14 @@ def get_model(local_model_path=None):
 #     return metric.compute(predictions=preds, references=labels)
 #____________________________________________________________________________________________________________________________
 # In[]: Trainning the model using optimum transformer trainer *************************************************************************************************
+print("_______________________________________________________________________")
+logger.info("_______________________________________________________________________")
+print(f"MODEL SAVED AT: {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)}")
+logger.info(f"MODEL SAVED AT: {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)}")
+print("_______________________________________________________________________")
+logger.info("_______________________________________________________________________")
+
+
 # training_args = OVTrainingArguments(
 training_args = TrainingArguments(
     # distillation_weight = 0.5, # default 0.5
@@ -237,7 +272,7 @@ training_args = TrainingArguments(
     overwrite_output_dir=True,
     # per_device_train_batch_size=hp.BATCH_SIZE,  # Adjust as needed current 1
     per_device_train_batch_size=1,
-    per_device_eval_batch_size=1,
+    per_device_eval_batch_size=hp.BATCH_SIZE,
     evaluation_strategy="steps",
     eval_steps=hp.eval_steps, # Adjust as needed1
     logging_steps=hp.logging_steps,  # Adjust as needed
@@ -262,12 +297,10 @@ training_args = TrainingArguments(
     resume_from_checkpoint=args.checkpoint,
     max_grad_norm = args.max_grad_norm,
     # fp16_full_eval = True,
-
 )
 
 
 
-model = get_model(local_model_path = args.local_model_path)
 # checkpoint = '/home/dosisiddhesh/MISTRAL_EXP/model2/mistral/dummy_ep_1_lr_0.0006_linear_weight_decay_0.1_warmup_steps_100'
 # trainer = OVTrainer(
 trainer = Trainer(
@@ -283,13 +316,15 @@ trainer = Trainer(
 )
 
 # #%% Main training loop
-# for i in range(args.start_sample_file_index, 55):
-for year in range(24):
-    for month in range(1, 13):
+# for i in range(args.start_month_index, 55):
+for year in range(args.start_year_index, 24):
+    for month in range(args.start_month_index, 13):
         print("------------------------------------------------------------------------------------------")
         print(f"Training for {year}-{month}")
+        logger.info('------------------------------------------------------------------------------------------')
         logger.info(f"Training for {year}-{month}")
         print("------------------------------------------------------------------------------------------")
+        logger.info("------------------------------------------------------------------------------------------")
         val_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"val_{year}_{month}_datasets.pkl")
         train_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"train_{year}_{month}_datasets.pkl")
         print(f"val_local_pickel_path: {val_local_pickel_path}")
@@ -322,6 +357,8 @@ for year in range(24):
             # Train the model while applying quantization
             train_result = None
             if args.checkpoint:
+                print("Loading from the checkpoint")
+                print("trainer.resume_from_checkpoint: ", trainer.args.resume_from_checkpoint)
                 train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
             else:
                 train_result = trainer.train()
