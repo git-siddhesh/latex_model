@@ -199,11 +199,11 @@ class MyModel(Parameter, HyperParams):
             self.total_params += params
             if "layers.0" in name:
                 self.one_layer_params += params
-        print(table)
-        print(f"MISTRAL model size: {model_size/1000**2:.1f}M parameters")
-        print(f"Total Trainable Params: {self.total_params/10**6:.4f}M")
-        print(f"Total Trainable Params in one layer: {self.one_layer_params/10**6:.4f}M")
-        print("Original Model type:",self.model.dtype)
+        # print(table)
+        # print(f"MISTRAL model size: {model_size/1000**2:.1f}M parameters")
+        # print(f"Total Trainable Params: {self.total_params/10**6:.4f}M")
+        # print(f"Total Trainable Params in one layer: {self.one_layer_params/10**6:.4f}M")
+        # print("Original Model type:",self.model.dtype)
 
         if logger:
             logger.info(table)
@@ -245,7 +245,7 @@ class Dataset_Preprocessing():
             self.tokenizer = LlamaTokenizerFast.from_pretrained(tokenizer_path) # llama tokenizer
             self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         elif tok_type == "hf":
-            self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+            self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True)
             print("Len of tokenizer before adding special tokens", len(self.tokenizer))
             self.tokenizer.add_special_tokens({'pad_token': '<pad>',
                                                 'cls_token': '<cls>',
@@ -557,7 +557,6 @@ class Dataset_Preprocessing():
             # path = '/home/dosisiddhesh/MISTRAL_EXP/data/00_01_lm_datasets.pkl'
             with open(local_path, 'rb') as f:
                 self.train_dataset = pickle.load(f)
-                print("type", type(self.train_dataset))
                 # self.train_dataset = Dataset.from_dict(pickle.load(f))
                 if sample_size:
                     self.train_dataset = self.train_dataset.select(range(sample_size*batch_size))

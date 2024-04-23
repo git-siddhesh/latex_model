@@ -1,0 +1,207 @@
+2024-04-10 14:50:03,429 lightning.pytorch.core INFO     
+
+______________________________________________________________________________________
+2024-04-10 14:50:03,455 lightning.pytorch.core INFO     +++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+2024-04-10 14:50:03,455 lightning.pytorch.core INFO     device:0,  layer:7,  seq_len:2048,  batch_size:32,  float16:False,  adafactor:False,  enb_grad_checkpoint:False,  data_percent:0.001,  vocab:30000,  checkpoint:None,  max_grad_norm:0.9,  test:False,  start_sample_file_index:1,  local_model_path:None
+2024-04-10 14:50:03,455 lightning.pytorch.core INFO     D_emb: 4096, Vocal: 30000, d_head: 128, d_FF: 14336, N_Layer: 7, N_Head: 32, KV_Head: 8, Window: 4096
+2024-04-10 14:50:03,455 lightning.pytorch.core INFO     Epoch: 1, Learning rate: 2e-05, Weight decay: 0.1, Warmup steps: 100, LR scheduler type: cosine, Batch size: 32, Eval steps: 4000, Logging steps: 4000, Save steps: 4000, Save total limit: 3, Max seq length: 2048
+2024-04-10 14:50:25,460 lightning.pytorch.core INFO     +------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+2024-04-10 14:50:25,467 lightning.pytorch.core INFO     MISTRAL model size: 1772.5M parameters
+2024-04-10 14:50:25,467 lightning.pytorch.core INFO     Total Trainable Params: 1772.5481M
+2024-04-10 14:50:25,467 lightning.pytorch.core INFO     Total Trainable Params in one layer: 218.1120M
+2024-04-10 14:50:25,467 lightning.pytorch.core INFO     Original Model type:torch.float32
+2024-04-10 14:50:25,625 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 440.81 MB
+2024-04-10 14:50:25,626 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 440.81 MB
+2024-04-10 14:50:25,626 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 1061 MB.
+2024-04-10 14:50:28,325 lightning.pytorch.core INFO     Training for 0-1
+2024-04-10 14:50:28,325 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_1_datasets.pkl
+2024-04-10 14:50:28,325 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_1_datasets.pkl
+2024-04-10 14:51:07,469 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 180799
+})
+2024-04-10 14:51:07,470 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47526
+})
+2024-04-10 14:51:09,034 git.cmd    DEBUG    Popen(['git', 'cat-file', '--batch-check'], cwd=/home/iitgn_cse/latex_model, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-04-11 01:49:14,508 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5649, training_loss=4.710553807228049, metrics={'train_runtime': 39485.49, 'train_samples_per_second': 4.579, 'train_steps_per_second': 0.143, 'train_loss': 4.710553807228049, 'epoch': 1.0})
+2024-04-11 01:49:14,509 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 39132.81 MB
+2024-04-11 01:49:14,536 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-11 01:49:14,536 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-11 02:24:06,155 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': 3.9447503089904785, 'eval_runtime': 2091.4325, 'eval_samples_per_second': 22.724, 'eval_steps_per_second': 22.724, 'epoch': 1.0}
+2024-04-11 02:24:17,259 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 23998.81 MB
+2024-04-11 02:24:17,261 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-11 02:24:17,261 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-11 02:24:17,261 lightning.pytorch.core INFO     Training for 0-2
+2024-04-11 02:24:17,261 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_2_datasets.pkl
+2024-04-11 02:24:17,261 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_2_datasets.pkl
+2024-04-11 02:25:26,429 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 177569
+})
+2024-04-11 02:25:26,429 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47262
+})
+2024-04-14 01:04:24,393 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5549, training_loss=3.723205071437421, metrics={'train_runtime': 254335.8058, 'train_samples_per_second': 0.698, 'train_steps_per_second': 0.022, 'train_loss': 3.723205071437421, 'epoch': 1.0})
+2024-04-14 01:04:24,586 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 39820.81 MB
+2024-04-14 01:04:24,722 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 01:04:24,928 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 01:45:31,477 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': 3.388298273086548, 'eval_runtime': 2011.7241, 'eval_samples_per_second': 23.493, 'eval_steps_per_second': 23.493, 'epoch': 1.0}
+2024-04-14 01:46:27,106 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 23998.81 MB
+2024-04-14 01:46:27,109 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 01:46:27,110 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 01:46:27,120 lightning.pytorch.core INFO     Training for 0-3
+2024-04-14 01:46:27,120 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_3_datasets.pkl
+2024-04-14 01:46:27,121 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_3_datasets.pkl
+2024-04-14 01:52:44,016 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 179003
+})
+2024-04-14 01:52:44,017 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47718
+})
+2024-04-14 12:13:17,660 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5593, training_loss=3.34086343979081, metrics={'train_runtime': 37231.2941, 'train_samples_per_second': 4.808, 'train_steps_per_second': 0.15, 'train_loss': 3.34086343979081, 'epoch': 1.0})
+2024-04-14 12:13:17,660 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 36808.81 MB
+2024-04-14 12:13:17,679 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 12:13:17,679 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 12:49:47,214 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': 3.0611155033111572, 'eval_runtime': 2189.3412, 'eval_samples_per_second': 21.796, 'eval_steps_per_second': 21.796, 'epoch': 1.0}
+2024-04-14 12:50:41,657 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 23998.81 MB
+2024-04-14 12:50:41,660 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 12:50:41,660 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 12:50:41,660 lightning.pytorch.core INFO     Training for 0-4
+2024-04-14 12:50:41,660 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_4_datasets.pkl
+2024-04-14 12:50:41,700 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_4_datasets.pkl
+2024-04-14 12:51:30,451 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 176940
+})
+2024-04-14 12:51:30,454 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47391
+})
+2024-04-14 22:26:15,725 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5529, training_loss=3.0505217871111414, metrics={'train_runtime': 34483.6486, 'train_samples_per_second': 5.131, 'train_steps_per_second': 0.16, 'train_loss': 3.0505217871111414, 'epoch': 1.0})
+2024-04-14 22:26:15,727 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 40246.81 MB
+2024-04-14 22:26:15,755 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 22:26:15,756 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 23:00:16,028 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': 2.8472506999969482, 'eval_runtime': 2040.0785, 'eval_samples_per_second': 23.23, 'eval_steps_per_second': 23.23, 'epoch': 1.0}
+2024-04-14 23:01:10,588 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 23998.81 MB
+2024-04-14 23:01:10,595 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-14 23:01:10,597 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-14 23:01:10,598 lightning.pytorch.core INFO     Training for 0-5
+2024-04-14 23:01:10,599 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_5_datasets.pkl
+2024-04-14 23:01:10,600 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_5_datasets.pkl
+2024-04-14 23:01:59,303 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 178907
+})
+2024-04-14 23:01:59,306 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47563
+})
+2024-04-15 09:17:56,180 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5590, training_loss=2.9187594336985687, metrics={'train_runtime': 36955.0789, 'train_samples_per_second': 4.841, 'train_steps_per_second': 0.151, 'train_loss': 2.9187594336985687, 'epoch': 1.0})
+2024-04-15 09:17:56,182 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 39852.81 MB
+2024-04-15 09:17:56,208 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-15 09:17:56,209 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-15 09:53:10,132 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': nan, 'eval_runtime': 2112.2655, 'eval_samples_per_second': 22.518, 'eval_steps_per_second': 22.518, 'epoch': 1.0}
+2024-04-15 09:54:04,758 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 23998.81 MB
+2024-04-15 09:54:04,805 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-15 09:54:04,807 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-15 09:54:04,808 lightning.pytorch.core INFO     Training for 0-6
+2024-04-15 09:54:04,810 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_6_datasets.pkl
+2024-04-15 19:44:11,284 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 39820.81 MB
+2024-04-16 20:25:41,306 lightning.pytorch.core INFO     ***** Train results ***** TrainOutput(global_step=5791, training_loss=2.613982263695821, metrics={'train_runtime': 45854.6142, 'train_samples_per_second': 4.042, 'train_steps_per_second': 0.126, 'train_loss': 2.613982263695821, 'epoch': 1.0})
+2024-04-16 20:25:41,306 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 39820.81 MB
+2024-04-16 20:25:41,331 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-16 20:25:41,331 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-16 21:00:24,428 lightning.pytorch.core INFO     ***** Eval results ***** {'eval_loss': 2.4362058639526367, 'eval_runtime': 2082.9123, 'eval_samples_per_second': 22.795, 'eval_steps_per_second': 22.795, 'epoch': 1.0}
+2024-04-16 21:01:18,360 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 24000.81 MB
+2024-04-16 21:01:18,362 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 23174.81 MB
+2024-04-16 21:01:18,363 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 23795 MB.
+2024-04-16 21:01:18,363 lightning.pytorch.core INFO     Training for 0-9
+2024-04-16 21:01:18,363 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_9_datasets.pkl
+2024-04-16 21:01:18,363 lightning.pytorch.core INFO     train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_9_datasets.pkl
+2024-04-16 21:02:17,438 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 176889
+})
+2024-04-16 21:02:17,438 lightning.pytorch.core INFO     Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47312
+})
+2024-04-17 03:27:47,223 lightning.pytorch.core ERROR    Error occured while training the model ???????????????????????????????????
+2024-04-17 03:27:47,224 lightning.pytorch.core ERROR    [Errno 32] Broken pipe
+2024-04-17 03:27:47,319 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+2024-04-17 03:27:47,808 urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0

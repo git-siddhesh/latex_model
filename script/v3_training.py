@@ -21,7 +21,7 @@
 
 #----------------------
 # date: 20/04/2024 : training stopped at month 6, starting from month 7 with current model saved.
-# CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 7 --test
+# CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 7 
 # lingo_matesProjectslatex_fp322024-04-20Runsrun_latex_fp32_7_2048_32_0.9_30000_2024-04-20_14-39-35
 # wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-20
 # wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-20/runs/8lrs02kp
@@ -29,6 +29,10 @@
 
 
 import os
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+# from torch.utils.tensorboard import SummaryWriter
+# writer = SummaryWriter('runs/your_experiment_name')
+
 
 # Set up warnings
 import warnings
@@ -75,7 +79,7 @@ import wandb
 wandb.login()
 os.environ["WANDB_PROJECT"]="latex_fp32"+date
 WANDB_PROJECT="latex_training"+date
-wandb_run_name = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}"
+wandb_run_name = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
 
 #%% SET UP THE PATH
 ta_logging_dir="./logs_grad_clip"
@@ -142,28 +146,6 @@ from pynvml import *
 # tokenizer_path_llama = "hf-internal-testing/llama-tokenizer" #llama
 
 
-def gpu_usage(logger):
-    def print_gpu_utilization(logger):
-        nvmlInit()
-        handle = nvmlDeviceGetHandleByIndex(0)
-        info = nvmlDeviceGetMemoryInfo(handle)
-        print(f"GPU memory occupied from nvmlInit: {info.used//1024**2} MB.")
-        logger.info(f"GPU memory occupied from nvmlInit: {info.used//1024**2} MB.")
-
-    print("+----------------------------------------------------------------------------------+")
-    a,b = torch.cuda.mem_get_info()
-    gpu_mem_usage = (b-a)/(2**20)
-    print(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
-    logger.info(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
-
-    torch.cuda.empty_cache()
-    
-    a,b = torch.cuda.mem_get_info()
-    gpu_mem_usage = (b-a)/(2**20)
-    print(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
-    logger.info(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
-    print_gpu_utilization(logger)
-    print("+----------------------------------------------------------------------------------+")
 
 # ___________________________________________________________________________________________________________________________
 # *********************** @QAT ***********************************************************************************************************
@@ -200,38 +182,74 @@ hp = HyperParams(
     BATCH_SIZE=args.batch_size,
     tokenizer_batch_size=16,
     eval_steps=10 if args.test else 4000, # Adjust as needed1
-    logging_steps=10 if args.test else 4000,  # Adjust as needed
-    save_steps=10 if args.test else 4000,
+    logging_steps=5 if args.test else 500,  # Adjust as needed
+    save_steps=5 if args.test else 2000,
     save_total_limit = 3,
     max_seq_length=int(args.seq_len),
 )
 
 model_obj = MyModel(model_id=hp.model_id, hp=hp, param=param)
-print(model_obj.model_name)
+
+class TqdmLoggingHandler(logging.StreamHandler):
+    def __init__(self, level=logging.NOTSET):
+        super().__init__(stream=sys.stdout)  # Initialize the handler with sys.stdout
+        self.setLevel(level)
+
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            tqdm.tqdm.write(msg)  # Use tqdm's write function to ensure message handling in tqdm
+            self.flush()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.handleError(record)
+
 log_file_name = f"{ROOT_LOG_DIR}/log_{model_obj.model_name.split('/')[-1]}_{timestamp}.log"
 logging.basicConfig(level=logging.NOTSET, filename=log_file_name, filemode="w", format="%(asctime)-15s %(name)-10s %(levelname)-8s %(message)s")
 
 logging.getLogger("lightning.pytorch").setLevel(logging.NOTSET)
+# Add TqdmLoggingHandler to logger
 logger = logging.getLogger("lightning.pytorch.core")
+logger.addHandler(TqdmLoggingHandler())
 logger.addHandler(logging.FileHandler("core.log"))
-# add a line to seperate current log from prev
-logger.info("\n\n______________________________________________________________________________________")
-logger.info("+++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++\n")
+
+
+def gpu_usage(logger):
+    def print_gpu_utilization(logger):
+        nvmlInit()
+        handle = nvmlDeviceGetHandleByIndex(0)
+        info = nvmlDeviceGetMemoryInfo(handle)
+        logger.info(f"GPU memory occupied from nvmlInit: {info.used//1024**2} MB.")
+
+    print("+----------------------------------------------------------------------------------+")
+    a,b = torch.cuda.mem_get_info()
+    gpu_mem_usage = (b-a)/(2**20)
+    logger.info(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
+
+    torch.cuda.empty_cache()
+    
+    a,b = torch.cuda.mem_get_info()
+    gpu_mem_usage = (b-a)/(2**20)
+    logger.info(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
+    print_gpu_utilization(logger)
+    print("+----------------------------------------------------------------------------------+")
+
+
+logger.info(f"\n\n{'_'*150}\n+++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++\n")
 logger.info(',  '.join([i[0]+':'+str(i[1]) for i in args._get_kwargs()]))
 logger.info(f"D_emb: {D_emb}, Vocal: {Vocal}, d_head: {d_head}, d_FF: {d_FF}, N_Layer: {N_Layer}, N_Head: {N_Head}, KV_Head: {KV_Head}, Window: {Window}")
-# logger.info(f"Training data rows: {data_row}")
 logger.info(f"Epoch: {hp.epochs}, Learning rate: {hp.learning_rate}, Weight decay: {hp.weight_decay}, Warmup steps: {hp.warmup_steps}, LR scheduler type: {hp.lr_scheduler_type}, Batch size: {hp.BATCH_SIZE}, Eval steps: {hp.eval_steps}, Logging steps: {hp.logging_steps}, Save steps: {hp.save_steps}, Save total limit: {hp.save_total_limit}, Max seq length: {hp.max_seq_length}")
+logger.info(model_obj.model_name)
 
 #____________________________________________________________________________________________________________________________
-# In[]: preparing the dataset ***********************************************************************************************
+#%% preparing the dataset ***********************************************************************************************
 dataset_obj = Dataset_Preprocessing(data_path, dataset_batch_size=hp.tokenizer_batch_size, max_seq_length=hp.max_seq_length)
 tokenizer = dataset_obj.load_tokenizer(tok_type="hf", tokenizer_path=TOKENIZER_HF_ST_PATH)
-print("Tokenizer loaded__________________________________________________________")
 logger.info("Tokenizer loaded__________________________________________________________")
 
-
 def get_model(local_model_path=None):
-    print("Loading model...")
+    logger.info("Loading model...")
     model = None
     if local_model_path:
         model = model_obj.get_model_from_local(local_model_path=local_model_path, logger= logger)
@@ -241,9 +259,10 @@ def get_model(local_model_path=None):
     gpu_usage(logger)
     return model
 
+st = time.time()
 model = get_model(local_model_path = args.local_model_path)
-print("MODEL LOADED__________________________________________________________")
-logger.info("MODEL LOADED__________________________________________________________")
+logger.info(f"MODEL LOADED took __________ {(time.time()-st)/60} minutes_________________")
+logger.info(f"{'_'*150}\nMODEL SAVED AT: {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)}")
 
 # metric = evaluate.load("accuracy")
 # def compute_metrics(eval_preds):
@@ -254,14 +273,6 @@ logger.info("MODEL LOADED_______________________________________________________
 #     preds = preds[:, :-1].reshape(-1)
 #     return metric.compute(predictions=preds, references=labels)
 #____________________________________________________________________________________________________________________________
-# In[]: Trainning the model using optimum transformer trainer *************************************************************************************************
-print("_______________________________________________________________________")
-logger.info("_______________________________________________________________________")
-print(f"MODEL SAVED AT: {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)}")
-logger.info(f"MODEL SAVED AT: {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)}")
-print("_______________________________________________________________________")
-logger.info("_______________________________________________________________________")
-
 
 # training_args = OVTrainingArguments(
 training_args = TrainingArguments(
@@ -272,17 +283,18 @@ training_args = TrainingArguments(
     overwrite_output_dir=True,
     # per_device_train_batch_size=hp.BATCH_SIZE,  # Adjust as needed current 1
     per_device_train_batch_size=1,
-    per_device_eval_batch_size=hp.BATCH_SIZE,
+    per_device_eval_batch_size=1,
     evaluation_strategy="steps",
     eval_steps=hp.eval_steps, # Adjust as needed1
     logging_steps=hp.logging_steps,  # Adjust as needed
     gradient_accumulation_steps=hp.BATCH_SIZE,
+    eval_accumulation_steps=hp.BATCH_SIZE,
     num_train_epochs=hp.epochs,  # Adjust as needed
     weight_decay=hp.weight_decay,
     warmup_steps=hp.warmup_steps,
     lr_scheduler_type=hp.lr_scheduler_type,
     learning_rate=hp.learning_rate,
-    load_best_model_at_end=True, 
+    load_best_model_at_end=False, 
     save_steps=hp.save_steps,  # Adjust as needed
     # fp16=True if args.float16 else False,
     # fp16 = True,
@@ -297,6 +309,8 @@ training_args = TrainingArguments(
     resume_from_checkpoint=args.checkpoint,
     max_grad_norm = args.max_grad_norm,
     # fp16_full_eval = True,
+    do_train = True,
+    do_eval = True,
 )
 
 
@@ -314,128 +328,62 @@ trainer = Trainer(
     # ov_config=ov_config,
     # task="text-generation",
 )
-
-# #%% Main training loop
+logger.info(f"trainer.args: {trainer.args} \n Took{(time.time()-st)/60} minutes")
+#____________________________________________________________________________________________________________________________
+#%% Main training loop
 # for i in range(args.start_month_index, 55):
 for year in range(args.start_year_index, 24):
     for month in range(args.start_month_index, 13):
-        print("------------------------------------------------------------------------------------------")
-        print(f"Training for {year}-{month}")
-        logger.info('------------------------------------------------------------------------------------------')
-        logger.info(f"Training for {year}-{month}")
-        print("------------------------------------------------------------------------------------------")
-        logger.info("------------------------------------------------------------------------------------------")
+
+        logger.info(f"{'_'*150}\nTraining for {year}-{month}\n{'_'*150}")
         val_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"val_{year}_{month}_datasets.pkl")
         train_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"train_{year}_{month}_datasets.pkl")
-        print(f"val_local_pickel_path: {val_local_pickel_path}")
-        print(f"train_local_pickel_path: {train_local_pickel_path}")
-        logger.info(f"val_local_pickel_path: {val_local_pickel_path}")
-        logger.info(f"train_local_pickel_path: {train_local_pickel_path}")
-        
+        logger.info(f"val_local_pickel_path: {val_local_pickel_path}\ntrain_local_pickel_path: {train_local_pickel_path}")
+        #-------------------------------------------------------------------------------------------------------------------
         if not os.path.exists(val_local_pickel_path):
-            print(f"File not found: {val_local_pickel_path}")
             logger.info(f"File not found: {val_local_pickel_path}")
             exit()
         if not os.path.exists(train_local_pickel_path):
-            print(f"File not found: {train_local_pickel_path}")
             logger.info(f"File not found: {train_local_pickel_path}")
             exit()
-
-        trainer.train_dataset = dataset_obj.get_train_dataset(local_path=train_local_pickel_path, sample_size=hp.eval_steps*hp.BATCH_SIZE*3 if args.test else None)
+        #-------------------------------------------------------------------------------------------------------------------
+        st = time.time()
+        trainer.train_dataset = dataset_obj.get_train_dataset(local_path=train_local_pickel_path, sample_size=hp.eval_steps*hp.BATCH_SIZE if args.test else None)
         trainer.eval_dataset = dataset_obj.get_val_dataset(local_path=val_local_pickel_path, sample_size=hp.eval_steps if args.test else None)
-        # train_dataset.select(range(10))
-        print(trainer.train_dataset)
-        print(trainer.eval_dataset)
-        logger.info(trainer.train_dataset)
-        logger.info(trainer.eval_dataset)
-
-
-        # trainer.train_dataset = train_dataset
-        # trainer.eval_dataset = val_dataset
-
+        logger.info(f'trainer.train_dataset: {trainer.train_dataset}\ntrainer.eval_dataset: {trainer.eval_dataset} \n Took{(time.time()-st)/60} minutes')
+        #-------------------------------------------------------------------------------------------------------------------
         try:
-            # Train the model while applying quantization
+            st = time.time()
             train_result = None
-            if args.checkpoint:
-                print("Loading from the checkpoint")
-                print("trainer.resume_from_checkpoint: ", trainer.args.resume_from_checkpoint)
-                train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
-            else:
-                train_result = trainer.train()
-            print(f"***** Train results ***** {train_result}")
-            logger.info(f"***** Train results ***** {train_result}")
+            #print the do_train arguments of the trainingArguments for the trainer
+            train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
+            logger.info(f"{'_'*100}\n***** Train results ***** {train_result}\n Took{(time.time()-st)/60} minutes")
+            logger.info(f"metrics = {train_result.metrics}")
             gpu_usage(logger)
-
         except Exception as e: 
-            print("Error occured while training the model ???????????????????????????????????")
-            logger.error("Error occured while training the model ???????????????????????????????????")
-            print(e)
-            logger.error(e)
+            logger.info(f'{"#-"*100}\nError occured while training the model\n{e} \n Took{(time.time()-st)/60} minutes')
             exit()
+        #-------------------------------------------------------------------------------------------------------------------
         try:
-
+            st = time.time()
             metrics = trainer.evaluate()
-            print(f"***** Eval results ***** {metrics}")
-            logger.info(f"***** Eval results ***** {metrics}")
+            logger.info(f"{'-'*100}\n***** Eval results ***** {metrics}\n Took{(time.time()-st)/60} minutes")
         except Exception as e:
-            logger.error("Error occured while training the model ???????????????????????????????????")
-            print(e)
-            logger.error(e)
-
+            logger.info(f'{"#-"*100}\nError occured while evaluating the model\n{e} \n Took{(time.time()-st)/60} minutes')
+        #-------------------------------------------------------------------------------------------------------------------
         try:
-            # Export the quantized model to OpenVINO IR format and save it
-            trainer.save_model()
-            print("Model saved")
+            st = time.time()
+            trainer.save_state()
+            logger.info(f"Model STATE saved successfully \n Took{(time.time()-st)/60} minutes")
         except Exception as e:
-            print("Error occured while saving the model ???????????????????????????????????")
-            logger.error("Error occured while saving the model ???????????????????????????????????")
-            print(e)
-            logger.error(e)
+            logger.info(f'{"#-"*100}\nError occured while saving the MODEL STATE\n{e} \n Took{(time.time()-st)/60} minutes')
+        #-------------------------------------------------------------------------------------------------------------------
+        try:
+            st = time.time()
+            trainer.save_model()
+            logger.info(f"Model saved successfully @ {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)} \n Took{(time.time()-st)/60} minutes")
+        except Exception as e:
+            logger.info(f'{"#-"*100}\nError occured while saving the model\n{e} \n Took{(time.time()-st)/60} minutes')
+        #-------------------------------------------------------------------------------------------------------------------
         gpu_usage(logger)
-
-# In[]: ___________________________________________________________________________________________________________________
-# last working config
-'''
-D_emb = 4096
-Vocal = 30000
-d_head = 128
-d_FF = 7168 #14336
-N_Layer = 4
-N_Head = 32
-KV_Head = 8
-Window = 4096 #8192
-data_row = 100
-value = [D_emb,Vocal,d_head,d_FF,N_Layer,N_Head,KV_Head,Window]
-#**************************************************************************************************
-param = Parameter("Mistral", value)
-hp = HyperParams(
-    epoch=1, 
-    learning_rate=6e-4, 
-    model_id="mistral/dummy",
-    weight_decay=0.1,  
-    warmup_steps=50,
-    lr_scheduler_type="linear", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
-    BATCH_SIZE=4,
-    tokenizer_batch_size=16,
-    eval_steps=50, # Adjust as needed1
-    logging_steps=50,  # Adjust as needed
-    save_steps=200,
-    save_total_limit = 1,
-    max_seq_length=int(1024*2),
-)
-'''
-
-#----------------------------------------------
-# if checkpoint:
-#     print(f"Loading the model checkpoint for {year}-{month}")
-#     logger.info(f"Loading the model checkpoint for {year}-{month}: {checkpoint}")
-#     model = OVModelForCausalLM.from_pretrained(checkpoint, export=True)
-#     print("Model loaded")
-#     logger.info("Model loaded")
-#     gpu_usage(logger)
-#     checkpoint = os.path.join("/home/dosisiddhesh/MISTRAL_EXP/model2", model_obj.model_name)
-# else:
-#     model = get_model()
-
-#-----------------------------------------------------------------------------------------------------------------------------
-# CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node 2 v2_mp_mistral.py --layer 10 --seq_len 2048 --float16 
+        logger.info(f"{'_'*150}\nTraining for {year}-{month} completed\n{'_'*150}")
