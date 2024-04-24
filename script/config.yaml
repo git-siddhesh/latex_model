@@ -1,30 +1,51 @@
-PATH:
-  ROOT: /home/dosisiddhesh/latex_model
-  DATA: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_2
-  DATA_PKL: /home/dosisiddhesh/SID_DATA_PROCESSED/DATA_PICKEL
-  MODEL: /home/dosisiddhesh/latex_model/model_exp
-  TOKENIZER: /home/dosisiddhesh/MISTRAL_EXP/model/hf_tokenizer_1.0%_30000_new
-  LOG: /home/dosisiddhesh/latex_model/log_exp
-PARAMETERS:
+ParamConfig:
   D_emb: 4096
-  Vocab: 30000
-  D_head: 128
-  D_FF: 14336
-  N_Layer: 5
+  vocab: 30000
+  d_head: 128
+  d_FF: 14336
+  N_Layer: 7
   N_Head: 32
   KV_Head: 8
   Window: 4096
-HYPERPARAMETERS:
-  seq_len: 4096
-  grad_acc_batch_size: 32
-  batch_size: 1
-TRAINING_PARAM:
-  EPOCHS: 100
-  LEARNING_RATE: 0.0001
-  WARMUP_STEPS: 1000
-  EPSILON: 1.0e-06
-  CLIP_NORM: 1.0
+
+HyperParamConfig:
+  epoch: 1
+  learning_rate: 2e-5
+  model_id: "latex/main_fp32_2024-04-10"
+  weight_decay: 0.1
+  warmup_steps: 100
+  lr_scheduler_type: cosine #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
+  BATCH_SIZE: 32
+  tokenizer_batch_size: 16
+  eval_steps: 4000 # 10
+  logging_steps: 500 # 5
+  save_steps: 2000 # 5
+  save_total_limit: 3
+  max_seq_length: 2048
+
+
+TrainerConfig:
+  max_grad_norm: 0.9
+  eval_accumulation_steps: 32
+  gradient_accumulation_steps: 1 
+  report_to: 'wandb'
   float16: false
   adafactor: false
-  enb_grad_checkpoint: false
-LOGGING: {}
+  enable_grad_checkpoint: false # disable use cache in model config and enable gradient checkpointing
+
+PathConfig:
+  checkpoint_dir: null
+  ROOT_DIR: "/home/iitgn_cse/latex_model"
+  DATA_PATH_PICKEL: "/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24"
+  TOKENIZER_HF_ST_PATH: "/home/iitgn_cse/siddhesh_tokenize_data_9-4-24/hf_tokenizer_2.0%_30000_without_whitespace_pretokenizer_79372_outof_3968648"
+  MODEL_ROOT_DIR: "/home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096"
+  local_model_path: "/home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096"
+
+OtherConfig:
+  test: false
+  PYTORCH_CUDA_ALLOC_CONF: "expandable_segments:True"
+  CUDA_VISIBLE_DEVICES: "0"
+  WANDB_PROJECT: "latex_training"
+  CUDA_LAUNCH_BLOCKING: "1"
+  start_year_index: 0
+  start_month_index: 7

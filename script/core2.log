@@ -1,0 +1,277 @@
+______________________________________________________________________________________________________________________________________________________
++++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
+
+test:False,  layer:7,  float16:False,  adafactor:False,  vocab:30000,  batch_size:32,  seq_len:2048,  start_year_index:0,  max_grad_norm:0.9,  start_month_index:8,  device:0,  checkpoint:None,  enb_grad_checkpoint:False,  local_model_path:/home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+
++-------------------------+-------+
+|        Parameter        | Value |
++-------------------------+-------+
+|   MODEL EMBEDDING DIM   |  4096 |
+|        VOCABULARY       | 30000 |
+|       PER HEAD DIM      |  128  |
+| FEED-FORWARD HIDDEN DIM | 14336 |
+|     NUMBER OF LAYERS    |   7   |
+|     NUMBER OF Q-HEAD    |   32  |
+|    NUMBER OF KV-HEAD    |   8   |
+|       WINDOW SIZE       |  4096 |
+|        use_cache        |  True |
++-------------------------+-------+
+
++-------------------------+--------+
+|      HyperParameter     | Value  |
++-------------------------+--------+
+|          EPOCHS         |   1    |
+|      LEARNING RATE      | 2e-05  |
+|       WEIGHT DECAY      |  0.1   |
+|       WARMUP STEPS      |  100   |
+|    LR SCHEDULER TYPE    | cosine |
+|     TRAIN BATCH SIZE    |   32   |
+|     EVAL BATCH SIZE     |   1    |
+|   TOKENIZER BATCH SIZE  |   16   |
+| EVAL ACCUMULATION STEPS |   32   |
+|        EVAL STEPS       |  4000  |
+|        SAVE STEPS       |  2000  |
+|      LOGGING STEPS      |  500   |
+|     SAVE TOTAL LIMIT    |   3    |
+|      MAX SEQ LENGTH     |  2048  |
+|        EVAL FRAC        |  0.1   |
++-------------------------+--------+
+MODEL PATH: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+Tokenizer loaded__________________________________________________________
+____________________________________________________________________________________________________
+Loading the model
+
++------------------------------------------------+------------+
+|                    Modules                     | Parameters |
++------------------------------------------------+------------+
+|           model.embed_tokens.weight            | 122880000  |
+|     model.layers.0.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.0.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.0.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.0.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.0.mlp.up_proj.weight        |  58720256  |
+|      model.layers.0.mlp.down_proj.weight       |  58720256  |
+|     model.layers.0.input_layernorm.weight      |    4096    |
+| model.layers.0.post_attention_layernorm.weight |    4096    |
+|     model.layers.1.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.1.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.1.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.1.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.1.mlp.up_proj.weight        |  58720256  |
+|      model.layers.1.mlp.down_proj.weight       |  58720256  |
+|     model.layers.1.input_layernorm.weight      |    4096    |
+| model.layers.1.post_attention_layernorm.weight |    4096    |
+|     model.layers.2.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.2.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.2.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.2.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.2.mlp.up_proj.weight        |  58720256  |
+|      model.layers.2.mlp.down_proj.weight       |  58720256  |
+|     model.layers.2.input_layernorm.weight      |    4096    |
+| model.layers.2.post_attention_layernorm.weight |    4096    |
+|     model.layers.3.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.3.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.3.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.3.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.3.mlp.up_proj.weight        |  58720256  |
+|      model.layers.3.mlp.down_proj.weight       |  58720256  |
+|     model.layers.3.input_layernorm.weight      |    4096    |
+| model.layers.3.post_attention_layernorm.weight |    4096    |
+|     model.layers.4.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.4.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.4.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.4.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.4.mlp.up_proj.weight        |  58720256  |
+|      model.layers.4.mlp.down_proj.weight       |  58720256  |
+|     model.layers.4.input_layernorm.weight      |    4096    |
+| model.layers.4.post_attention_layernorm.weight |    4096    |
+|     model.layers.5.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.5.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.5.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.5.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.5.mlp.up_proj.weight        |  58720256  |
+|      model.layers.5.mlp.down_proj.weight       |  58720256  |
+|     model.layers.5.input_layernorm.weight      |    4096    |
+| model.layers.5.post_attention_layernorm.weight |    4096    |
+|     model.layers.6.self_attn.q_proj.weight     |  16777216  |
+|     model.layers.6.self_attn.k_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.v_proj.weight     |  4194304   |
+|     model.layers.6.self_attn.o_proj.weight     |  16777216  |
+|      model.layers.6.mlp.gate_proj.weight       |  58720256  |
+|       model.layers.6.mlp.up_proj.weight        |  58720256  |
+|      model.layers.6.mlp.down_proj.weight       |  58720256  |
+|     model.layers.6.input_layernorm.weight      |    4096    |
+| model.layers.6.post_attention_layernorm.weight |    4096    |
+|               model.norm.weight                |    4096    |
+|                 lm_head.weight                 | 122880000  |
++------------------------------------------------+------------+
+MISTRAL model size: 1772.5M parameters
+Total Trainable Params: 1772.5481M
+Total Trainable Params in one layer: 218.1120M
+Original Model type:torch.float32
+GPU memory usage before cleaning cache: 440.88 MB
+GPU memory usage after cleaning cache: 440.88 MB
+GPU memory occupied from nvmlInit: 1061 MB.
+MODEL LOADED took __________ 0.044197173913319905 minutes_________________
+______________________________________________________________________________________________________________________________________________________
+MODEL SAVED AT: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+
++------------------------------------+-------------------------------------------------------------------------------------------------------------+
+|         Training Argument          |                                                    Value                                                    |
++------------------------------------+-------------------------------------------------------------------------------------------------------------+
+|             output_dir             |                              /home/iitgn_cse/latex_model/model_main_fp32_2024-                              |
+|                                    |                                 04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-                                |
+|                                    |                              05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30                             |
+|                                    |                              000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4                             |
+|                                    |                                                     096                                                     |
+|        overwrite_output_dir        |                                                     True                                                    |
+|              do_train              |                                                     True                                                    |
+|              do_eval               |                                                     True                                                    |
+|             do_predict             |                                                    False                                                    |
+|        evaluation_strategy         |                                                    steps                                                    |
+|        prediction_loss_only        |                                                    False                                                    |
+|    per_device_train_batch_size     |                                                      1                                                      |
+|     per_device_eval_batch_size     |                                                      1                                                      |
+|      per_gpu_train_batch_size      |                                                     None                                                    |
+|      per_gpu_eval_batch_size       |                                                     None                                                    |
+|    gradient_accumulation_steps     |                                                      32                                                     |
+|      eval_accumulation_steps       |                                                      32                                                     |
+|             eval_delay             |                                                      0                                                      |
+|           learning_rate            |                                                    2e-05                                                    |
+|            weight_decay            |                                                     0.1                                                     |
+|             adam_beta1             |                                                     0.9                                                     |
+|             adam_beta2             |                                                    0.999                                                    |
+|            adam_epsilon            |                                                    1e-08                                                    |
+|           max_grad_norm            |                                                     0.9                                                     |
+|          num_train_epochs          |                                                      1                                                      |
+|             max_steps              |                                                      -1                                                     |
+|         lr_scheduler_type          |                                                    cosine                                                   |
+|        lr_scheduler_kwargs         |                                                      {}                                                     |
+|            warmup_ratio            |                                                     0.0                                                     |
+|            warmup_steps            |                                                     100                                                     |
+|             log_level              |                                                    debug                                                    |
+|         log_level_replica          |                                                   warning                                                   |
+|          log_on_each_node          |                                                     True                                                    |
+|            logging_dir             |                                                    ./logs                                                   |
+|          logging_strategy          |                                                    steps                                                    |
+|         logging_first_step         |                                                    False                                                    |
+|           logging_steps            |                                                     500                                                     |
+|       logging_nan_inf_filter       |                                                     True                                                    |
+|           save_strategy            |                                                    steps                                                    |
+|             save_steps             |                                                     2000                                                    |
+|          save_total_limit          |                                                      3                                                      |
+|          save_safetensors          |                                                     True                                                    |
+|         save_on_each_node          |                                                    False                                                    |
+|          save_only_model           |                                                    False                                                    |
+|              no_cuda               |                                                    False                                                    |
+|              use_cpu               |                                                    False                                                    |
+|           use_mps_device           |                                                    False                                                    |
+|                seed                |                                                      42                                                     |
+|             data_seed              |                                                     None                                                    |
+|           jit_mode_eval            |                                                    False                                                    |
+|              use_ipex              |                                                    False                                                    |
+|                bf16                |                                                    False                                                    |
+|                fp16                |                                                    False                                                    |
+|           fp16_opt_level           |                                                      O1                                                     |
+|       half_precision_backend       |                                                     auto                                                    |
+|           bf16_full_eval           |                                                    False                                                    |
+|           fp16_full_eval           |                                                    False                                                    |
+|                tf32                |                                                     None                                                    |
+|             local_rank             |                                                      0                                                      |
+|            ddp_backend             |                                                     None                                                    |
+|           tpu_num_cores            |                                                     None                                                    |
+|         tpu_metrics_debug          |                                                    False                                                    |
+|               debug                |                                                      []                                                     |
+|        dataloader_drop_last        |                                                    False                                                    |
+|             eval_steps             |                                                     4000                                                    |
+|       dataloader_num_workers       |                                                      0                                                      |
+|     dataloader_prefetch_factor     |                                                     None                                                    |
+|             past_index             |                                                      -1                                                     |
+|              run_name              |                              run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-                              |
+|                                    |                                               07-17_test=False                                              |
+|            disable_tqdm            |                                                    False                                                    |
+|       remove_unused_columns        |                                                     True                                                    |
+|            label_names             |                                                     None                                                    |
+|       load_best_model_at_end       |                                                    False                                                    |
+|       metric_for_best_model        |                                                     None                                                    |
+|         greater_is_better          |                                                     None                                                    |
+|          ignore_data_skip          |                                                    False                                                    |
+|                fsdp                |                                                      []                                                     |
+|        fsdp_min_num_params         |                                                      0                                                      |
+|            fsdp_config             |            {'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False}           |
+| fsdp_transformer_layer_cls_to_wrap |                                                     None                                                    |
+|         accelerator_config         | AcceleratorConfig(split_batches=False, dispatch_batches=None, even_batches=True, use_seedable_sampler=True) |
+|             deepspeed              |                                                     None                                                    |
+|       label_smoothing_factor       |                                                     0.0                                                     |
+|               optim                |                                                 adamw_torch                                                 |
+|             optim_args             |                                                     None                                                    |
+|             adafactor              |                                                    False                                                    |
+|          group_by_length           |                                                    False                                                    |
+|         length_column_name         |                                                    length                                                   |
+|             report_to              |                                                  ['wandb']                                                  |
+|     ddp_find_unused_parameters     |                                                     None                                                    |
+|         ddp_bucket_cap_mb          |                                                     None                                                    |
+|       ddp_broadcast_buffers        |                                                     None                                                    |
+|       dataloader_pin_memory        |                                                     True                                                    |
+|   dataloader_persistent_workers    |                                                    False                                                    |
+|        skip_memory_metrics         |                                                     True                                                    |
+|     use_legacy_prediction_loop     |                                                    False                                                    |
+|            push_to_hub             |                                                    False                                                    |
+|       resume_from_checkpoint       |                                                     None                                                    |
+|            hub_model_id            |                                                     None                                                    |
+|            hub_strategy            |                                                  every_save                                                 |
+|             hub_token              |                                                     None                                                    |
+|          hub_private_repo          |                                                    False                                                    |
+|          hub_always_push           |                                                    False                                                    |
+|       gradient_checkpointing       |                                                    False                                                    |
+|   gradient_checkpointing_kwargs    |                                                     None                                                    |
+|     include_inputs_for_metrics     |                                                    False                                                    |
+|            fp16_backend            |                                                     auto                                                    |
+|        push_to_hub_model_id        |                                                     None                                                    |
+|      push_to_hub_organization      |                                                     None                                                    |
+|         push_to_hub_token          |                                                     None                                                    |
+|           mp_parameters            |                                                                                                             |
+|        auto_find_batch_size        |                                                    False                                                    |
+|          full_determinism          |                                                    False                                                    |
+|            torchdynamo             |                                                     None                                                    |
+|             ray_scope              |                                                     last                                                    |
+|            ddp_timeout             |                                                     1800                                                    |
+|           torch_compile            |                                                    False                                                    |
+|       torch_compile_backend        |                                                     None                                                    |
+|         torch_compile_mode         |                                                     None                                                    |
+|          dispatch_batches          |                                                     None                                                    |
+|           split_batches            |                                                     None                                                    |
+|     include_tokens_per_second      |                                                    False                                                    |
+|   include_num_input_tokens_seen    |                                                    False                                                    |
+|        neftune_noise_alpha         |                                                     None                                                    |
+|         distributed_state          |                                 Distributed environment: DistributedType.NO                                 |
+|                                    |                                               Num processes: 1                                              |
+|                                    |                                               Process index: 0                                              |
+|                                    |                                            Local process index: 0                                           |
+|                                    |                                                 Device: cuda                                                |
+|                                    |                                                                                                             |
+|               _n_gpu               |                                                      1                                                      |
+|      __cached__setup_devices       |                                                    cuda:0                                                   |
+|          deepspeed_plugin          |                                                     None                                                    |
++------------------------------------+-------------------------------------------------------------------------------------------------------------+
+______________________________________________________________________________________________________________________________________________________
+Training for 0-8
+______________________________________________________________________________________________________________________________________________________
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_8_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_8_datasets.pkl
+trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 185322
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47481
+}) 
+ Took0.5766875465710958 minutes
+Popen(['git', 'cat-file', '--batch-check'], cwd=/home/iitgn_cse/latex_model, stdin=<valid stream>, shell=False, universal_newlines=False)

@@ -20,6 +20,23 @@ import time
 torch.manual_seed(191009)
 import pickle
 
+from pynvml import *
+def gpu_usage(logger):
+    def print_gpu_utilization(logger):
+        nvmlInit()
+        logger.info(f"GPU memory occupied from nvmlInit: {nvmlDeviceGetMemoryInfo(nvmlDeviceGetHandleByIndex(0)).used//1024**2} MB.")
+    print("+----------------------------------------------------------------------------------+")
+    a,b = torch.cuda.mem_get_info()
+    gpu_mem_usage = (b-a)/(2**20)
+    logger.info(f"GPU memory usage before cleaning cache: {gpu_mem_usage:.2f} MB")
+    torch.cuda.empty_cache()
+    a,b = torch.cuda.mem_get_info()
+    gpu_mem_usage = (b-a)/(2**20)
+    logger.info(f"GPU memory usage after cleaning cache: {gpu_mem_usage:.2f} MB")
+    print_gpu_utilization(logger)
+    print("+----------------------------------------------------------------------------------+")
+
+
 # code_path = "/home/dosisiddhesh/MISTRAL_EXP/mistral-src"
 data_path = "/home/dosisiddhesh/MISTRAL_EXP/data/latex.csv"
 model_path = Path("/home/dosisiddhesh/MISTRAL_EXP/model/mistral-7B-v0.1")  # model and tokenizer location
@@ -27,17 +44,48 @@ tokenizer_path = "/home/dosisiddhesh/MISTRAL_EXP/model/tokenizer_5.0%_50000_new.
 # sys.path.append(code_path)  # append the path where mistral-src was cloned
 # from mistral.tokenizer import Tokenizer
 # from mistral.model import Transformer, ModelArgs
+import logging
+import tqdm
+
+class TqdmLoggingHandler(logging.StreamHandler):
+    def __init__(self, level=logging.NOTSET):
+        super().__init__(stream=sys.stdout)  
+        self.setLevel(level)
+
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            tqdm.tqdm.write(msg, end='') 
+            self.flush()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.handleError(record)
 
 class Parameter:
     def __init__(self, name, value, use_cache=True):
         self.name = name
         self.D_emb,self.Vocal,self.d_head,self.d_FF,self.N_Layer,self.N_Head,self.KV_Head,self.Window = value
         self.use_cache = use_cache
+    
+    # pretty print the parameters in a table
+    def print_parameters(self, logger=None):
+        table = PrettyTable(["Parameter", "Value"])
+        table.add_row(["MODEL EMBEDDING DIM", self.D_emb])
+        table.add_row(["VOCABULARY", self.Vocal])
+        table.add_row(["PER HEAD DIM", self.d_head])
+        table.add_row(["FEED-FORWARD HIDDEN DIM", self.d_FF])
+        table.add_row(["NUMBER OF LAYERS", self.N_Layer])
+        table.add_row(["NUMBER OF Q-HEAD", self.N_Head])
+        table.add_row(["NUMBER OF KV-HEAD", self.KV_Head])
+        table.add_row(["WINDOW SIZE", self.Window])
+        table.add_row(["use_cache", self.use_cache])
+        logger.info(f'\n{table}')
 
 class HyperParams:
     def __init__(self, epoch = 1, learning_rate = 3e-4, model_id = "mistral", **kwargs):
-        self.learning_rate = learning_rate
         self.epochs = epoch
+        self.learning_rate = learning_rate
         self.model_id = model_id
         self.weight_decay=kwargs.get('weight_decay',0.1)  
         self.warmup_steps=kwargs.get('warmup_steps', 200)
@@ -48,15 +96,38 @@ class HyperParams:
         self.logging_steps=kwargs.get('logging_steps', 50)  # Adjust as needed
         self.save_steps=kwargs.get('save_steps', 200)
         self.save_total_limit =kwargs.get('save_total_limit', 1)
-        self.eval_batch_size=kwargs.get('eval_batch_size',2) #2
-        self.eval_frac=kwargs.get('eval_frac', 0.1)
         self.max_seq_length=kwargs.get('max_seq_length', 1024)
-
+        self.eval_batch_size=kwargs.get('eval_batch_size',1) #2
+        self.EVAL_ACCUMULATION_STEPS = kwargs.get('EVAL_ACCUMULATION_STEPS', 1)
+        self.eval_frac=kwargs.get('eval_frac', 0.1)
+    
+    # pretty print the hyperparameters in a table
+    def print_hyperparameters(self, logger=None):
+        table = PrettyTable(["HyperParameter", "Value"])
+        table.add_row(["EPOCHS", self.epochs])
+        table.add_row(["LEARNING RATE", self.learning_rate])
+        table.add_row(["WEIGHT DECAY", self.weight_decay])
+        table.add_row(["WARMUP STEPS", self.warmup_steps])
+        table.add_row(["LR SCHEDULER TYPE", self.lr_scheduler_type])
+        table.add_row(["TRAIN BATCH SIZE", self.BATCH_SIZE])
+        table.add_row(["EVAL BATCH SIZE", self.eval_batch_size])
+        table.add_row(["TOKENIZER BATCH SIZE", self.tokenizer_batch_size])
+        table.add_row(["EVAL ACCUMULATION STEPS", self.EVAL_ACCUMULATION_STEPS])
+        table.add_row(["EVAL STEPS", self.eval_steps])
+        table.add_row(["SAVE STEPS", self.save_steps])
+        table.add_row(["LOGGING STEPS", self.logging_steps])
+        table.add_row(["SAVE TOTAL LIMIT", self.save_total_limit])
+        table.add_row(["MAX SEQ LENGTH", self.max_seq_length])
+        table.add_row(["EVAL FRAC", self.eval_frac])
+        logger.info(f'\n{table}')
 
     
 class MyModel(Parameter, HyperParams):
     def __init__(self, model_id="mistral", hp=None, param=None):
         self.model_id = model_id
+        # set the parameters and hyperparameters
+        self.param = param
+        self.hp = hp
         self.args = None
         if hp is not None:
             self.model_name = f"{self.model_id}_ep_{hp.epochs}_lr_{hp.learning_rate}_{hp.lr_scheduler_type}_wt_decay_{hp.weight_decay}_warmup_st_{hp.warmup_steps}"
@@ -185,6 +256,16 @@ class MyModel(Parameter, HyperParams):
         print("Original Model type:",self.model.dtype)
         return self.model
     
+    def load_model(self, local_model_path=None, logger=None, tokenizer=None, isfloat16=False):
+        logger.info(f"{'_'*100}\nLoading the model")
+        model = None
+        if local_model_path:
+            model = self.get_model_from_local(local_model_path=local_model_path, logger= logger)
+        else:
+            config = self.get_model_config(self.param)    # huggingface mistral config
+            model = self.get_model(config = config, tokenizer=tokenizer, isfloat16=isfloat16, logger= logger) # huggingface mistral model
+        gpu_usage(logger)
+        return model
 
     def model_size_and_parameters(self, logger = None):
         table = PrettyTable(["Modules", "Parameters"])
@@ -206,7 +287,7 @@ class MyModel(Parameter, HyperParams):
         # print("Original Model type:",self.model.dtype)
 
         if logger:
-            logger.info(table)
+            logger.info(f'\n{table}')
             logger.info(f"MISTRAL model size: {model_size/1000**2:.1f}M parameters")
             logger.info(f"Total Trainable Params: {self.total_params/10**6:.4f}M")
             logger.info(f"Total Trainable Params in one layer: {self.one_layer_params/10**6:.4f}M")

@@ -21,12 +21,19 @@
 
 #----------------------
 # date: 20/04/2024 : training stopped at month 6, starting from month 7 with current model saved.
+# added the eval accumulation steps to 32 but failed at run time with oom
 # CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 7 
 # lingo_matesProjectslatex_fp322024-04-20Runsrun_latex_fp32_7_2048_32_0.9_30000_2024-04-20_14-39-35
 # wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-20
 # wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-20/runs/8lrs02kp
 #----------------------
 
+#----------------------
+# date: 23/04/2024 : training stopped at month 6, starting from month 7 with current model saved.
+# reset the eval accumulation steps to 1, added eval_accumulation_steps=32
+# changed the logger to redirect the logs to the file and console
+# set os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True' which might leads to   35636MiB / 40960MiB  usage
+# $ CUDA_VISIBLE_DEVICES=0 python v3_training.py --layer 7 --seq_len 2048 --batch_size 32 --max_grad_norm 0.9 --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 7
 
 import os
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
@@ -102,8 +109,7 @@ os.makedirs(MODEL_ROOT_DIR, exist_ok=True)
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 # os.environ["CUDA_VISIBLE_DEVICES"] = '0'
-os.environ["CUDA_LAUNCH_BLOCKING"]='1'
-# os.environ["CUDA_LAUNCH_BLOCKING"]='1'
+# os.environ["CUDA_LAUNCH_BLOCKING"]='1' # warning it will slow down the training, it is used to debug the code, idead GPUs are asynchronous it will make them synchronous
 # os.environ['WANDB_DISABLED'] = 'true'
 
 

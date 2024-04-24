@@ -226,3 +226,45 @@ trainer.eval_dataset: Dataset({
 }) 
  Took0.5603395779927571 minutes
 2024-04-23 17:08:04,321 git.cmd    DEBUG    Popen(['git', 'cat-file', '--batch-check'], cwd=/home/iitgn_cse/latex_model, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-04-24 06:25:10,118 lightning.pytorch.core INFO     ____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5630, training_loss=2.252810370816219, metrics={'train_runtime': 47825.8119, 'train_samples_per_second': 3.767, 'train_steps_per_second': 0.118, 'train_loss': 2.252810370816219, 'epoch': 1.0})
+ Took797.1231714288393 minutes
+2024-04-24 06:25:10,118 lightning.pytorch.core INFO     metrics = {'train_runtime': 47825.8119, 'train_samples_per_second': 3.767, 'train_steps_per_second': 0.118, 'train_loss': 2.252810370816219, 'epoch': 1.0}
+2024-04-24 06:25:10,119 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 35696.81 MB
+2024-04-24 06:25:10,166 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 21796.81 MB
+2024-04-24 06:25:10,166 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 22417 MB.
+2024-04-24 06:59:07,976 lightning.pytorch.core INFO     ----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 2.4141430854797363, 'eval_runtime': 2037.6276, 'eval_samples_per_second': 23.258, 'eval_steps_per_second': 23.258, 'epoch': 1.0}
+ Took33.96349212725957 minutes
+2024-04-24 06:59:07,977 lightning.pytorch.core INFO     Model STATE saved successfully 
+ Took9.977817535400391e-06 minutes
+2024-04-24 07:00:06,918 lightning.pytorch.core INFO     Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took0.9823573311169942 minutes
+2024-04-24 07:00:06,919 lightning.pytorch.core INFO     GPU memory usage before cleaning cache: 22534.81 MB
+2024-04-24 07:00:06,923 lightning.pytorch.core INFO     GPU memory usage after cleaning cache: 21796.81 MB
+2024-04-24 07:00:06,923 lightning.pytorch.core INFO     GPU memory occupied from nvmlInit: 22417 MB.
+2024-04-24 07:00:06,923 lightning.pytorch.core INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 0-7 completed
+______________________________________________________________________________________________________________________________________________________
+2024-04-24 07:00:06,923 lightning.pytorch.core INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 0-8
+______________________________________________________________________________________________________________________________________________________
+2024-04-24 07:00:06,923 lightning.pytorch.core INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_0_8_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_0_8_datasets.pkl
+2024-04-24 07:00:47,618 lightning.pytorch.core INFO     trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 185322
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47481
+}) 
+ Took0.6782355546951294 minutes
+2024-04-24 07:48:07,107 urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+2024-04-24 07:48:07,318 urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0
+2024-04-24 11:16:50,728 - cmd.py:1057 - git.cmd    DEBUG    Popen(['git', 'cat-file', '--batch-check'], cwd=/home/iitgn_cse/latex_model, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-04-24 11:18:56,405 - connectionpool.py:1055 - urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+2024-04-24 11:18:56,620 - connectionpool.py:549 - urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0
+2024-04-24 11:19:47,905 - cmd.py:1057 - git.cmd    DEBUG    Popen(['git', 'cat-file', '--batch-check'], cwd=/home/iitgn_cse/latex_model, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-04-24 11:24:27,848 - connectionpool.py:1055 - urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+2024-04-24 11:24:28,081 - connectionpool.py:549 - urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0
