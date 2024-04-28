@@ -9,6 +9,16 @@
 # wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-23/runs/z3p1delm
 #----------------------
 
+#----------------------
+# CUDA_VISIBLE_DEVICES=0 python v4_training_fp32.py --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_month_index 8
+
+
+#-----------------------
+# date: 28/04/2024 : training completed for year 2000 (month 1 to 12) and 2001 (month 8 to 12)
+# changes made: training for yea 2001 (month 1 to 7) and then continue from year 2002 ...
+# CUDA_VISIBLE_DEVICES=0 python v4_training_fp32.py --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_year_index 2
+
+
 import os
 import wandb
 import time
@@ -22,10 +32,7 @@ from transformers import (Trainer, TrainingArguments, DataCollatorForLanguageMod
 
 date = datetime.now().strftime("%Y-%m-%d")
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
-wandb.login()
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
-os.environ["WANDB_PROJECT"]="latex_fp32"+date
 # os.environ["CUDA_LAUNCH_BLOCKING"]='1'
 print("CUDA_LAUNCH_BLOCKING",os.getenv('CUDA_LAUNCH_BLOCKING'))
 # os.environ['WANDB_DISABLED'] = 'true'
@@ -50,8 +57,25 @@ parser.add_argument("--enb_grad_checkpoint", action='store_true', help="disable 
 parser.add_argument("--local_model_path", default=None, help="load the model from the local directory in case in not loading from checkpoint")
 args = parser.parse_args()
 
+
+wandb.login()
 # WANDB_PROJECT="latex_training"+date
 WANDB_PROJECT='latex_fp322024-04-23'
+# WAND_RUN_NAME = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
+WAND_RUN_NAME = 'run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False'
+
+last_run_id = 'z3p1delm'  # fetch the run_id from your wandb workspace
+# resume the wandb run from the run_id
+run = wandb.init(
+    project=WANDB_PROJECT,
+    id=last_run_id,
+    resume="must",
+)
+# os.environ["WANDB_PROJECT"]="latex_fp32"+date
+os.environ["WANDB_PROJECT"]=WANDB_PROJECT
+os.environ["WANDB_LOG_MODEL"] = "checkpoint"
+
+
 # WAND_RUN_NAME = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
 WAND_RUN_NAME = 'run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False'
 REPORT_TO="wandb"
@@ -84,7 +108,7 @@ hp = HyperParams(
     lr_scheduler_type="cosine", #['linear', 'cosine', 'cosine_with_restarts', 'polynomial', 'constant', 'constant_with_warmup', 'inverse_sqrt', 'reduce_lr_on_plateau']
     BATCH_SIZE=args.batch_size,
     tokenizer_batch_size=16,
-    eval_steps=10 if args.test else 4000,
+    eval_steps=10 if args.test else 6000,
     logging_steps=5 if args.test else 500, 
     save_steps=5 if args.test else 2000,
     save_total_limit = 3,
@@ -171,58 +195,71 @@ for arg in vars(trainer.args):
     table.add_row([arg, wrap_text(value)])
 logger.info(f'\n{table}\n')
 
+
+def start_training(year, month, logger):
+    logger.info(f"{'_'*150}\nTraining for {year}-{month}\n{'_'*150}\n")
+    val_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"val_{year}_{month}_datasets.pkl")
+    train_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"train_{year}_{month}_datasets.pkl")
+    logger.info(f"val_local_pickel_path: {val_local_pickel_path}\ntrain_local_pickel_path: {train_local_pickel_path}")
+    #-------------------------------------------------------------------------------------------------------------------
+    if not os.path.exists(val_local_pickel_path) or not os.path.exists(train_local_pickel_path):
+        logger.error(f"File not found: {val_local_pickel_path} or {train_local_pickel_path}")
+        exit()
+    #-------------------------------------------------------------------------------------------------------------------
+    st = time.time()
+    trainer.train_dataset = dataset_obj.get_train_dataset(local_path=train_local_pickel_path, sample_size=hp.eval_steps*hp.BATCH_SIZE if args.test else None)
+    trainer.eval_dataset = dataset_obj.get_val_dataset(local_path=val_local_pickel_path, sample_size=hp.eval_steps if args.test else None)
+    logger.info(f'trainer.train_dataset: {trainer.train_dataset}\ntrainer.eval_dataset: {trainer.eval_dataset} \n Took{(time.time()-st)/60} minutes')
+    #-------------------------------------------------------------------------------------------------------------------
+    try:
+        st = time.time()
+        train_result = None
+        #print the do_train arguments of the trainingArguments for the trainer
+        train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
+        logger.info(f"{'_'*100}\n***** Train results ***** {train_result}\n Took{(time.time()-st)/60} minutes")
+        gpu_usage(logger)
+
+        trainer.save_metrics('all', train_result.metrics)
+    except Exception as e: 
+        logger.error(f'{"#-"*100}\nError occured while training the model\n{e} \n Took{(time.time()-st)/60} minutes')
+        exit()
+    #-------------------------------------------------------------------------------------------------------------------
+    try:
+        st = time.time()
+        metrics = trainer.evaluate()
+        logger.info(f"{'-'*100}\n***** Eval results ***** {metrics}\n Took{(time.time()-st)/60} minutes")
+    except Exception as e:
+        logger.error(f'{"#-"*100}\nError occured while evaluating the model\n{e} \n Took{(time.time()-st)/60} minutes')
+    #-----------------------------------------------------------------------------------------------------------------
+    logger.info(f"{'-'*100}\n***** Log history ***** {trainer.state.log_history}")
+    #-----------------------------------------------------------------------------------------------------------------
+    try:
+        st = time.time()
+        trainer.save_state()
+        logger.info(f"Model STATE saved successfully \n Took{(time.time()-st)/60} minutes")
+    except Exception as e:
+        logger.error(f'{"#-"*100}\nError occured while saving the MODEL STATE\n{e} \n Took{(time.time()-st)/60} minutes')
+    #-------------------------------------------------------------------------------------------------------------------
+    try:
+        st = time.time()
+        trainer.save_model()
+        logger.info(f"Model saved successfully @ {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)} \n Took{(time.time()-st)/60} minutes")
+    except Exception as e:
+        logger.error(f'{"#-"*100}\nError occured while saving the model\n{e} \n Took{(time.time()-st)/60} minutes')
+    #-------------------------------------------------------------------------------------------------------------------
+    gpu_usage(logger)
+    logger.info(f"{'_'*150}\nTraining for {year}-{month} completed\n{'_'*150}")
+
+
+
+
+for month in range(1, 8):
+    start_training(1, month, logger)
+
+
 for year in range(args.start_year_index, 24):
     for month in range(args.start_month_index, 13):
+        start_training(year, month, logger)
+    args.start_month_index = 1
 
-        logger.info(f"{'_'*150}\nTraining for {year}-{month}\n{'_'*150}\n")
-        val_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"val_{year}_{month}_datasets.pkl")
-        train_local_pickel_path = os.path.join(DATA_PATH_PICKEL, f"train_{year}_{month}_datasets.pkl")
-        logger.info(f"val_local_pickel_path: {val_local_pickel_path}\ntrain_local_pickel_path: {train_local_pickel_path}")
-        #-------------------------------------------------------------------------------------------------------------------
-        if not os.path.exists(val_local_pickel_path) or not os.path.exists(train_local_pickel_path):
-            logger.error(f"File not found: {val_local_pickel_path} or {train_local_pickel_path}")
-            exit()
-        #-------------------------------------------------------------------------------------------------------------------
-        st = time.time()
-        trainer.train_dataset = dataset_obj.get_train_dataset(local_path=train_local_pickel_path, sample_size=hp.eval_steps*hp.BATCH_SIZE if args.test else None)
-        trainer.eval_dataset = dataset_obj.get_val_dataset(local_path=val_local_pickel_path, sample_size=hp.eval_steps if args.test else None)
-        logger.info(f'trainer.train_dataset: {trainer.train_dataset}\ntrainer.eval_dataset: {trainer.eval_dataset} \n Took{(time.time()-st)/60} minutes')
-        #-------------------------------------------------------------------------------------------------------------------
-        try:
-            st = time.time()
-            train_result = None
-            #print the do_train arguments of the trainingArguments for the trainer
-            train_result = trainer.train(resume_from_checkpoint=args.checkpoint)
-            logger.info(f"{'_'*100}\n***** Train results ***** {train_result}\n Took{(time.time()-st)/60} minutes")
-            gpu_usage(logger)
-
-            trainer.save_metrics('all', train_result.metrics)
-        except Exception as e: 
-            logger.error(f'{"#-"*100}\nError occured while training the model\n{e} \n Took{(time.time()-st)/60} minutes')
-            exit()
-        #-------------------------------------------------------------------------------------------------------------------
-        try:
-            st = time.time()
-            metrics = trainer.evaluate()
-            logger.info(f"{'-'*100}\n***** Eval results ***** {metrics}\n Took{(time.time()-st)/60} minutes")
-        except Exception as e:
-            logger.error(f'{"#-"*100}\nError occured while evaluating the model\n{e} \n Took{(time.time()-st)/60} minutes')
-        #-----------------------------------------------------------------------------------------------------------------
-        logger.info(f"{'-'*100}\n***** Log history ***** {trainer.state.log_history}")
-        #-----------------------------------------------------------------------------------------------------------------
-        try:
-            st = time.time()
-            trainer.save_state()
-            logger.info(f"Model STATE saved successfully \n Took{(time.time()-st)/60} minutes")
-        except Exception as e:
-            logger.error(f'{"#-"*100}\nError occured while saving the MODEL STATE\n{e} \n Took{(time.time()-st)/60} minutes')
-        #-------------------------------------------------------------------------------------------------------------------
-        try:
-            st = time.time()
-            trainer.save_model()
-            logger.info(f"Model saved successfully @ {os.path.join(MODEL_ROOT_DIR, model_obj.model_name)} \n Took{(time.time()-st)/60} minutes")
-        except Exception as e:
-            logger.error(f'{"#-"*100}\nError occured while saving the model\n{e} \n Took{(time.time()-st)/60} minutes')
-        #-------------------------------------------------------------------------------------------------------------------
-        gpu_usage(logger)
-        logger.info(f"{'_'*150}\nTraining for {year}-{month} completed\n{'_'*150}")
+    
