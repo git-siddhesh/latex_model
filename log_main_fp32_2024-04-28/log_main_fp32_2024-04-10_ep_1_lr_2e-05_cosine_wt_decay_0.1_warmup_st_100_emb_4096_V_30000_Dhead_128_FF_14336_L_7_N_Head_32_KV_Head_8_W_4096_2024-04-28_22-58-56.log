@@ -1,10 +1,10 @@
-2024-04-28 16:30:17,374 - v4_training_fp32.py:133 - root       INFO     
+2024-04-28 22:58:59,215 - v4_training_fp32.py:136 - root       INFO     
 
 ______________________________________________________________________________________________________________________________________________________
 +++++++++++++++++++++++++++++++++++++ NEW RUN ++++++++++++++++++++++++++++++++++++++++
 
-2024-04-28 16:30:17,375 - v4_training_fp32.py:134 - root       INFO     test:False,  layer:7,  float16:False,  adafactor:False,  vocab:30000,  batch_size:32,  seq_len:2048,  start_year_index:2,  max_grad_norm:0.9,  start_month_index:1,  device:0,  checkpoint:None,  enb_grad_checkpoint:False,  local_model_path:/home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
-2024-04-28 16:30:17,378 - training_utils.py:83 - root       INFO     
+2024-04-28 22:58:59,216 - v4_training_fp32.py:137 - root       INFO     test:False,  layer:7,  float16:False,  adafactor:False,  vocab:30000,  batch_size:32,  seq_len:2048,  start_year_index:2,  max_grad_norm:0.9,  start_month_index:1,  device:0,  checkpoint:None,  enb_grad_checkpoint:False,  local_model_path:/home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+2024-04-28 22:58:59,219 - training_utils.py:83 - root       INFO     
 +-------------------------+-------+
 |        Parameter        | Value |
 +-------------------------+-------+
@@ -18,7 +18,7 @@ ________________________________________________________________________________
 |       WINDOW SIZE       |  4096 |
 |        use_cache        |  True |
 +-------------------------+-------+
-2024-04-28 16:30:17,380 - training_utils.py:122 - root       INFO     
+2024-04-28 22:58:59,221 - training_utils.py:122 - root       INFO     
 +-------------------------+--------+
 |      HyperParameter     | Value  |
 +-------------------------+--------+
@@ -38,11 +38,11 @@ ________________________________________________________________________________
 |      MAX SEQ LENGTH     |  2048  |
 |        EVAL FRAC        |  0.1   |
 +-------------------------+--------+
-2024-04-28 16:30:17,381 - v4_training_fp32.py:137 - root       INFO     MODEL PATH: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
-2024-04-28 16:30:17,485 - v4_training_fp32.py:141 - root       INFO     Tokenizer loaded__________________________________________________________
-2024-04-28 16:30:17,486 - training_utils.py:260 - root       INFO     ____________________________________________________________________________________________________
+2024-04-28 22:58:59,221 - v4_training_fp32.py:140 - root       INFO     MODEL PATH: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
+2024-04-28 22:58:59,310 - v4_training_fp32.py:144 - root       INFO     Tokenizer loaded__________________________________________________________
+2024-04-28 22:58:59,310 - training_utils.py:260 - root       INFO     ____________________________________________________________________________________________________
 Loading the model
-2024-04-28 16:30:19,536 - training_utils.py:290 - root       INFO     
+2024-04-28 22:59:01,767 - training_utils.py:290 - root       INFO     
 +------------------------------------------------+------------+
 |                    Modules                     | Parameters |
 +------------------------------------------------+------------+
@@ -113,17 +113,17 @@ Loading the model
 |               model.norm.weight                |    4096    |
 |                 lm_head.weight                 | 122880000  |
 +------------------------------------------------+------------+
-2024-04-28 16:30:19,536 - training_utils.py:291 - root       INFO     MISTRAL model size: 1772.5M parameters
-2024-04-28 16:30:19,537 - training_utils.py:292 - root       INFO     Total Trainable Params: 1772.5481M
-2024-04-28 16:30:19,537 - training_utils.py:293 - root       INFO     Total Trainable Params in one layer: 218.1120M
-2024-04-28 16:30:19,537 - training_utils.py:294 - root       INFO     Original Model type:torch.float32
-2024-04-28 16:30:19,871 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 440.88 MB
-2024-04-28 16:30:19,872 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 440.88 MB
-2024-04-28 16:30:19,872 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 1061 MB.
-2024-04-28 16:30:19,872 - v4_training_fp32.py:145 - root       INFO     MODEL LOADED took __________ 0.03977888027826945 minutes_________________
-2024-04-28 16:30:19,873 - v4_training_fp32.py:146 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+2024-04-28 22:59:01,767 - training_utils.py:291 - root       INFO     MISTRAL model size: 1772.5M parameters
+2024-04-28 22:59:01,767 - training_utils.py:292 - root       INFO     Total Trainable Params: 1772.5481M
+2024-04-28 22:59:01,767 - training_utils.py:293 - root       INFO     Total Trainable Params in one layer: 218.1120M
+2024-04-28 22:59:01,767 - training_utils.py:294 - root       INFO     Original Model type:torch.float32
+2024-04-28 22:59:02,103 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 440.88 MB
+2024-04-28 22:59:02,103 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 440.88 MB
+2024-04-28 22:59:02,104 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 1061 MB.
+2024-04-28 22:59:02,104 - v4_training_fp32.py:148 - root       INFO     MODEL LOADED took __________ 0.0465574582417806 minutes_________________
+2024-04-28 22:59:02,104 - v4_training_fp32.py:149 - root       INFO     ______________________________________________________________________________________________________________________________________________________
 MODEL SAVED AT: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096
-2024-04-28 16:30:21,614 - v4_training_fp32.py:196 - root       INFO     
+2024-04-28 22:59:03,540 - v4_training_fp32.py:199 - root       INFO     
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
 |         Training Argument          |                                                    Value                                                    |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
@@ -196,7 +196,7 @@ MODEL SAVED AT: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/mai
 |     dataloader_prefetch_factor     |                                                     None                                                    |
 |             past_index             |                                                      -1                                                     |
 |              run_name              |                              run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-                              |
-|                                    |                                               07-17_test=False                                              |
+|                                    |                                               07-17_test_False                                              |
 |            disable_tqdm            |                                                    False                                                    |
 |       remove_unused_columns        |                                                     True                                                    |
 |            label_names             |                                                     None                                                    |
@@ -263,13 +263,13 @@ MODEL SAVED AT: /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/mai
 |          deepspeed_plugin          |                                                     None                                                    |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
-2024-04-28 16:30:21,615 - v4_training_fp32.py:200 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+2024-04-28 22:59:03,541 - v4_training_fp32.py:203 - root       INFO     ______________________________________________________________________________________________________________________________________________________
 Training for 1-1
 ______________________________________________________________________________________________________________________________________________________
 
-2024-04-28 16:30:21,615 - v4_training_fp32.py:203 - root       INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_1_1_datasets.pkl
+2024-04-28 22:59:03,541 - v4_training_fp32.py:206 - root       INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_1_1_datasets.pkl
 train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_1_1_datasets.pkl
-2024-04-28 16:30:58,122 - v4_training_fp32.py:212 - root       INFO     trainer.train_dataset: Dataset({
+2024-04-28 22:59:37,354 - v4_training_fp32.py:215 - root       INFO     trainer.train_dataset: Dataset({
     features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
     num_rows: 177455
 })
@@ -277,10 +277,4 @@ trainer.eval_dataset: Dataset({
     features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
     num_rows: 47360
 }) 
- Took0.6084494829177857 minutes
-2024-04-28 19:28:08,685 - v4_training_fp32.py:224 - root       ERROR    #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
-Error occured while training the model
-Artifact name may only contain alphanumeric characters, dashes, underscores, and dots. Invalid name: checkpoint-run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False 
- Took177.17602943579357 minutes
-2024-04-28 19:28:18,843 - connectionpool.py:1055 - urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
-2024-04-28 19:28:19,058 - connectionpool.py:549 - urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0
+ Took0.5635519067446391 minutes

@@ -61,8 +61,6 @@ args = parser.parse_args()
 wandb.login()
 # WANDB_PROJECT="latex_training"+date
 WANDB_PROJECT='latex_fp322024-04-23'
-# WAND_RUN_NAME = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
-WAND_RUN_NAME = 'run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False'
 
 last_run_id = 'z3p1delm'  # fetch the run_id from your wandb workspace
 # resume the wandb run from the run_id
@@ -71,13 +69,18 @@ run = wandb.init(
     id=last_run_id,
     resume="must",
 )
+
+# artifact = run.use_artifact("bike-dataset:latest")
+
+
+
 # os.environ["WANDB_PROJECT"]="latex_fp32"+date
 os.environ["WANDB_PROJECT"]=WANDB_PROJECT
 os.environ["WANDB_LOG_MODEL"] = "checkpoint"
 
 
 # WAND_RUN_NAME = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
-WAND_RUN_NAME = 'run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False'
+WAND_RUN_NAME = 'run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test_False'
 REPORT_TO="wandb"
 LOGGING_DIR="./logs"
 
