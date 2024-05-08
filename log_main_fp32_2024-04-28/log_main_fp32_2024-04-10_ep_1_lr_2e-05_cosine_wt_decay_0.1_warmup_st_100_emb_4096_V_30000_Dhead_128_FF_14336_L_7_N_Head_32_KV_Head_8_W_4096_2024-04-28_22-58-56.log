@@ -278,3 +278,9 @@ trainer.eval_dataset: Dataset({
     num_rows: 47360
 }) 
  Took0.5635519067446391 minutes
+2024-04-29 01:56:47,603 - v4_training_fp32.py:227 - root       ERROR    #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+Error occured while training the model
+Artifact name may only contain alphanumeric characters, dashes, underscores, and dots. Invalid name: checkpoint-run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False 
+ Took177.1708010673523 minutes
+2024-04-29 01:56:58,140 - connectionpool.py:1055 - urllib3.connectionpool DEBUG    Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+2024-04-29 01:56:58,342 - connectionpool.py:549 - urllib3.connectionpool DEBUG    https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 0

@@ -17,6 +17,12 @@
 # date: 28/04/2024 : training completed for year 2000 (month 1 to 12) and 2001 (month 8 to 12)
 # changes made: training for yea 2001 (month 1 to 7) and then continue from year 2002 ...
 # CUDA_VISIBLE_DEVICES=0 python v4_training_fp32.py --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_year_index 2
+# wandb: Resuming run run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False
+# wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-23
+# wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-23/runs/z3p1delm
+
+
+#TODO: change the window size to 512 in CDAC version
 
 
 import os
@@ -76,7 +82,7 @@ run = wandb.init(
 
 # os.environ["WANDB_PROJECT"]="latex_fp32"+date
 os.environ["WANDB_PROJECT"]=WANDB_PROJECT
-os.environ["WANDB_LOG_MODEL"] = "checkpoint"
+# os.environ["WANDB_LOG_MODEL"] = "checkpoint"
 
 
 # WAND_RUN_NAME = f"run_latex_fp32_{args.layer}_{args.seq_len}_{args.batch_size}_{args.max_grad_norm}_{args.vocab}_{timestamp}_test={args.test}"
