@@ -1767,3 +1767,75 @@ trainer.eval_dataset: Dataset({
     num_rows: 47596
 }) 
  Took0.8803889513015747 minutes
+____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5542, training_loss=2.0812561657402067, metrics={'train_runtime': 29166.0334, 'train_samples_per_second': 6.081, 'train_steps_per_second': 0.19, 'train_loss': 2.0812561657402067, 'epoch': 1.0})
+ Took486.15094577471416 minutes
+GPU memory usage before cleaning cache: 35736.81 MB
+GPU memory usage after cleaning cache: 21818.81 MB
+GPU memory occupied from nvmlInit: 22439 MB.
+----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 1.9556951522827148, 'eval_runtime': 1865.5174, 'eval_samples_per_second': 25.514, 'eval_steps_per_second': 25.514, 'epoch': 1.0}
+ Took31.0984263976415 minutes
+----------------------------------------------------------------------------------------------------
+***** Log history ***** [{'loss': 2.1034, 'grad_norm': 2.547100782394409, 'learning_rate': 1.9734574876236087e-05, 'epoch': 0.09, 'step': 500}, {'loss': 2.1285, 'grad_norm': 2.370898485183716, 'learning_rate': 1.868038829760314e-05, 'epoch': 0.18, 'step': 1000}, {'loss': 2.1087, 'grad_norm': 2.197932243347168, 'learning_rate': 1.6908003259995014e-05, 'epoch': 0.27, 'step': 1500}, {'loss': 2.1206, 'grad_norm': 2.3773531913757324, 'learning_rate': 1.4564063457112867e-05, 'epoch': 0.36, 'step': 2000}, {'loss': 2.093, 'grad_norm': 2.286982297897339, 'learning_rate': 1.1842501913223066e-05, 'epoch': 0.45, 'step': 2500}, {'loss': 2.0765, 'grad_norm': 2.4958741664886475, 'learning_rate': 8.968495341603221e-06, 'epoch': 0.54, 'step': 3000}, {'loss': 2.0753, 'grad_norm': 2.157916784286499, 'learning_rate': 6.179833460875931e-06, 'epoch': 0.63, 'step': 3500}, {'loss': 2.0671, 'grad_norm': 1.9698100090026855, 'learning_rate': 3.7072447357913477e-06, 'epoch': 0.72, 'step': 4000}, {'loss': 2.049, 'grad_norm': 2.296445846557617, 'learning_rate': 1.7553063524328973e-06, 'epoch': 0.81, 'step': 4500}, {'loss': 2.0397, 'grad_norm': 2.0310897827148438, 'learning_rate': 4.855178993995868e-07, 'epoch': 0.9, 'step': 5000}, {'loss': 2.0368, 'grad_norm': 2.459698438644409, 'learning_rate': 2.9392056906352162e-09, 'epoch': 0.99, 'step': 5500}, {'train_runtime': 29166.0334, 'train_samples_per_second': 6.081, 'train_steps_per_second': 0.19, 'total_flos': 3.420037919487099e+17, 'train_loss': 2.0812561657402067, 'epoch': 1.0, 'step': 5542}, {'eval_loss': 1.9556951522827148, 'eval_runtime': 1865.5174, 'eval_samples_per_second': 25.514, 'eval_steps_per_second': 25.514, 'epoch': 1.0, 'step': 5542}]
+Model STATE saved successfully 
+ Took1.3025601704915364e-05 minutes
+Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took0.8550023396809896 minutes
+GPU memory usage before cleaning cache: 22514.81 MB
+GPU memory usage after cleaning cache: 21818.81 MB
+GPU memory occupied from nvmlInit: 22439 MB.
+______________________________________________________________________________________________________________________________________________________
+Training for 2-2 completed
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+Training for 2-3
+______________________________________________________________________________________________________________________________________________________
+
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_2_3_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_2_3_datasets.pkl
+trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 178444
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47664
+}) 
+ Took1.0105302850405375 minutes
+____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5576, training_loss=2.070882624840976, metrics={'train_runtime': 30586.0661, 'train_samples_per_second': 5.834, 'train_steps_per_second': 0.182, 'train_loss': 2.070882624840976, 'epoch': 1.0})
+ Took509.8246695915858 minutes
+GPU memory usage before cleaning cache: 35656.81 MB
+GPU memory usage after cleaning cache: 21818.81 MB
+GPU memory occupied from nvmlInit: 22439 MB.
+----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 1.9461714029312134, 'eval_runtime': 1897.1973, 'eval_samples_per_second': 25.123, 'eval_steps_per_second': 25.123, 'epoch': 1.0}
+ Took31.62368694941203 minutes
+----------------------------------------------------------------------------------------------------
+***** Log history ***** [{'loss': 2.0864, 'grad_norm': 2.337153196334839, 'learning_rate': 1.9737846213609392e-05, 'epoch': 0.09, 'step': 500}, {'loss': 2.1183, 'grad_norm': 2.6580543518066406, 'learning_rate': 1.869635952065721e-05, 'epoch': 0.18, 'step': 1000}, {'loss': 2.1121, 'grad_norm': 2.275486707687378, 'learning_rate': 1.694419891068761e-05, 'epoch': 0.27, 'step': 1500}, {'loss': 2.0929, 'grad_norm': 2.067491054534912, 'learning_rate': 1.462455244313774e-05, 'epoch': 0.36, 'step': 2000}, {'loss': 2.1042, 'grad_norm': 2.4244089126586914, 'learning_rate': 1.1926983605726049e-05, 'epoch': 0.45, 'step': 2500}, {'loss': 2.0766, 'grad_norm': 2.183974504470825, 'learning_rate': 9.07194002456018e-06, 'epoch': 0.54, 'step': 3000}, {'loss': 2.0685, 'grad_norm': 2.2821478843688965, 'learning_rate': 6.292738296115124e-06, 'epoch': 0.63, 'step': 3500}, {'loss': 2.0472, 'grad_norm': 2.191265344619751, 'learning_rate': 3.816497155977188e-06, 'epoch': 0.72, 'step': 4000}, {'loss': 2.0322, 'grad_norm': 2.558680295944214, 'learning_rate': 1.845577142065873e-06, 'epoch': 0.81, 'step': 4500}, {'loss': 2.0206, 'grad_norm': 2.2287001609802246, 'learning_rate': 5.410435188849228e-07, 'epoch': 0.9, 'step': 5000}, {'loss': 2.0283, 'grad_norm': 2.307213068008423, 'learning_rate': 9.503886737061151e-09, 'epoch': 0.99, 'step': 5500}, {'train_runtime': 30586.0661, 'train_samples_per_second': 5.834, 'train_steps_per_second': 0.182, 'total_flos': 3.635743438742323e+17, 'train_loss': 2.070882624840976, 'epoch': 1.0, 'step': 5576}, {'eval_loss': 1.9461714029312134, 'eval_runtime': 1897.1973, 'eval_samples_per_second': 25.123, 'eval_steps_per_second': 25.123, 'epoch': 1.0, 'step': 5576}]
+Model STATE saved successfully 
+ Took1.0768572489420572e-05 minutes
+Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took1.047837245464325 minutes
+GPU memory usage before cleaning cache: 22514.81 MB
+GPU memory usage after cleaning cache: 21818.81 MB
+GPU memory occupied from nvmlInit: 22439 MB.
+______________________________________________________________________________________________________________________________________________________
+Training for 2-3 completed
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+Training for 2-4
+______________________________________________________________________________________________________________________________________________________
+
+val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_2_4_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_2_4_datasets.pkl
+trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 178683
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47606
+}) 
+ Took0.97740771373113 minutes
