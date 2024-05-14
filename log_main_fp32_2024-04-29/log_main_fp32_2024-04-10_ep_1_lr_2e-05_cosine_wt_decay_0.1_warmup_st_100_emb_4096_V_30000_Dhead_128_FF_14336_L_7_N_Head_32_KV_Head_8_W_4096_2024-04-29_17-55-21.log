@@ -746,3 +746,111 @@ trainer.eval_dataset: Dataset({
     num_rows: 47732
 }) 
  Took0.9536028663317363 minutes
+2024-05-11 14:36:05,185 - v4_training_fp32.py:222 - root       INFO     ____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5629, training_loss=2.0460736601194704, metrics={'train_runtime': 116529.082, 'train_samples_per_second': 1.546, 'train_steps_per_second': 0.048, 'train_loss': 2.0460736601194704, 'epoch': 1.0})
+ Took1942.2279747486114 minutes
+2024-05-11 14:36:05,185 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 35736.81 MB
+2024-05-11 14:36:05,235 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-11 14:36:05,235 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-11 15:08:09,030 - v4_training_fp32.py:233 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 1.9142296314239502, 'eval_runtime': 1923.4988, 'eval_samples_per_second': 24.815, 'eval_steps_per_second': 24.815, 'epoch': 1.0}
+ Took32.063238640626274 minutes
+2024-05-11 15:08:09,031 - v4_training_fp32.py:237 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Log history ***** [{'loss': 2.0614, 'grad_norm': 2.3925302028656006, 'learning_rate': 1.9742826491830146e-05, 'epoch': 0.09, 'step': 500}, {'loss': 2.088, 'grad_norm': 2.442732572555542, 'learning_rate': 1.8720688089843567e-05, 'epoch': 0.18, 'step': 1000}, {'loss': 2.0863, 'grad_norm': 2.4232184886932373, 'learning_rate': 1.699939344682161e-05, 'epoch': 0.27, 'step': 1500}, {'loss': 2.0668, 'grad_norm': 2.391411781311035, 'learning_rate': 1.4716942440747663e-05, 'epoch': 0.36, 'step': 2000}, {'loss': 2.0734, 'grad_norm': 2.1047487258911133, 'learning_rate': 1.2056324057045086e-05, 'epoch': 0.44, 'step': 2500}, {'loss': 2.053, 'grad_norm': 2.2725729942321777, 'learning_rate': 9.230845769713038e-06, 'epoch': 0.53, 'step': 3000}, {'loss': 2.0395, 'grad_norm': 2.5018675327301025, 'learning_rate': 6.467032224300862e-06, 'epoch': 0.62, 'step': 3500}, {'loss': 2.0349, 'grad_norm': 2.4280848503112793, 'learning_rate': 3.9864642719323905e-06, 'epoch': 0.71, 'step': 4000}, {'loss': 2.0105, 'grad_norm': 2.383028984069824, 'learning_rate': 1.9880143579173716e-06, 'epoch': 0.8, 'step': 4500}, {'loss': 1.997, 'grad_norm': 2.4183096885681152, 'learning_rate': 6.319024918909944e-07, 'epoch': 0.89, 'step': 5000}, {'loss': 1.998, 'grad_norm': 2.1651337146759033, 'learning_rate': 2.68510665023769e-08, 'epoch': 0.98, 'step': 5500}, {'train_runtime': 116529.082, 'train_samples_per_second': 1.546, 'train_steps_per_second': 0.048, 'total_flos': 3.946009780888535e+17, 'train_loss': 2.0460736601194704, 'epoch': 1.0, 'step': 5629}, {'eval_loss': 1.9142296314239502, 'eval_runtime': 1923.4988, 'eval_samples_per_second': 24.815, 'eval_steps_per_second': 24.815, 'epoch': 1.0, 'step': 5629}]
+2024-05-11 15:08:09,032 - v4_training_fp32.py:242 - root       INFO     Model STATE saved successfully 
+ Took1.148382822672526e-05 minutes
+2024-05-11 15:09:02,749 - v4_training_fp32.py:249 - root       INFO     Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took0.8952858050664266 minutes
+2024-05-11 15:09:02,750 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 22514.81 MB
+2024-05-11 15:09:02,754 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-11 15:09:02,754 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-11 15:09:02,755 - v4_training_fp32.py:254 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-7 completed
+______________________________________________________________________________________________________________________________________________________
+2024-05-11 15:09:02,755 - v4_training_fp32.py:203 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-8
+______________________________________________________________________________________________________________________________________________________
+
+2024-05-11 15:09:02,755 - v4_training_fp32.py:206 - root       INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_2_8_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_2_8_datasets.pkl
+2024-05-11 15:10:14,992 - v4_training_fp32.py:215 - root       INFO     trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 178439
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47388
+}) 
+ Took1.2039465665817262 minutes
+2024-05-11 23:38:29,864 - v4_training_fp32.py:222 - root       INFO     ____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5576, training_loss=2.019492993566877, metrics={'train_runtime': 30488.8613, 'train_samples_per_second': 5.853, 'train_steps_per_second': 0.183, 'train_loss': 2.019492993566877, 'epoch': 1.0})
+ Took508.24784795045855 minutes
+2024-05-11 23:38:29,864 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 35876.81 MB
+2024-05-11 23:38:29,915 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-11 23:38:29,915 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-12 00:08:03,069 - v4_training_fp32.py:233 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 1.9004160165786743, 'eval_runtime': 1772.9033, 'eval_samples_per_second': 26.729, 'eval_steps_per_second': 26.729, 'epoch': 1.0}
+ Took29.55254851182302 minutes
+2024-05-12 00:08:03,069 - v4_training_fp32.py:237 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Log history ***** [{'loss': 2.0454, 'grad_norm': 2.12660551071167, 'learning_rate': 1.9737846213609392e-05, 'epoch': 0.09, 'step': 500}, {'loss': 2.0579, 'grad_norm': 2.374886989593506, 'learning_rate': 1.869635952065721e-05, 'epoch': 0.18, 'step': 1000}, {'loss': 2.0668, 'grad_norm': 2.015740156173706, 'learning_rate': 1.694419891068761e-05, 'epoch': 0.27, 'step': 1500}, {'loss': 2.059, 'grad_norm': 2.0312607288360596, 'learning_rate': 1.462455244313774e-05, 'epoch': 0.36, 'step': 2000}, {'loss': 2.0406, 'grad_norm': 2.2548258304595947, 'learning_rate': 1.1926983605726049e-05, 'epoch': 0.45, 'step': 2500}, {'loss': 2.0148, 'grad_norm': 2.222339153289795, 'learning_rate': 9.07194002456018e-06, 'epoch': 0.54, 'step': 3000}, {'loss': 2.0125, 'grad_norm': 2.5028634071350098, 'learning_rate': 6.292738296115124e-06, 'epoch': 0.63, 'step': 3500}, {'loss': 1.9875, 'grad_norm': 1.9917746782302856, 'learning_rate': 3.816497155977188e-06, 'epoch': 0.72, 'step': 4000}, {'loss': 1.9832, 'grad_norm': 2.4278154373168945, 'learning_rate': 1.845577142065873e-06, 'epoch': 0.81, 'step': 4500}, {'loss': 1.9706, 'grad_norm': 1.8893365859985352, 'learning_rate': 5.410435188849228e-07, 'epoch': 0.9, 'step': 5000}, {'loss': 1.986, 'grad_norm': 2.0942931175231934, 'learning_rate': 9.503886737061151e-09, 'epoch': 0.99, 'step': 5500}, {'train_runtime': 30488.8613, 'train_samples_per_second': 5.853, 'train_steps_per_second': 0.183, 'total_flos': 3.618976410174751e+17, 'train_loss': 2.019492993566877, 'epoch': 1.0, 'step': 5576}, {'eval_loss': 1.9004160165786743, 'eval_runtime': 1772.9033, 'eval_samples_per_second': 26.729, 'eval_steps_per_second': 26.729, 'epoch': 1.0, 'step': 5576}]
+2024-05-12 00:08:03,070 - v4_training_fp32.py:242 - root       INFO     Model STATE saved successfully 
+ Took1.0931491851806641e-05 minutes
+2024-05-12 00:09:02,150 - v4_training_fp32.py:249 - root       INFO     Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took0.9846668759981791 minutes
+2024-05-12 00:09:02,151 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 22514.81 MB
+2024-05-12 00:09:02,155 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-12 00:09:02,155 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-12 00:09:02,155 - v4_training_fp32.py:254 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-8 completed
+______________________________________________________________________________________________________________________________________________________
+2024-05-12 00:09:02,156 - v4_training_fp32.py:203 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-9
+______________________________________________________________________________________________________________________________________________________
+
+2024-05-12 00:09:02,156 - v4_training_fp32.py:206 - root       INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_2_9_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_2_9_datasets.pkl
+2024-05-12 00:09:58,204 - v4_training_fp32.py:215 - root       INFO     trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 180368
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 47760
+}) 
+ Took0.9341396967569987 minutes
+2024-05-12 09:17:53,009 - v4_training_fp32.py:222 - root       INFO     ____________________________________________________________________________________________________
+***** Train results ***** TrainOutput(global_step=5636, training_loss=2.0110242693368385, metrics={'train_runtime': 32869.8386, 'train_samples_per_second': 5.487, 'train_steps_per_second': 0.171, 'train_loss': 2.0110242693368385, 'epoch': 1.0})
+ Took547.9134081403414 minutes
+2024-05-12 09:17:53,010 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 35896.81 MB
+2024-05-12 09:17:53,060 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-12 09:17:53,060 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-12 09:50:05,442 - v4_training_fp32.py:233 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Eval results ***** {'eval_loss': 1.907171607017517, 'eval_runtime': 1932.14, 'eval_samples_per_second': 24.719, 'eval_steps_per_second': 24.719, 'epoch': 1.0}
+ Took32.206342748800914 minutes
+2024-05-12 09:50:05,442 - v4_training_fp32.py:237 - root       INFO     ----------------------------------------------------------------------------------------------------
+***** Log history ***** [{'loss': 2.0265, 'grad_norm': 1.8860841989517212, 'learning_rate': 1.974347365395755e-05, 'epoch': 0.09, 'step': 500}, {'loss': 2.0503, 'grad_norm': 2.2296035289764404, 'learning_rate': 1.872385070657522e-05, 'epoch': 0.18, 'step': 1000}, {'loss': 2.0356, 'grad_norm': 2.1112899780273438, 'learning_rate': 1.7006573709538494e-05, 'epoch': 0.27, 'step': 1500}, {'loss': 2.044, 'grad_norm': 2.430152654647827, 'learning_rate': 1.4728974821736572e-05, 'epoch': 0.35, 'step': 2000}, {'loss': 2.0321, 'grad_norm': 2.3167057037353516, 'learning_rate': 1.2073195638779944e-05, 'epoch': 0.44, 'step': 2500}, {'loss': 2.0186, 'grad_norm': 2.3400843143463135, 'learning_rate': 9.251621168653801e-06, 'epoch': 0.53, 'step': 3000}, {'loss': 1.9967, 'grad_norm': 2.1829917430877686, 'learning_rate': 6.489895214959827e-06, 'epoch': 0.62, 'step': 3500}, {'loss': 1.9961, 'grad_norm': 2.005720615386963, 'learning_rate': 4.008875442556744e-06, 'epoch': 0.71, 'step': 4000}, {'loss': 1.9897, 'grad_norm': 2.2056782245635986, 'learning_rate': 2.0069711949452387e-06, 'epoch': 0.8, 'step': 4500}, {'loss': 1.9698, 'grad_norm': 2.4716718196868896, 'learning_rate': 6.442765237479354e-07, 'epoch': 0.89, 'step': 5000}, {'loss': 1.9721, 'grad_norm': 2.1895244121551514, 'learning_rate': 2.9767325937338775e-08, 'epoch': 0.98, 'step': 5500}, {'train_runtime': 32869.8386, 'train_samples_per_second': 5.487, 'train_steps_per_second': 0.171, 'total_flos': 3.978819303795917e+17, 'train_loss': 2.0110242693368385, 'epoch': 1.0, 'step': 5636}, {'eval_loss': 1.907171607017517, 'eval_runtime': 1932.14, 'eval_samples_per_second': 24.719, 'eval_steps_per_second': 24.719, 'epoch': 1.0, 'step': 5636}]
+2024-05-12 09:50:05,443 - v4_training_fp32.py:242 - root       INFO     Model STATE saved successfully 
+ Took1.1432170867919923e-05 minutes
+2024-05-12 09:50:57,738 - v4_training_fp32.py:249 - root       INFO     Model saved successfully @ /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 
+ Took0.8715692559878031 minutes
+2024-05-12 09:50:57,738 - training_utils.py:31 - root       INFO     GPU memory usage before cleaning cache: 22514.81 MB
+2024-05-12 09:50:57,743 - training_utils.py:35 - root       INFO     GPU memory usage after cleaning cache: 21818.81 MB
+2024-05-12 09:50:57,743 - training_utils.py:27 - root       INFO     GPU memory occupied from nvmlInit: 22439 MB.
+2024-05-12 09:50:57,743 - v4_training_fp32.py:254 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-9 completed
+______________________________________________________________________________________________________________________________________________________
+2024-05-12 09:50:57,744 - v4_training_fp32.py:203 - root       INFO     ______________________________________________________________________________________________________________________________________________________
+Training for 2-10
+______________________________________________________________________________________________________________________________________________________
+
+2024-05-12 09:50:57,744 - v4_training_fp32.py:206 - root       INFO     val_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/val_2_10_datasets.pkl
+train_local_pickel_path: /home/iitgn_cse/siddhesh_tokenize_data_9-4-24/DATA_TKNZD_10-4-24/train_2_10_datasets.pkl
+2024-05-12 09:52:02,316 - v4_training_fp32.py:215 - root       INFO     trainer.train_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 182170
+})
+trainer.eval_dataset: Dataset({
+    features: ['input_ids', 'token_type_ids', 'attention_mask', 'num_chunks'],
+    num_rows: 48129
+}) 
+ Took1.076207705338796 minutes

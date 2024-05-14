@@ -22,7 +22,14 @@
 # wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-23/runs/z3p1delm
 
 
-#TODO: change the window size to 512 in CDAC version
+#-----------------------
+# date: 12/05/2024 : training resumed from 10/2002
+# CUDA_VISIBLE_DEVICES=0 python v4_training_fp32.py --local_model_path /home/iitgn_cse/latex_model/model_main_fp32_2024-04-10/latex/main_fp32_2024-04-10_ep_1_lr_2e-05_cosine_wt_decay_0.1_warmup_st_100_emb_4096_V_30000_Dhead_128_FF_14336_L_7_N_Head_32_KV_Head_8_W_4096 --start_year_index 3
+# wandb: Resuming run run_latex_fp32_7_2048_32_0.9_30000_2024-04-23_17-07-17_test=False
+# wandb: ⭐️ View project at https://wandb.ai/lingo_mates/latex_fp322024-04-23
+# wandb: 🚀 View run at https://wandb.ai/lingo_mates/latex_fp322024-04-23/runs/z3p1delm
+
+# TODO: change the window size to 512 in CDAC version
 
 
 import os
@@ -257,13 +264,13 @@ def start_training(year, month, logger):
         logger.error(f'{"#-"*100}\nError occured while saving the model\n{e} \n Took{(time.time()-st)/60} minutes')
     #-------------------------------------------------------------------------------------------------------------------
     gpu_usage(logger)
-    logger.info(f"{'_'*150}\nTraining for {year}-{month} completed\n{'_'*150}")
+    logger.info(f"{'_'*150}\nTraining for {year}-{month} completed\n{'#'*150}")
 
 
 
 
-for month in range(1, 8):
-    start_training(1, month, logger)
+for month in range(10, 13):
+    start_training(2, month, logger)
 
 
 for year in range(args.start_year_index, 24):
